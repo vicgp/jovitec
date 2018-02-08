@@ -1,0 +1,17 @@
+!!!documentar variables d'entrada i de sortida de totes les pàgines!!!
+
+Visibilitat i funcions en funció del rol d'usuari
+
+agrupar els rols de tècnic i administratiu, amb la possibilitat de separ-ho per rols en properes edicions
+
+incloure el nom d'usuari i contrasenya en l'alta d'usuaris (generar contrasenya automàticament)
+
+permetre a l'usuari canviar la contrasenya
+
+enviar (imprimir) un email a l'usuari amb el seu usuari i contrasenya
+
+moure el fitxer login.php fora del ../back
+
+implementar el salt+hash per les contrasenyes
+
+Imprimir informe pel client

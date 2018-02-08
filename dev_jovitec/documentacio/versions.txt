@@ -1,0 +1,30 @@
+0.5.1
+  + crear usuaris des de comunicacions directament
+  + ordenar taula usuaris per camps
+
+0.5
+  + comunicacions
+    + nous camps a la taula comunicacions
+    + creada taula comunicacions_via
+  + nova pàgina d'inici index.php
+  + inclusió de variable de sessió del curs escolar actual
+
+0.4
+  + prioritat
+    + afegit camp prioritat a la taula `ordre_treball`
+    + creada la taula prioritat
+    + quan es posa data de finalització la prioritat passa a "--"
+
+0.3
+  + css
+  + funcions de capçalera i peu de pàgina
+  + funcions de connexió a la base de dades
+  + substitució de botons per events
+  + substitució del camp observacions de la ordre de treball per una taula independent
+  + afegides funcions en js
+  + comprovació d'errors en introducció de dades
+  + implementada la funció d'escapament de caràcters en camps omplerts per l'usuari
+
+0.2 afegits els primers estils i implementacions dels formularis
+
+0.1 funcionalitat bàsica, només php i html

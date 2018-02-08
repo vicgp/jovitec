@@ -1,0 +1,220 @@
+
+nav {
+position: fixed;
+/*background:lightyellow;*/
+width:99.7%;
+height:45px;
+top:0px;
+right:2px;
+left:2px;
+z-index:2;
+}
+#cos {
+
+position :absolute;
+/*background:lightblue;*/
+width:90%;
+top:65px;
+right:5%;
+left:5%;
+padding-bottom: 40px; /*utilitzo padding-bottom pq en FireFox margin-bottom no funciona*/
+}
+
+body {
+    background-color: lightblue;
+    /*display:block;*/
+}
+
+footer {
+position :fixed;
+background:lightblue;
+width:99.7%;
+height:40px;
+bottom:0px;
+right:2px;
+left:2px;
+z-index:1;
+}
+
+
+.esquerra {
+  position: relative;
+  /*width: 50%;*/
+  float: left;
+}
+.dreta {
+  position: relative;
+  /*width: 50%;*/
+  float:right;
+  /*background-color: yellow;*/
+}
+.usuari {
+  position:absolute;
+  float:right;
+  color: grey;
+  top:41px;
+  right: 20px;
+  z-index:-1;
+}
+#logoJoviatFPI{
+  position:absolute;
+  float:right;
+  top:70px;
+  right: 10px;
+  width: 180px;
+  height: 42px;
+}
+
+#logoJovitec{
+  position:absolute;
+  top:0%;
+  left: 20%;
+  
+}
+img.jovitec{
+
+  width: 30%;
+  margin-top: 49px;
+  margin-left: 300px;
+}
+
+#taula {
+    /*font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;*/
+    border: 2px solid grey;
+    border-collapse: collapse;
+    width: 100%;
+    cursor:default;
+}
+
+#taula td, #taula th {
+    border: 1px solid #ddd;
+    padding: 2px;
+}
+
+#taula tr:nth-child(even){background-color: #f2f2f2;}
+
+
+#taula tr:hover {
+  background-color: green;
+  color: white;
+}
+
+#taula tr {
+  background-color: lightblue;
+}
+
+#taula th {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    background-color: #0d001a;/*#4CAF50;*/
+    color: white;
+}
+#taula2 {
+    /*font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;*/
+    border: 2px solid grey;
+    border-collapse: collapse;
+    width: 100%;
+    cursor:default;
+}
+
+#taula2 td, #taula th {
+    border: 1px solid #ddd;
+    padding: 2px;
+}
+
+#taula2 tr:nth-child(even){background-color: #f2f2f2;}
+
+
+/*#taula2 tr:hover {
+  background-color: green;
+  color: white;
+}*/
+
+#taula2 tr {
+  background-color: lightblue;
+}
+
+#taula2 th {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    background-color: #0d001a;/*#4CAF50;*/
+    color: white;
+}
+
+.fletxes{
+  cursor:pointer;
+  font-weight: bolder;
+  text-shadow: 2px 2px black;
+}
+
+.temps{
+  width: 30px;
+  text-align: center;
+}
+.prioritat_5 {
+  color: red;
+  text-align: center;
+}
+.prioritat_4 {
+  color:orange;
+  text-align: center;
+}
+.prioritat_3 {
+  color: green;
+  text-align: center;
+}
+.prioritat_2 {
+  color: blue;
+  text-align: center;
+}
+.prioritat_1 {
+  color: grey;
+  text-align: center;
+}
+
+/*elements per taules dinàmiques*/
+#table {
+  display: table;
+
+  }
+#tr {
+  display: table-row;
+}
+#td {
+  display: table-cell;
+  padding-right: 15px;
+}
+
+button {
+  background-color: #0050ff;
+  color: white;
+  padding: 3px 10px;
+  margin: 2px 0;
+  border-radius:  5px;
+  cursor: pointer;
+  /*width: 100%;*/
+}
+button:hover {
+  opacity: 0.8;
+  border-radius: 50px;
+}
+button.cancel{
+  background-color: red;
+  color: white;
+  padding: 3px 10px;
+  margin: 2px 0;
+  border-radius: 50px;
+  cursor: pointer;
+}
+button.cancel:hover {
+  opacity: 0.6;
+ 
+}
+#novaot{
+  position:relative;
+  top:45px;
+  left: 20%;
+  width: 60%;
+}

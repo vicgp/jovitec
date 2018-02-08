@@ -1,0 +1,8 @@
+roles
+-----------------------------------
+1-Admin				  |
+2-supervisor			  |
+3-tecnico			  |
+4-adminitrativo(empresa)	  |
+5-cliente			  |
+----------------------------------|

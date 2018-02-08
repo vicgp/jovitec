@@ -1,0 +1,2 @@
+-logo jovitec que quede visible en el entre el navegador i la tabla
+- formulario más elegante que no sea tan agresivo la letra.
