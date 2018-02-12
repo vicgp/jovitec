@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("../php/funcions.php");
   echo "<div id='formOT' class='modal'>
           <div class='modal-content animate'>
