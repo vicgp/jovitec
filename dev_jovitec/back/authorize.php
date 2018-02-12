@@ -7,9 +7,11 @@ $query_usuari="SELECT password_usuari FROM usuaris WHERE username_usuari = '$una
 $resultat=consulta($query_usuari);
 // if(!$resultat){echo "no hi ha resultat";}
 if ($resultat->fetch_assoc()['password_usuari'] != $_POST['psswd']){
-  echo" <br />ho sento, no estàs autoritzat!<br />";
-  echo" <br />introduir usuari i contrasenya correctes<br />";
-  echo '<meta http-equiv="refresh" content="4; url=../index.html" />';
+	$mensaje = "Error a la autentificació";
+	echo "<script type='text/javascript'>alert('$mensaje'); location.href = '../index.php'</script>";
+  //echo" <br />ho sento, no estàs autoritzat!<br />";
+  //echo" <br />introduir usuari i contrasenya correctes<br />";
+  //echo '<meta http-equiv="refresh" content="4; url=../index.html" />';
 }
 else {
   // fem una consulta per saber el rol de l'usuari
