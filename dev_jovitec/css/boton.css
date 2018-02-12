@@ -1,4 +1,8 @@
-#button-wrapper {A
+/*<<<<<<< HEAD
+#button-wrapper {
+=======
+#button-wrapper {
+>>>>>>> master
     width: 450px;
     text-align: center;
     padding: 0 100px;
@@ -91,4 +95,4 @@ button .fa {
     transform: scale(1);
     -webkit-transition: .3s all ease .3s;
     transition: .3s all ease .3s;
-}
+}*/
