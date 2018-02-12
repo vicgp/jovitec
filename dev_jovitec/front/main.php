@@ -20,9 +20,10 @@ capsalera("jovitec");
 
   echo "
   <h1>Ordres de Treball:</h1>
-  
-    <button class='btn btn-success' style= width:100%; >Nova OT</button>
-  
+
+  <button class='btn btn-success' onclick='ot_alta()' style= width:100%; >Nova OT</button>
+  <div id='newOT'>
+  </div>  
 
   <!-- taula amb els botons d'ordenar les ordres de treball -->
   <form method=POST action=nova_ot.php id='formulario'>
