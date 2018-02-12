@@ -187,7 +187,7 @@ img.jovitec{
   padding-right: 15px;
 }
 
-button {
+#ot {
  
   color: white;
   padding: 3px 10px;
@@ -195,10 +195,26 @@ button {
   
   /*width: 100%;*/
 }
-button:hover {
+#ot:hover {
+   padding: 10px 35px;
+ overflow:hidden;
+
   opacity: 0.8;
   border-radius: 50px;
 }
+#ot:before {
+ font-family: FontAwesome;
+ content:"\f07a";
+ position: absolute;
+ top: 11px;
+ left: -30px;
+ transition: all 200ms ease;
+}
+#ot:hover:before {
+ left: 7px;
+}
+
+
 button.cancel{
   background-color: red;
   color: white;
