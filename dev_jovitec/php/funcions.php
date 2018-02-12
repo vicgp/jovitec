@@ -12,19 +12,22 @@ function capsalera ($titol){
       <meta name='author' content='Xavier Morera'>
       <meta name='viewport' content='width=device-width, initial-scale=1.0'>
       <meta http-equiv='Content-Type' content='text/html' charset='utf-8' />
+      <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
       <link rel='stylesheet' type='text/css' href='../css/jovitec.css'>
       <link rel='stylesheet' type='text/css' href='../css/boton.css'>
 	  <link rel='stylesheet' type='text/css' href='../css/style.css'>
     <link rel='stylesheet' type='text/css' href='../css/navbar.css'>
-    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
-  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
-  <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
-      <script src='../js/funcions.js'></script>
-        <title>".$titol."</title>
+    <link rel='stylesheet' type='text/css' href='../css/modal.css'>
+
+
+    <script src='../js/funcions.js'></script>
+      <title>".$titol."</title>
     </head>
     <body>
     ";
-  
+
   //Si la variable de sessió està buida vol dir que no ens hem autenticat i ens
   // redirigeix a la pàgina de login
   if (!isset($_SESSION['usuari']))
@@ -39,7 +42,7 @@ function capsalera ($titol){
 ////////////////////////////////////////////////////////////////////////////////
 
 //distribuim els botons comuns al lloc a la part superior
-  
+
       //afegir botó de gestió d'usuaris si el rol és inferior a 5
   if ($_SESSION['rol'] < '5'){
       echo '
@@ -80,11 +83,11 @@ function capsalera ($titol){
   </div>
 </nav>';
 };
-  
+
       echo'
 
-    
-    
+
+
 
     <div id=logoJoviatFPI>
       <img src="../img/JOVIAT_FPi_sota.svg" alt="JOVIAT FPi"/>
