@@ -187,22 +187,8 @@ img.jovitec{
   padding-right: 15px;
 }
 
-#ot {
- 
-  color: white;
-  padding: 3px 10px;
-  margin: 2px 0;
-  
-  /*width: 100%;*/
-}
-#ot:hover {
-   padding: 10px 35px;
- overflow:hidden;
 
-  opacity: 0.8;
-  border-radius: 50px;
-}
-#ot:before {
+/*#ot:before {
  font-family: FontAwesome;
  content:"\f07a";
  position: absolute;
@@ -212,24 +198,16 @@ img.jovitec{
 }
 #ot:hover:before {
  left: 7px;
-}
+}*/
 
 
-button.cancel{
+/*button.cancel{
   background-color: red;
   color: white;
   padding: 3px 10px;
   margin: 2px 0;
   border-radius: 50px;
   cursor: pointer;
-}
-button.cancel:hover {
-  opacity: 0.6;
- 
-}
-#novaot{
-  position:relative;
-  top:45px;
-  left: 20%;
-  width: 60%;
-}
+}*/
+
+

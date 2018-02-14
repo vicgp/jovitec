@@ -54,7 +54,6 @@ function capsalera ($titol){
     <div class="collapse navbar-collapse" id="myNavbar" style="background-color:#333;">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="../front/main.php">Ordres de treball</a></li>
-        <li><a href="../front/comunicacions.php">Info producte</a></li>
         <li><a href="../front/usuaris.php">Usuaris</a></li>
         <li><a href="../front/comunicacions.php">Comunicacions</a></li>
         <li><a href="../front/usuari.php">'.$_SESSION["usuari"].'</a></li>
