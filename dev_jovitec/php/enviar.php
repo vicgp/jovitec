@@ -5,7 +5,7 @@ include("../php/funcions.php");
 $sql="SELECT nom_usuari FROM usuaris WHERE id_usuari=".$_GET['emisor'];
 $ejecutar=consulta($sql);
 while($fila=$ejecutar->fetch_array()){
-  $nombre=$fila;
+  $nombre=$fila[0];
 }
 
 $mensaje=$_GET['mensaje'];

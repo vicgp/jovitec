@@ -1,9 +1,8 @@
 <?php
+session_start();
 include("../php/funcions.php");
 $emisor=$_GET['emisor'];
-// $user="SELECT * FROM usuari WHERE id_usuari=".$emisor;
-// $execute_user = $conexion->query($user);
-// $fila2 = $ejecutar->fetch_array();
+
 
 
 $receptor=$_GET['receptor'];
@@ -16,15 +15,27 @@ $receptor=$_GET['receptor'];
 
 
 	while($fila = $ejecutar->fetch_array()){
-?>
-	<div id="datos-chat">
-		<span style="color: #1c62c4;"><?php echo $fila['nombre']; ?>:</span>
-		<span style="color: #848484;"><?php echo $fila['mensaje']; ?></span>
-		<div id="hora">
-			<span id="hora"><?php echo formatearFecha($fila['fecha']); ?></span>
-		</div>
-	</div>
+		if($emisor==$fila['id_emisor']) {
+		?>
+			<div id="datos-chat" style="background-color: #ccffcc;">
+				<span style="color: #1c62c4;"><?php echo $fila['nombre']; ?>:</span>
+				<span style="color: #848484;"><?php echo $fila['mensaje']; ?></span>
+				<div id="hora">
+					<span id="hora"><?php echo formatearFecha($fila['fecha']); ?></span>
+				</div>
+			</div>
 
 
-<?php }}
+		<?php }
+		else{ ?>
+			<div id="datos-chat" style="background-color: #e0e0d1;">
+				<span style="color: #1c62c4;"><?php echo $fila['nombre']; ?>:</span>
+				<span style="color: #848484;"><?php echo $fila['mensaje']; ?></span>
+				<div id="hora">
+					<span id="hora"><?php echo formatearFecha($fila['fecha']); ?></span>
+				</div>
+			</div>
+
+<?php }
+}}
 ?>

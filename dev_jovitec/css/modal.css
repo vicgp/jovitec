@@ -32,7 +32,9 @@ input[type=date], select {
 
 /* Center the image and position the close button */
 
-
+input{
+  width: auto;
+}
 .container {
     padding: 16px;
     width: auto;

@@ -4,32 +4,41 @@ chatsMin=[];
 numChats=chats.length+1;
 receptor = 0;
 var req = new XMLHttpRequest();
+if(usuarisOberts.length!=0){
+	setInterval(function(){actualizarChat()},5000)
+}
 
-function ajax(emisor,receptor){
+
+function actualizarChat(){
+	for(i=0;i<usuarisOberts.length;i++){
+		carregarChat(usuarisOberts[i][2],usuarisOberts[i][1],usuarisOberts[i][0]);
+	}
+}
+
+function openChat(emisor,receptor){
 			req.onreadystatechange = function(){
 				if(req.readyState == 4 && req.status == 200){
-
-		          if(numChats==2){
-		            document.getElementById('chat1').innerHTML = req.responseText;
-								document.getElementById('id_user1').value =receptor;
-		          }
-		          else if(numChats==3){
-		            document.getElementById('chat2').innerHTML = req.responseText;
-								document.getElementById('id_user2').value =receptor;
-
-
-		          }
-		          else if(numChats==4){
-		            document.getElementById('chat3').innerHTML = req.responseText;
-								document.getElementById('id_user3').value =receptor;
-
-		          }
+					if(!chats.includes('2')){
+						chats.push('2');
+						document.getElementById('chat1').innerHTML = req.responseText;
+						document.getElementById('id_user1').value =receptor;
+					}
+					else if(!chats.includes('3')){
+						chats.push('3');
+						document.getElementById('chat2').innerHTML = req.responseText;
+						document.getElementById('id_user2').value =receptor;
+					}
+					else if(!chats.includes('4')){
+						chats.push('4');
+						document.getElementById('chat3').innerHTML = req.responseText;
+						document.getElementById('id_user3').value =receptor;
 					}
 				}
-
+			}
 			req.open('GET', '../php/chat.php?emisor='+emisor+'&receptor='+receptor, true);
 			req.send();
-		}
+
+	}
 function carregarChat(emisor,receptor,chat){
 					req.onreadystatechange = function(){
 						if(req.readyState == 4 && req.status == 200){
@@ -58,12 +67,36 @@ function carregarChat(emisor,receptor,chat){
 		 //setInterval(function(){ajax();}, 1000);
 function enviar(chat,id_user){
 receptor=usuarisOberts[chat-1][1];
-var mensaje=document.getElementById('textarea1').value;
+if(chat==1){
+	var mensaje=document.getElementById('textarea1').value;
+
+}
+else if(chat==2){
+	var mensaje=document.getElementById('textarea2').value;
+
+}
+else if(chat==3){
+	var mensaje=document.getElementById('textarea3').value;
+
+}
 	req.onreadystatechange = function(){
 		if(req.readyState == 4 && req.status == 200){
 			carregarChat(id_user,receptor,chat);
-			document.getElementById('textarea1').value='';
-			document.getElementById('textarea1').placeholder='Escriu el teu missatge';
+			if(chat==1){
+				document.getElementById('textarea1').value='';
+				document.getElementById('textarea1').placeholder='Escriu el teu missatge';
+
+			}
+			else if(chat==2){
+				document.getElementById('textarea2').value='';
+				document.getElementById('textarea2').placeholder='Escriu el teu missatge';
+
+			}
+			else if(chat==3){
+				document.getElementById('textarea3').value='';
+				document.getElementById('textarea3').placeholder='Escriu el teu missatge';
+
+			}
 
 		}
 	}
@@ -91,8 +124,7 @@ function abrir(emisor,receptor){
     if(numChats>=1 && numChats<4){
       numChats++;
       if(!chats.includes('2')){
-				chats.push('2');
-				usuarisOberts.push([1,receptor]);
+				usuarisOberts.push([1,receptor,emisor]);
 				if(chats.includes('4') && chats.includes('3')){
 					$("#contenedor2").animate({right: '960px'});
 					$("#contenedor1").animate({right: '615px'});
@@ -113,8 +145,7 @@ function abrir(emisor,receptor){
 
       }
       else if(!chats.includes('3')){
-				chats.push('3');
-				usuarisOberts.push([2,receptor]);
+				usuarisOberts.push([2,receptor,emisor]);
 
 				if(chats.includes('4') && chats.includes('2')){
 					$("#contenedor2").animate({right: '960px'});
@@ -134,8 +165,7 @@ function abrir(emisor,receptor){
 
       }
       else if(!chats.includes('4')){
-				chats.push('4');
-				usuarisOberts.push([3,receptor]);
+				usuarisOberts.push([3,receptor,emisor]);
 
         $('#contenedor2').show();
         $('#btnChat2').hide();
@@ -152,7 +182,7 @@ function abrir(emisor,receptor){
     else{
       alert('Ja tens el nombre maxim de chats');
     }
-    ajax(emisor,receptor);
+    openChat(emisor,receptor);
 }}
 function abrirChat(chat){
 	if(chat==2){

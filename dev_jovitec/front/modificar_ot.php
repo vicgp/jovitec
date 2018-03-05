@@ -3,6 +3,8 @@ session_start();
 include("../php/funcions.php");
 
 capsalera("Modificar OT");
+chat();
+
 
 // echo "taula a modificar: ". $_POST['taula']." (".$_POST['rol_usuari'].") de l'ordre de treball: ".$_POST['id_ot'];
 $query_usuaris="SELECT usuaris.id_usuari, usuaris.cognoms_usuari, usuaris.nom_usuari FROM ".$_POST['taula']." INNER JOIN usuaris ON usuaris.id_usuari=".$_POST['taula'].".id_usuari WHERE ".$_POST['taula'].".id_ot='".$_POST['id_ot']."'";

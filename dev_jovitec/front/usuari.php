@@ -2,6 +2,7 @@
 session_start();
 include("../php/funcions.php");
 capsalera("modificar usuari");
+chat();
 
       //mostrar l'usuari
       $qwery="SELECT * FROM usuaris WHERE username_usuari = '".$_SESSION['usuari']."'";
@@ -35,7 +36,7 @@ END;
         echo "<input type='hidden' name='torna_usuari' value='True' />";
 
           echo "<button class=esquerra type='submit' style='margin-left:200px; margin-top:10px; width:72%;' >modificar usuari</button>";
-        
+
         echo "</form>";
       ///////////// fi del formulari de modificació d'usuaris
         echo<<<END
@@ -46,7 +47,7 @@ END;
 
         </div>
       </form>
-      
+
       <br />
 END;
    ///////////// fi del formulari de modificació d'usuaris

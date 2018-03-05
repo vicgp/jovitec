@@ -2,6 +2,8 @@
 session_start();
 include("../php/funcions.php");
 capsalera("comunicacions");
+chat();
+
 /**
 *   @brief Pàgina per documentar les comunicacions
 *   s'anoten totes les comunicacions que es generen en el funcionament

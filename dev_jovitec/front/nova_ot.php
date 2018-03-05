@@ -2,6 +2,7 @@
 session_start();
 include("../php/funcions.php");
 capsalera("nova OT");
+chat();
 
 
 echo<<<END

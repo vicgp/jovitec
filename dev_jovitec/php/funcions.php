@@ -13,7 +13,9 @@ function capsalera ($titol){
       <!--bootstrap -->
       <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
-    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+    <link rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css'>
+
     <!--CSS -->
 
       <link rel='stylesheet' type='text/css' href='../css/jovitec.css'>
@@ -23,7 +25,8 @@ function capsalera ($titol){
     <link rel='stylesheet' type='text/css' href='../css/modal.css'>
     <link rel='stylesheet' type='text/css' href='../css/chat.css'>
     <!--JS -->
-    <script src='../js/funcions.js'></script>
+    <script src='../js/func_alta_user.js'></script>
+    <script src='../js/func_alta_ot.js'></script>
     <script src='../js/chat.js'></script>
 
 
@@ -116,17 +119,16 @@ function chat(){
 
 	<div id='contenedor-usuaris'>
 		<div id='minimizarInici'>
-				<button onclick='minimizarInici()'></button>
+				<button class='w3-button w3-block w3-black' onclick='minimizarInici()'></button>
 		</div>
-		<button onclick='minimizarInici()' id='cerrarUser'></button>
 		<div id='users' class='w3-container'>
-			<ul class='w3-ul w3-hoverable'>";
-			$user="SELECT * FROM usuaris";
+			<ul class='w3-ul w3-center'>";
+			$user="SELECT * FROM usuaris WHERE id_usuari!=".$_SESSION['id_user'];
 			$ejecutar = consulta($user);
 			while($fila = $ejecutar->fetch_array()){
-				echo "<li><button onclick='abrir(".$_SESSION['id_user'].",".$fila['id_usuari'].")'>".$fila['nom_usuari']."</button></li><br>";
+				echo "<li><button class='w3-button w3-block w3-black' onclick='abrir(".$_SESSION['id_user'].",".$fila['id_usuari'].")'>".$fila['nom_usuari']."</button></li><br>";
 			}
-      echo"
+      echo "
 		</ul>
 		</div>
 	</div>
@@ -139,7 +141,7 @@ function chat(){
 
 			<div id='contenedor'>
 				<div id='minimizar'>
-					<button onclick='minimizar(2)' ><p id='noms1'></p></button>
+					<button class='w3-button w3-block w3-black' onclick='minimizar(2)' ><p id='noms1'></p></button>
 					<input type='hidden' id='id_user1' value=''>
 				</div>
 				<button onclick='cerrar(2)' id='cerrar'><img id='icon' src='../css/exit.ico'></button>
@@ -148,7 +150,7 @@ function chat(){
 				</div>
 					<!--<input type='text' name='nombre' placeholder='Ingresa el nombre'>-->
 					<textarea name='mensaje1'  id='textarea1' placeholder='Ingresa tu mensaje'></textarea>
-					<button class='button button1' onclick='enviar(1,".$_SESSION['id_user'].")'>Enviar</button>
+					<button class='w3-button w3-block w3-black' onclick='enviar(1,".$_SESSION['id_user'].")'>Enviar</button>
 			</div>
 
 			<div id='btnChat1'>
@@ -158,7 +160,7 @@ function chat(){
 
 					<div id='contenedor1'>
 						<div id='minimizar1'>
-							<button onclick='minimizar(3)' > <p id='noms2'></p></button>
+							<button class='w3-button w3-block w3-black' onclick='minimizar(3)' > <p id='noms2'></p></button>
 							<input type='hidden' id='id_user2' value=''>
 
 						</div>
@@ -167,7 +169,7 @@ function chat(){
 							<div id='chat2'></div>
 						</div>
 						<textarea name='mensaje2'  id='textarea2' placeholder='Ingresa tu mensaje'></textarea>
-						<button class='button button1' onclick='enviar(2,".$_SESSION['id_user'].")'>Enviar</button>
+						<button class='w3-button w3-block w3-black' onclick='enviar(2,".$_SESSION['id_user'].")'>Enviar</button>
 					</div>
 
 					<div id='btnChat2'>
@@ -186,7 +188,7 @@ function chat(){
 									<div id='chat3'></div>
 								</div>
 								<textarea name='mensaje3'  id='textarea3' placeholder='Ingresa tu mensaje'></textarea>
-								<button class='button button1' onclick='enviar(3,".$_SESSION['id_user'].")'>Enviar</button>
+								<button class='w3-button w3-block w3-black' onclick='enviar(3,".$_SESSION['id_user'].")'>Enviar</button>
 
 
 							</div>";
@@ -197,12 +199,12 @@ function chat(){
 ////////////////////////////////////////////////////////////////////////////////
 function peu ($msg){
   echo "
-    </div><!--/cos
-    <footer>
+    </div><!--/cos-->
+    <footer style='z-index:-999;'>
       <hr />
       Jovitec.0.5.1
       ".$msg."
-    </footer>-->
+    </footer>
   </body>
 </html>
 ";
