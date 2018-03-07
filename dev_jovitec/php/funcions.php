@@ -57,12 +57,11 @@ function capsalera ($titol){
 <nav class="navbar navbar-default navbar-fixed-top" style="margin-left:2px;">
   <div >
     <div class="navbar-header">
-      <a class="navbar-brand" href="" style="width:600px;"><img src="../img/jv.png" style=" width: 7%; margin-top: -5px;"></a>
+      <a class="navbar-brand" href="" style="width:70px;"><img src="../img/jv.png" style=" width: 140%; margin-left:-5px; margin-top: -10px;"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar" style="background-color:#333;">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="../front/main.php">Ordres de treball</a></li>
-        <li><a href="../front/comunicacions.php">Info producte</a></li>
         <li><a href="../front/usuaris.php">Usuaris</a></li>
         <li><a href="../front/comunicacions.php">Comunicacions</a></li>
         <li><a href="../front/usuari.php">'.$_SESSION["usuari"].'</a></li>
@@ -78,7 +77,7 @@ function capsalera ($titol){
         echo'<nav class="navbar navbar-default navbar-fixed-top" style="margin-left:2px;">
   <div >
     <div class="navbar-header">
-      <a class="navbar-brand" href="" style="width:600px;"><img src="../img/jv.png" style=" width: 7%; margin-top: -5px;"></a>
+      <a class="navbar-brand" href="" style="width:60px;"><img src="../img/jv.png" style=" width: 10%; margin-top: -5px;"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar" style="background-color:#333;">
       <ul class="nav navbar-nav navbar-right">

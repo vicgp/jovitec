@@ -22,7 +22,7 @@ chat();
   echo "
   <h1>Ordres de Treball:</h1>
 
-  <button class='btn btn-success' onclick='ot_alta()' style= width:100%; >Nova OT</button>
+  <button id='ot' class='' onclick='ot_alta()' style= width:100%; >Nova OT</button>
   <div id='newOT'>
   </div>
 

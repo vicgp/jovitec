@@ -77,7 +77,7 @@ chat();
       //fem un formulari per enviar elremitent o crear-ne un de nou
       echo "
       <form id=remitent action=comunicacions.php method=post>
-        <input type=hidden name=nova_comunicacio value=True />
+        <input type=hidden  id='comu' name=nova_comunicacio value=True />
         <table id=taula>
           <tr>
             <th>
@@ -157,7 +157,7 @@ chat();
           echo "
           <td>
             <form id=destinatari action=comunicacions.php method=POST>
-              <input type=hidden name=nova_comunicacio value=True />
+              <input type=hidden  id='comu' name=nova_comunicacio value=True />
               ";
               $query_destinatari="SELECT id_usuari, cognoms_usuari, nom_usuari FROM usuaris WHERE id_usuari !=".$_POST['remitent']." ORDER BY cognoms_usuari";
               $resultat_destinatari=consulta($query_destinatari);
@@ -261,7 +261,7 @@ chat();
   /////////////////////////////// botó cancel·lar ////////////////////////////////
   echo "
         <form method=POST action=comunicacions.php>
-          <input type=hidden name=nova_comunicacio value='False' />
+          <input type=hidden  name=nova_comunicacio value='False' />
           <button class=cancel class=esquerra style='width:15%;'>Cancel·lar</button>
         </form>
   ";
@@ -274,7 +274,7 @@ chat();
   echo"
   <form method=POST action=comunicacions.php>
     <input type=hidden name=nova_comunicacio value='True' />
-    <button style= width:100%;>Nova Comunicació</button>
+    <button style= width:100%; id='comu'>Nova Comunicació</button>
   </form>
   ";
   }
