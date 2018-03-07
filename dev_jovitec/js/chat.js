@@ -4,13 +4,13 @@ chatsMin=[];
 numChats=chats.length+1;
 receptor = 0;
 var req = new XMLHttpRequest();
-if(usuarisOberts.length!=0){
-	setInterval(function(){actualizarChat()},5000)
-}
+
+setInterval(actualizarChat,1000)
+
 
 
 function actualizarChat(){
-	for(i=0;i<usuarisOberts.length;i++){
+	for(var i=0;i<usuarisOberts.length;i++){
 		carregarChat(usuarisOberts[i][2],usuarisOberts[i][1],usuarisOberts[i][0]);
 	}
 }
@@ -106,16 +106,21 @@ else if(chat==3){
 
 
 }
+function clearAlert(){
+	$("#alertUser")[0].style.display="none";
+
+}
 
 function abrir(emisor,receptor){
 	var trobat=false;
-	for(i=0;i<usuarisOberts.length && trobat!=true;i++){
+	for(var i=0;i<usuarisOberts.length && trobat!=true;i++){
 		if(receptor==usuarisOberts[i][1]){
 			trobat=true;
 		}
 	}
 	if(trobat==true){
-		alert("usuari ja obert")
+		$("#alertUser")[0].style.display="block";
+	  setTimeout(clearAlert,2000);
 
 	}
 
@@ -312,7 +317,7 @@ function cerrar(id) {
 
 
 function buscar(valor){
-	for(i=0;i<chats.length;i++){
+	for(var i=0;i<chats.length;i++){
 		if(chats[i]==valor){
 			return i;
 		}
@@ -322,7 +327,7 @@ function buscar(valor){
 function buscarUsuari(id){
 	pos=0;
 	var trobat=false;
-	for(i=0;i<usuarisOberts.length && trobat!=true;i++){
+	for(var i=0;i<usuarisOberts.length && trobat!=true;i++){
 		if(id==usuarisOberts[i][1]){
 			trobat=true;
 			pos=i;

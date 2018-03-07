@@ -30,6 +30,7 @@ function capsalera ($titol){
     <script src='../js/chat.js'></script>
 
 
+
       <title>".$titol."</title>
     </head>
     <body>
@@ -116,6 +117,9 @@ function chat(){
   <div class='btnUsuario'>
 		<button id='btnUser'>ABRIR USUARIOS</button>
 	</div>
+  <div id='alertUser' style='display:none;width:30%;margin:auto;' class='alert alert-warning'>
+    <strong>Warning!</strong> El client ja esta obert en el chat.
+  </div>
 
 	<div id='contenedor-usuaris'>
 		<div id='minimizarInici'>
@@ -200,6 +204,7 @@ function chat(){
 function peu ($msg){
   echo "
     </div><!--/cos-->
+
     <footer style='z-index:-999;'>
       <hr />
       Jovitec.0.5.1

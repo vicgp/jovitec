@@ -17,14 +17,11 @@ include("../php/funcions.php");
                   }
 
                   echo "</select>
-                  </div>
-
-
-
-                  <div class='col-sm-4'>
+                </div>
+                <div class='col-sm-4'>
                   <label><b>Usuaris:</b></label>
                   <select id='usuari'>
-                  <option value=''>Escull Usuari</option>";
+                  <option value=''>Tria Usuari</option>";
                   $query_ot_usuaris="SELECT DISTINCT id_usuari,username_usuari FROM usuaris WHERE usuaris.rol_usuari=5";
                   $resultat_ot_usuaris=consulta($query_ot_usuaris);
                   while ($fila_ot_usuari=$resultat_ot_usuaris->fetch_assoc()){
@@ -32,9 +29,8 @@ include("../php/funcions.php");
                   }
 
                   echo "</select>
-                  </div>
-
-                  <div class='col-sm-4'>
+                </div>
+                <div class='col-sm-4'>
                   <label><b>Prioritat:</b></label>
                   <select id='prioritat' >";
 
@@ -47,14 +43,13 @@ include("../php/funcions.php");
                     }
                   echo"
                   </select>
-                  </div>
-                  </div>
-
-                  <div class='row'>
-                  <div class='col-sm-4'>
+                </div>
+              </div>
+              <div class='row'>
+                <div class='col-sm-4'>
                   <label><b>Supervisors:</b></label>
                   <select id='supervisors'>
-                  <option value=''>Escull Administratius</option>";
+                  <option value=''>Tria Administratius</option>";
                   $query_ot_supervisors="SELECT DISTINCT usuaris.id_usuari,username_usuari FROM usuaris INNER JOIN supervisors ON usuaris.id_usuari=supervisors.id_usuari WHERE usuaris.rol_usuari=2";
                   $resultat_ot_supervisors=consulta($query_ot_supervisors);
                   while ($fila_ot_supervisors=$resultat_ot_supervisors->fetch_assoc()){
@@ -62,11 +57,11 @@ include("../php/funcions.php");
                   }
 
                   echo "</select>
-                  </div>
-                  <div class='col-sm-4'>
+                </div>
+                <div class='col-sm-4'>
                   <label><b>Tecnics:</b></label>
                   <select id='tecnics'>
-                  <option value=''>Escull Tecnic</option>";
+                  <option value=''>Tria Tecnic</option>";
 
 
                   $query_ot_tecnics="SELECT DISTINCT usuaris.id_usuari ,username_usuari FROM usuaris INNER JOIN tecnics ON usuaris.id_usuari=tecnics.id_usuari WHERE usuaris.rol_usuari=3";
@@ -77,12 +72,11 @@ include("../php/funcions.php");
                   }
 
                   echo "</select>
-                  </div>
-
-                  <div class='col-sm-4'>
+                </div>
+                <div class='col-sm-4'>
                   <label><b>Administratius:</b></label>
                   <select id='administratius'>
-                    <option value=''>Escull Administratius</option>";
+                    <option value=''>Tria Administratius</option>";
                   $query_ot_administratius="SELECT DISTINCT usuaris.id_usuari,username_usuari FROM usuaris INNER JOIN administratius ON usuaris.id_usuari=administratius.id_usuari WHERE usuaris.rol_usuari=4";
                   $resultat_ot_administratius=consulta($query_ot_administratius);
                   while ($fila_ot_administratius=$resultat_ot_administratius->fetch_assoc()){
@@ -90,24 +84,107 @@ include("../php/funcions.php");
                   }
 
                   echo "</select>
-
-                  </div>
-                  </div>
-                  <div class='row'>
-                  <div class='col-sm-4'>
+                </div>
+              </div>
+              <div class='row'>
+                <div class='col-sm-4'>
                   <label><b>Data d'Entrada:</b></label>
                   <input type='date' placeholder='Entra Data'id='dataE' name='dataE' value='2018-01-25' readonly>
-                  </div>
-                  <!--<div class='col-sm-4'>
+                </div>
+                <!--<div class='col-sm-4'>
                   <label><b>Data de Finalitzacio:</b></label>
                   <input type='date' placeholder='Entra Data' id='dataF' name='dataF' readonly>
-                  </div>-->
-                  <div class='col-sm-4'>
+                </div>-->
+                <div class='col-sm-4'>
                   <label><b>Data de Lliuramnet:</b></label>
-                  <input type='date' placeholder='Entra Data' id='dataLL' name='dataLL' readonly>
+                  <input type='date' placeholder='Entra Data' id='dataLL' name='dataLL' >
+               </div>
+              </div>
+              <div class='row'>
+                <div class='col-sm-12'>
+                  <div class='panel panel-default'>
+                    <div class='panel-heading'>Entrar Anomalia</div>
+                    <div class='panel-body'>
+                      <input type='text' placeholder='Entrar Anomalia 'id='anomalies' name='ANOMALIA'  style='height:70%;'>
+                    </div>
                   </div>
+                </div>
+              </div>
+              <div class='row'>
+                <div class='col-sm-12'>
+                  <div class='panel panel-default'>
+                    <div class='panel-heading'>Entrar Observacio</div>
+                    <div class='panel-body'>
+                      <input type='text' placeholder='Entrar Obsevacio 'id='ob' name='observacio' style='height:70%;'  >
+                    </div>
                   </div>
-                  <button type='submit'  id='boto1' onclick='alta()'>Acceptar</button>
+                </div>
+              </div>
+              <div class='row'>
+                <div class='col-sm-12'>
+                  <div class='panel panel-default'>
+                    <div class='panel-heading'>Inventari Client</div>
+                    <div class='panel-body'>
+                    <select id='inventari'>
+                    </select>
+                    <button type='button' class='btn btn-default btn-sm' onclick='eliminarObjecte()'>
+                      <span class='glyphicon glyphicon-remove'></span> Remove
+                    </button>
+                    </div>
+                  </div>
+                    <div class='col-sm-12' >
+                      <div class='col-md-3'>
+                        <div class='thumbnail'>
+                            <img src='../img/portatil.png' alt='Lights' style='width:100%;height:100px;'>
+                            <div class='caption'>
+                            <input type='text' placeholder='Entrar Descripcio Producte 'id='ob' name='Descripcio' style='height:70%;'  >
+                              <button class=' btn btn-default btn-sm' onclick='addInventari(1)'>
+                                <span class='glyphicon glyphicon-plus' ></span> ADD
+                              </button>
+                            </div>
+                        </div>
+                      </div>
+                      <div class='col-md-3'>
+                        <div class='thumbnail'>
+                            <img src='../img/movil.png' alt='Nature' style='width:100%;height:100px;'>
+                            <div class='caption'>
+                            <input type='text' placeholder='Entrar Descripcio Producte 'id='ob' name='Descripcio' style='height:70%;'  >
+                              <button class=' btn btn-default btn-sm' onclick='addInventari(2)'>
+                                <span class='glyphicon glyphicon-plus' ></span> ADD
+                              </button>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                      <div class='col-md-3'>
+                        <div class='thumbnail'>
+                            <img src='../img/tablet.png' alt='Fjords' style='width:100%;height:100px;'>
+                            <div class='caption'>
+                            <input type='text' placeholder='Entrar Descripcio Producte 'id='ob' name='Descripcio' style='height:70%;'  >
+                              <button class=' btn btn-default btn-sm' onclick='addInventari(3)'>
+                                <span class='glyphicon glyphicon-plus' ></span> ADD
+                              </button>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                      <div class='col-md-3'>
+                        <div class='thumbnail'>
+                            <img src='../img/torre.jpg' alt='Fjords' style='width:100%;height:100px;'>
+                            <div class='caption'>
+                            <input type='text' placeholder='Entrar Descripcio Producte 'id='ob' name='Descripcio' style='height:70%;'  >
+                              <button class=' btn btn-default btn-sm' onclick='addInventari(4)'>
+                                <span class='glyphicon glyphicon-plus' ></span> ADD
+                              </button>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+
+              <button type='submit'  id='boto1' onclick='alta()'>Acceptar</button>
               <button type='button' onclick='cancelar()' class='cancelbtn'>Cancel</button>
     </div>
   </div>
