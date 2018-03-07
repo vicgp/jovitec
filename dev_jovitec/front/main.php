@@ -2,28 +2,29 @@
 session_start();
 include("../php/funcions.php");
 capsalera("jovitec");
+chat();
 
   /*mostrar les ordres de treball obertes, en funció del rol, és a dir
   * en el cas d'un usuari es mostrarà la informació associada a la seva reparació
   * accions, data prevista de finalització.*/
   // fem la consulta a la base de dades per mostrar les ordres de treball ordenades segons les variables POST donades si n'hi ha
-  $columna='id_ot';
-  $ordre='DESC';
-  if ($_POST['columna']){
-    $columna=$_POST['columna'];
-    $ordre=$_POST['ordre'];
-  }
+  // $columna='id_ot';
+  // $ordre='DESC';
+  // if ($_POST['columna']){
+  //   $columna=$_POST['columna'];
+  //   $ordre=$_POST['ordre'];
+  // }
 
-  $query_ot_generic="SELECT id_ot, curs_escolar.curs, usuaris.cognoms_usuari, usuaris.nom_usuari, usuaris.email_usuari, data_entrada, prioritat, data_finalitzacio, data_lliurament FROM ordre_treball INNER JOIN curs_escolar ON ordre_treball.id_curs=curs_escolar.id_curs INNER JOIN usuaris ON usuaris.id_usuari=ordre_treball.id_usuari ORDER BY $columna $ordre";
+  $query_ot_generic="SELECT id_ot, curs_escolar.curs, usuaris.cognoms_usuari, usuaris.nom_usuari, usuaris.email_usuari, data_entrada, prioritat, data_finalitzacio, data_lliurament FROM ordre_treball INNER JOIN curs_escolar ON ordre_treball.id_curs=curs_escolar.id_curs INNER JOIN usuaris ON usuaris.id_usuari=ordre_treball.id_usuari ORDER BY id_ot DESC";
   //fem la consulta de les ordres de treball
   $resultat_ot_generic=consulta($query_ot_generic);
 
   echo "
   <h1>Ordres de Treball:</h1>
 
-  <button class='btn btn-success' onclick='ot_alta()' style= width:100%; >Nova OT</button>
+  <button id='ot' class='' onclick='ot_alta()' style= width:100%; >Nova OT</button>
   <div id='newOT'>
-  </div>  
+  </div>
 
   <!-- taula amb els botons d'ordenar les ordres de treball -->
   <form method=POST action=nova_ot.php id='formulario'>
@@ -181,5 +182,4 @@ echo "
 echo "
   </table>
 ";
-
 peu("");

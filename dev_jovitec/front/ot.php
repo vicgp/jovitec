@@ -2,6 +2,7 @@
 session_start();
 include("../php/funcions.php");
 capsalera("modificar OT");
+chat();
 
 echo "
   <h1>Veure / Modificar Ordre de treball</h1>

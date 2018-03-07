@@ -2,6 +2,7 @@
 session_start();
 include("../php/funcions.php");
 capsalera('usuaris');
+chat();
 
 $columna='id_usuari';
 $ordre='ASC';
@@ -16,11 +17,18 @@ if ($_POST['columna']){
 
 echo "
   <h1>Usuaris</h1>
+  
+  <button class='btn btn-success' onclick='user()' style= width:100%; >Nova Usuari</button>
+  <div id='newUser'>
+  </div>
 
+<<<<<<< HEAD
+=======
   <form method=POST action=nou_usuari.php>
     <input type=hidden name=altauser value='True' />
-    <button style='width:100%;'>Nou usuari</button>
+    <button style='width:100%;' id='user' >Nou usuari</button>
   </form>
+>>>>>>> master
 <form id='formulario'>
     <table id='taula'>
       <tr>

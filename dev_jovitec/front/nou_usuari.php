@@ -2,6 +2,7 @@
 session_start();
 include("../php/funcions.php");
 capsalera('nou usuari');
+chat();
 
 
 if ($_POST['altauser'] == 'True'){

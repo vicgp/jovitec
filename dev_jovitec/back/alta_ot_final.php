@@ -19,22 +19,37 @@ $usuari=$_GET['usuari'];
 $supervisors=$_GET['supervisors'];
 $tecnics=$_GET['tecnics'];
 $administratius=$_GET['administratius'];
+$anomalies=$_GET['anomalia'];
+$ob=$_GET['ob'];
+$inventari=$_GET['inventari'];
 
 
-$ot="INSERT INTO ordre_treball VALUES (null,".$curs.",".$dataE.",".$prioritat.",".$dataF.",".$dataLL.",".$usuari.")";
+
+$ot="INSERT INTO ordre_treball VALUES (null,".$curs.",".$dataE.",".$prioritat.",null,".$dataLL.",".$usuari.")";
 mysqli_query($connection, $ot);
 $id_ot=mysqli_insert_id($connection);
 
-$supervisors="INSERT INTO supervisors VALUES (null,".$supervisors.",".$id_ot.", null)";
-$resultat_super=consulta($supervisors);
+$anomalia="INSERT INTO anomalies VALUES (null,'".$anomalies."',".$id_ot.")";
+$resultat_anomalia=consulta($anomalia);
+echo "1";
+$obsevacio="INSERT INTO observacions_ot VALUES (null,'".$ob."',".$id_ot.")";
+$resultat_ob=consulta($obsevacio);
+echo "1";
+$inventaris="INSERT INTO inventari_client VALUES (null,'".$inventari."',".$id_ot.")";
+$resultat_inve=consulta($inventaris);
 echo "1";
 
-$tecnics="INSERT INTO tecnics VALUES (null,".$tecnics.",".$id_ot.", null)";
-$resultat_tec=consulta($tecnics);
+
+$supervisor="INSERT INTO supervisors VALUES (null,".$supervisors.",".$id_ot.", null)";
+$resultat_super=consulta($supervisor);
 echo "1";
 
-$administratius="INSERT INTO administratius VALUES (null,".$administratius.",".$id_ot.")";
-$resultat_admin=consulta($administratius);
+$tecnic="INSERT INTO tecnics VALUES (null,".$tecnics.",".$id_ot.", null)";
+$resultat_tec=consulta($tecnic);
+echo "1";
+
+$administratiu="INSERT INTO administratius VALUES (null,".$administratius.",".$id_ot.")";
+$resultat_admin=consulta($administratiu);
 echo "1";
 
 ?>
