@@ -52,7 +52,7 @@ function capsalera ($titol){
 //distribuim els botons comuns al lloc a la part superior
 
       //afegir botó de gestió d'usuaris si el rol és inferior a 5
-<<<<<<< HEAD
+
   if ($_SESSION['rol'] < '5'){
       echo '
 <nav class="navbar navbar-default navbar-fixed-top" style="margin-left:2px;">
@@ -92,7 +92,7 @@ function capsalera ($titol){
   </div>
 </nav>';
 };
-=======
+
   if ($_SESSION['rol'] == 1 || $_SESSION['rol'] == 2){
     echo '<nav class="navbar navbar-default navbar-fixed-top" style="margin-left:2px;">
       <div >
@@ -147,7 +147,7 @@ function capsalera ($titol){
       </div>
     </nav>';
   };
->>>>>>> master
+
 
       echo'
     <div id=logoJoviatFPI>
