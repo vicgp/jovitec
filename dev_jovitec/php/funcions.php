@@ -72,7 +72,8 @@ function capsalera ($titol){
   </div>
 </nav>
         ';
-      }
+      };
+
       if ($_SESSION['rol'] == '5'){
         echo'<nav class="navbar navbar-default navbar-fixed-top" style="margin-left:2px;">
   <div >
@@ -92,10 +93,6 @@ function capsalera ($titol){
 };
 
       echo'
-
-
-
-
     <div id=logoJoviatFPI>
       <img src="../img/JOVIAT_FPi_sota.svg" alt="JOVIAT FPi"/>
     </div>
