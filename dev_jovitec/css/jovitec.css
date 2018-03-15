@@ -188,7 +188,7 @@ img.jovitec{
 }
 
 <<<<<<< HEAD
-button {
+#ot {
   background-color: #0050ff;
   color: black;
   padding: 3px 10px;
@@ -197,7 +197,7 @@ button {
   cursor: pointer;
   /*width: 100%;*/
 }
-button:hover {
+#ot:hover {
   opacity: 0.8;
   border-radius: 50px;
 =======

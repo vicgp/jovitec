@@ -52,6 +52,7 @@ function capsalera ($titol){
 //distribuim els botons comuns al lloc a la part superior
 
       //afegir botó de gestió d'usuaris si el rol és inferior a 5
+<<<<<<< HEAD
   if ($_SESSION['rol'] < '5'){
       echo '
 <nav class="navbar navbar-default navbar-fixed-top" style="margin-left:2px;">
@@ -91,6 +92,62 @@ function capsalera ($titol){
   </div>
 </nav>';
 };
+=======
+  if ($_SESSION['rol'] == 1 || $_SESSION['rol'] == 2){
+    echo '<nav class="navbar navbar-default navbar-fixed-top" style="margin-left:2px;">
+      <div >
+        <div class="navbar-header">
+          <a class="navbar-brand" href="" style="width:70px;"><img src="../img/jv.png" style=" width: 140%; margin-left:-5px; margin-top: -10px;"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar" style="background-color:#333;">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="../front/main.php">Ordres de treball</a></li>
+            <li><a href="../front/usuaris.php">Usuaris</a></li>
+            <li><a href="../front/usuari.php">'.$_SESSION["usuari"].'</a></li>
+            </li>
+            <li style="margin-right:11px"><a href="../back/logout.php"><span class="glyphicon glyphicon-log-out"  ></span></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>';
+  }
+  if ($_SESSION['rol'] == 3 || $_SESSION['rol'] == 4){
+    echo'<nav class="navbar navbar-default navbar-fixed-top" style="margin-left:2px;">
+      <div >
+        <div class="navbar-header">
+          <a class="navbar-brand" href="" style="width:60px;"><img src="../img/jv.png" style=" width: 10%; margin-top: -5px;"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar" style="background-color:#333;">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="../front/main.php">Ordres de treball</a></li>
+            <li><a href="../front/usuari.php">'.$_SESSION["usuari"].'</a></li>
+            </li>
+            <li style="margin-right:11px"><a href="../back/logout.php"><span class="glyphicon glyphicon-log-out"  ></span></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>';
+  };
+
+    if ($_SESSION['rol'] == 5){
+    echo'<nav class="navbar navbar-default navbar-fixed-top" style="margin-left:2px;">
+      <div >
+        <div class="navbar-header">
+          <a class="navbar-brand" href="" style="width:60px;"><img src="../img/jv.png" style=" width: 10%; margin-top: -5px;"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar" style="background-color:#333;">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="../front/main.php">Comandes</a></li>
+            <li><a href="../front/historial_comandes.php">Historial de Comandes</a></li>
+            <li><a href="../front/usuari.php">'.$_SESSION["usuari"].'</a></li>
+            </li>
+            <li style="margin-right:11px"><a href="../back/logout.php"><span class="glyphicon glyphicon-log-out"  ></span></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>';
+  };
+>>>>>>> master
 
       echo'
     <div id=logoJoviatFPI>
@@ -111,7 +168,7 @@ function capsalera ($titol){
 function chat(){
   echo "
   <div class='btnUsuario'>
-		<button id='btnUser'>ABRIR USUARIOS</button>
+		<button id='btnUser'><p style='margin: -10px 0 10px;'>ABRIR USUARIOS</p></button>
 	</div>
   <div id='alertUser' style='display:none;width:30%;margin:auto;' class='alert alert-warning'>
     <strong>Warning!</strong> El client ja esta obert en el chat.
@@ -119,14 +176,14 @@ function chat(){
 
 	<div id='contenedor-usuaris'>
 		<div id='minimizarInici'>
-				<button class='w3-button w3-block w3-black' onclick='minimizarInici()'></button>
+				<button id='buttonMinimitzar' onclick='minimizarInici()'></button>
 		</div>
 		<div id='users' class='w3-container'>
-			<ul class='w3-ul w3-center'>";
+			<ul class='ul'>";
 			$user="SELECT * FROM usuaris WHERE id_usuari!=".$_SESSION['id_user'];
 			$ejecutar = consulta($user);
 			while($fila = $ejecutar->fetch_array()){
-				echo "<li><button class='w3-button w3-block w3-black' onclick='abrir(".$_SESSION['id_user'].",".$fila['id_usuari'].")'>".$fila['nom_usuari']."</button></li><br>";
+				echo "<li><button class='li' onclick='abrir(".$_SESSION['id_user'].",".$fila['id_usuari'].")'>".$fila['nom_usuari']."</button></li><br>";
 			}
       echo "
 		</ul>
@@ -136,12 +193,12 @@ function chat(){
 	<!--CHAT -->
 	<div id='btnChat'>
 		<img id='icon' src='../css/exit.ico'>
-		<button onclick='abrirChat(2)' id='btnChatUser2'><p>ABRIR CHAT</p></button>
+		<button onclick='abrirChat(2)' id='btnChatUser2'><p style='margin: -10px 0 10px;'>ABRIR CHAT</p></button>
 	</div>
 
 			<div id='contenedor'>
 				<div id='minimizar'>
-					<button class='w3-button w3-block w3-black' onclick='minimizar(2)' ><p id='noms1'></p></button>
+					<button id='buttonMinimitzarChat' onclick='minimizar(2)' ><p id='noms1'></p></button>
 					<input type='hidden' id='id_user1' value=''>
 				</div>
 				<button onclick='cerrar(2)' id='cerrar'><img id='icon' src='../css/exit.ico'></button>
@@ -150,17 +207,17 @@ function chat(){
 				</div>
 					<!--<input type='text' name='nombre' placeholder='Ingresa el nombre'>-->
 					<textarea name='mensaje1'  id='textarea1' placeholder='Ingresa tu mensaje'></textarea>
-					<button class='w3-button w3-block w3-black' onclick='enviar(1,".$_SESSION['id_user'].")'>Enviar</button>
+					<button id='buttonEnviar' onclick='enviar(1,".$_SESSION['id_user'].")'>Enviar</button>
 			</div>
 
 			<div id='btnChat1'>
 				<img id='icon' src='../css/exit.ico'>
-				<button onclick='abrirChat(3)' id='btnChatUser3'><p>ABRIR CHAT</p></button>
+				<button onclick='abrirChat(3)' id='btnChatUser3'><p style='margin: -10px 0 10px;'>ABRIR CHAT</p></button>
 			</div>
 
 					<div id='contenedor1'>
 						<div id='minimizar1'>
-							<button class='w3-button w3-block w3-black' onclick='minimizar(3)' > <p id='noms2'></p></button>
+							<button id='buttonMinimitzarChat1' onclick='minimizar(3)' > <p id='noms2'></p></button>
 							<input type='hidden' id='id_user2' value=''>
 
 						</div>
@@ -169,17 +226,17 @@ function chat(){
 							<div id='chat2'></div>
 						</div>
 						<textarea name='mensaje2'  id='textarea2' placeholder='Ingresa tu mensaje'></textarea>
-						<button class='w3-button w3-block w3-black' onclick='enviar(2,".$_SESSION['id_user'].")'>Enviar</button>
+						<button id='buttonEnviar1' onclick='enviar(2,".$_SESSION['id_user'].")'>Enviar</button>
 					</div>
 
 					<div id='btnChat2'>
 						<img id='icon' src='../css/exit.ico'>
-						<button onclick='abrirChat(4)' id='btnChatUser4' ><p>ABRIR CHAT</p></button>
+						<button onclick='abrirChat(4)' id='btnChatUser4' ><p style='margin: -10px 0 10px;'>ABRIR CHAT</p></button>
 					</div>
 
 							<div id='contenedor2'>
 								<div id='minimizar2'>
-									<button onclick='minimizar(4)' ><p id='noms3'></p></button>
+									<button id='buttonMinimitzarChat2' onclick='minimizar(4)' ><p id='noms3'></p></button>
 									<input type='hidden' id='id_user3' value=''>
 
 								</div>
@@ -188,7 +245,7 @@ function chat(){
 									<div id='chat3'></div>
 								</div>
 								<textarea name='mensaje3'  id='textarea3' placeholder='Ingresa tu mensaje'></textarea>
-								<button class='w3-button w3-block w3-black' onclick='enviar(3,".$_SESSION['id_user'].")'>Enviar</button>
+								<button id='buttonEnviar2' onclick='enviar(3,".$_SESSION['id_user'].")'>Enviar</button>
 
 
 							</div>";

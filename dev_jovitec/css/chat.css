@@ -18,8 +18,8 @@
 
 }
 
-#contenedor-usuaris{
-	width: 15%;
+#contenedor-usuaris, #buttonMinimitzar {
+	width: 240px;
 	height: 0%;
 	background: #fff;
 	margin: 0 auto;
@@ -33,6 +33,14 @@
 	bottom: 0px;
 	right: 0px;
 	display: none;
+}
+
+#buttonMinimitzarChat, #buttonMinimitzarChat1, #buttonMinimitzarChat2 {
+	border-top-right-radius: 12px;
+	border-top-left-radius: 12px;
+	background: #CCCCCC;
+	height: 30px;
+	width: 270px;
 }
 
 #users button{
@@ -90,14 +98,21 @@
 	right: 250px;
 }
 
+#buttonEnviar, #buttonEnviar1, #buttonEnviar2{
+	background-color: #000;
+	width: 96%;
+	height: 30px;
+	color: white;
+}
+
 #contenedor form{
 	height: 0px
 }
 
 #caja-chat{
 	padding: 10px;
-	width: 100%;
-	height: 60%;
+	width: 261px;
+	height: 71%;
 	overflow-x: hidden;
 	overflow-y: scroll;
 	margin-bottom: 20px;
@@ -116,7 +131,7 @@
 }
 #users{
 	padding: 10px;
-	width: 100%;
+	width: 233px;
 	height: 100%;
 	overflow-x: hidden;
 	overflow-y: scroll;
@@ -194,12 +209,11 @@ input[type='submit']:hover {
 textarea {
 	background: #fbfbfb;
 	width: 96%;
-	height: 25px;
-	border: 2px solid #eee;
+	height: 35px;
+	border: 2px solid #CCCCCC;
 	border-radius: 3px;
 	resize: none;
-	padding: 10px;
-	font-size: 15px;
+	font-size: 13px;
 	color: #333;
 
 }
@@ -224,14 +238,17 @@ input, textarea{
  #icon {
 	width: 15px;
 	height: 15px;
+	margin-left: -7px;
+	margin-top: -15px;
 }
 
 #cerrar, #cerrarUser {
   	width: 16px;
 	height: 16px;
-	background: #ccc;
+	background: #CCCCCC;
 	margin-top: -22px;
   	float: right;
+  	position: fixed;
 }
 
 #minimizar,#minimizar1,#minimizar2, #minimizarInici {
@@ -239,9 +256,28 @@ input, textarea{
 	border-top-left-radius: 12px;
 	background: #ccc;
 	height: 30px;
-	width: 100%;
+	width: 240px;
 	margin-top: -20px;
 	margin-left: -20px;
 	padding-right: 40px;
 
 } 
+
+.li {
+	width: 100%;
+	height: 40px;
+	margin-bottom: -30px;
+	color: #fff !important;
+	background-color: #000 !important;
+	display: inline-block;
+	padding: 8px 16px;
+	overflow: hidden;
+	color: inherit;
+	text-align: center;
+	cursor: pointer;
+	white-space: nowrap;
+}
+
+.ul{
+	margin-left: -35px;
+}
