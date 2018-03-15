@@ -8,27 +8,22 @@ $resultat=consulta($query_usuari);
 // if(!$resultat){echo "no hi ha resultat";}
 
 if ($resultat->fetch_assoc()['password_usuari'] != $_POST['psswd']){
-<<<<<<< HEAD
-	$mensaje = "Error a la autentificació";
-	echo "<script type='text/javascript'>alert('$mensaje'); location.href = '../index.php'</script>";
-  //echo" <br />ho sento, no estàs autoritzat!<br />";
-  //echo" <br />introduir usuari i contrasenya correctes<br />";
-  //echo '<meta http-equiv="refresh" content="4; url=../index.html" />';
-=======
   echo" <br />ho sento, no estàs autoritzat!<br />";
   echo" <br />introduir usuari i contrasenya correctes<br />";
   echo '<meta http-equiv="refresh" content="4; url=../index.html" />';
 
->>>>>>> master
 }
 else {
   // fem una consulta per saber el rol de l'usuari
-  $query_rol="SELECT rol_usuari,id_usuari FROM usuaris WHERE username_usuari = '$uname'";
-  $resultat_rol=consulta($query_rol);
+  $query_id="SELECT id_usuari FROM usuaris WHERE username_usuari = '$uname'";
+  $resultat_id=consulta($query_id);
 // es defineixen les variables de sessió
   session_start();
   $_SESSION['usuari']=$uname;
-  $_SESSION['id_user']=($resultat_rol->fetch_assoc()['id_usuari']);
+  $_SESSION['id_user']=($resultat_id->fetch_assoc()['id_usuari']);
+
+  $query_rol="SELECT rol_usuari FROM usuaris WHERE username_usuari = '$uname'";
+  $resultat_rol=consulta($query_rol);
   $_SESSION['rol']=($resultat_rol->fetch_assoc()['rol_usuari']);
   $_SESSION['curs_actual']=$_POST['curs_actual'];
 

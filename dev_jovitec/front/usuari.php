@@ -35,13 +35,12 @@ END;
 
         echo "<input type='hidden' name='torna_usuari' value='True' />";
 
-<<<<<<< HEAD
+
           echo "<button class=esquerra type='submit' style='margin-left:200px; margin-top:10px; width:72%;' >modificar usuari</button>";
 
-=======
           echo "<button class=esquerra type='submit' id='edit' >modificar usuari</button>";
         
->>>>>>> master
+
         echo "</form>";
       ///////////// fi del formulari de modificació d'usuaris
         echo<<<END
