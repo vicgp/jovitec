@@ -125,7 +125,7 @@ function abrir(emisor,receptor){
 	}
 
 	else{
-  var dreta=290*numChats;
+  var dreta=245*numChats;
     if(numChats>=1 && numChats<4){
       numChats++;
       if(!chats.includes('2')){
@@ -145,7 +145,7 @@ function abrir(emisor,receptor){
         $("#contenedor").animate({
             height: '350px',
             width: '20%',
-            right: '270px'
+            right: '250px'
         });
 
       }
@@ -165,7 +165,7 @@ function abrir(emisor,receptor){
         $("#contenedor1").animate({
             height: '350px',
             width: '20%',
-            right: '615px'
+            right: '537px'
         });
 
       }
@@ -217,11 +217,11 @@ function minimizar(numchat){
     $("#contenedor").animate({height: "0px"});
 		$('#btnChat').show();
 		$('#btnChat').animate({
-			right: '300px'
+			right: '250px'
 		});
     $('#btnChatUser2').show();
 		$('#btnChatUser2').animate({
-			right: '300px'
+			right: '250px'
 		});
     $('#contenedor').hide();
 
@@ -230,11 +230,11 @@ function minimizar(numchat){
     $("#contenedor1").animate({height: "0px"});
 		$('#btnChat1').show();
 		$('#btnChat1').animate({
-			right: '615px'
+			right: '540px'
 		});
     $('#btnChatUser3').show();
 		$('#btnChatUser3').animate({
-			right: '615px'
+			right: '540px'
 		});
     $('#contenedor1').hide();
 
@@ -244,11 +244,11 @@ function minimizar(numchat){
     $("#contenedor2").animate({height: "0px"});
 		$('#btnChat2').show();
 		$('#btnChat2').animate({
-			right: '960px'
+			right: '830px'
 		});
     $('#btnChatUser4').show();
 		$('#btnChatUser4').animate({
-			right: '960px'
+			right: '830px'
 		});
     $('#contenedor2').hide();
 
