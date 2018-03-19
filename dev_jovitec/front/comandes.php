@@ -25,12 +25,18 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 <div class="container">
 <h1>Informació del teu Dispositiu</h1>
 <div id="myGoal"></div>
-<!-- <div id="user" style="display: none;"> --> <!-- en procés para los roles-->
+<?php 
+if($_SESSION['rol']<5){?>
+  <!-- <div id="user" style="display: none;"> --> <!-- en procés para los roles-->
 <span class="btn btn-primary" id="get-current-value-btn" style="float: left;margin-top: 3.36%;" onclick="desc2()">Recollit</span><br>
         <span class="btn btn-primary" id="set-current-value-btn" style="float: left;margin-left: 31%; margin-top: 1.3%;"onclick="desc()" >En Procés</span><br>
         <span class="btn btn-primary" id="find-step-btn" style="float: left;margin-left: 69%;margin-top: -4.4%;" onclick="intro()">Pendent d'entrega</span><br>
         <span class="btn btn-primary" id="remove-step-btn" style="float: left;margin-left: 92%;margin-top: -4.3%;" onclick="desc3()">Entregat</span>
         </div>
+<?php
+
+}?>
+
 
 <script src="http://code.jquery.com/jquery-1.12.2.min.js"></script>
 <script src="../js/statproduct.js"></script>
