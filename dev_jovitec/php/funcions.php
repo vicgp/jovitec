@@ -32,10 +32,14 @@ function capsalera ($titol){
     <link rel='stylesheet' type='text/css' href='../css/navbar.css'>
     <link rel='stylesheet' type='text/css' href='../css/modal.css'>
     <link rel='stylesheet' type='text/css' href='../css/chat.css'>
+    <link rel='stylesheet' type='text/css' href='../css/sidebar.css'>
+
     <!--JS -->
     <script src='../js/func_alta_user.js'></script>
     <script src='../js/func_alta_ot.js'></script>
     <script src='../js/chat.js'></script>
+    <script src='../js/sidebar.js'></script>
+
 
 
 
@@ -61,11 +65,11 @@ function capsalera ($titol){
 
       //afegir botó de gestió d'usuaris si el rol és inferior a 5
 
-  
+
   if ($_SESSION['rol'] == 1 || $_SESSION['rol'] == 2){
     echo '<nav class="navbar navbar-default navbar-fixed-top" style="margin-left:2px;">
       <div >
-        
+
         <div class="navbar-header">
           <a class="navbar-brand" href="" style="width:70px;"><img src="../img/jv.png" style=" width: 140%; margin-left:-5px; margin-top: -10px;"></a>
         </div>
@@ -81,7 +85,7 @@ function capsalera ($titol){
         </div>
       </div>
     </nav>';
- 
+
   }
   if ($_SESSION['rol'] == 3 || $_SESSION['rol'] == 4){
     echo'<nav class="navbar navbar-default navbar-fixed-top" style="margin-left:2px;">
@@ -120,8 +124,8 @@ function capsalera ($titol){
         </div>
       </div>
     </nav>';
-   
-            
+
+
   };
 
 
