@@ -1,3 +1,6 @@
+body{
+  color:black;
+}
 .container {
       padding: 80px 120px;
   }
@@ -114,4 +117,14 @@
   }
 .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover{
 margin-right: auto;
+}
+.nabvar{
+  padding: .0rem 0rem;
+}
+@media (min-width: 768px){
+.navbar-nav>li>a {
+     padding-top: 9px;
+    padding-bottom: 22px;
+        top: -20px;
+}
 }

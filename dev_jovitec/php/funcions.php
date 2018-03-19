@@ -10,14 +10,22 @@ function capsalera ($titol){
       <meta name='author' content='Xavier Morera'>
       <meta name='viewport' content='width=device-width, initial-scale=1.0'>
       <meta http-equiv='Content-Type' content='text/html' charset='utf-8' />
+      <meta charset='utf-8'>
+      <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+      <meta name='viewport' content='width=device-width, initial-scale=1'>
       <!--bootstrap -->
       <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
     <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
     <link rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css'>
-
+    <link href='src/css/jquerysctipttop.css' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Allerta+Stencil'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css' integrity='sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd' crossorigin='anonymous'>
+<link href='../css/statproduct.css' rel='stylesheet' type='text/css'>
     <!--CSS -->
-
+      <link href='../css/statproduct.css' rel='stylesheet' type='text/css'>
       <link rel='stylesheet' type='text/css' href='../css/jovitec.css'>
       <link rel='stylesheet' type='text/css' href='../css/boton.css'>
 	  <link rel='stylesheet' type='text/css' href='../css/style.css'>
@@ -53,76 +61,42 @@ function capsalera ($titol){
 
       //afegir botó de gestió d'usuaris si el rol és inferior a 5
 
-  if ($_SESSION['rol'] < '5'){
-      echo '
-<nav class="navbar navbar-default navbar-fixed-top" style="margin-left:2px;">
-  <div >
-    <div class="navbar-header">
-      <a class="navbar-brand" href="" style="width:70px;"><img src="../img/jv.png" style=" width: 140%; margin-left:-5px; margin-top: -10px;"></a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar" style="background-color:#333;">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="../front/main.php">Ordres de treball</a></li>
-        <li><a href="../front/usuaris.php">Usuaris</a></li>
-        <li><a href="../front/comunicacions.php">Comunicacions</a></li>
-        <li><a href="../front/usuari.php">'.$_SESSION["usuari"].'</a></li>
-        </li>
-        <li style="margin-right:11px"><a href="../back/logout.php"><span class="glyphicon glyphicon-log-out"  ></span></a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-        ';
-      };
-
-      if ($_SESSION['rol'] == '5'){
-        echo'<nav class="navbar navbar-default navbar-fixed-top" style="margin-left:2px;">
-  <div >
-    <div class="navbar-header">
-      <a class="navbar-brand" href="" style="width:60px;"><img src="../img/jv.png" style=" width: 10%; margin-top: -5px;"></a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar" style="background-color:#333;">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="../front/comunicacions.php">Info producte</a></li>
-        <li><a href="../front/usuari.php">'.$_SESSION["usuari"].'</a></li>
-        </li>
-        <li style="margin-right:11px"><a href="../back/logout.php"><span class="glyphicon glyphicon-log-out"  ></span></a></li>
-      </ul>
-    </div>
-  </div>
-</nav>';
-};
-
+  
   if ($_SESSION['rol'] == 1 || $_SESSION['rol'] == 2){
     echo '<nav class="navbar navbar-default navbar-fixed-top" style="margin-left:2px;">
       <div >
+        
         <div class="navbar-header">
           <a class="navbar-brand" href="" style="width:70px;"><img src="../img/jv.png" style=" width: 140%; margin-left:-5px; margin-top: -10px;"></a>
         </div>
-        <div class="collapse navbar-collapse" id="myNavbar" style="background-color:#333;">
+        <div class="collapse navbar-collapse" id="myNavbar" >
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="../front/main.php">Ordres de treball</a></li>
-            <li><a href="../front/usuaris.php">Usuaris</a></li>
-            <li><a href="../front/usuari.php">'.$_SESSION["usuari"].'</a></li>
+            <li><a href="../front/main.php" style="margin-bottom:  6%; padding-top: 9%; padding-bottom: 8%; margin-top: 6%;">Ordres de treball</a></li>
+            <li><a href="../front/comandes.php" style="margin-bottom:  20%; padding-top: 17%; padding-bottom: 12.5%; margin-top: 6%;">Comandes</a></li>
+            <li><a href="../front/usuaris.php" style="margin-bottom:  20%; padding-top: 17%; padding-bottom: 15%; margin-top: 11%;">Usuaris</a></li>
+            <li><a href="../front/usuari.php" style="margin-bottom:  20%; padding-top: 18%; padding-bottom: 19%; margin-top: 14%;">'.$_SESSION["usuari"].'</a></li>
             </li>
-            <li style="margin-right:11px"><a href="../back/logout.php"><span class="glyphicon glyphicon-log-out"  ></span></a></li>
+            <li style="margin-right:11px"><a href="../back/logout.php" style="margin-bottom: 8.2;padding-top: 14.813;padding-bottom: 14.275;margin-top: 5px%;top: 27%;padding-bottom: 15.5;padding-bottom: 15.3;padding-bottom: 14px;padding-top: 35%;margin-top: -17%;"><span class="glyphicon glyphicon-log-out"  ></span></a></li>
           </ul>
         </div>
       </div>
     </nav>';
+ 
   }
   if ($_SESSION['rol'] == 3 || $_SESSION['rol'] == 4){
     echo'<nav class="navbar navbar-default navbar-fixed-top" style="margin-left:2px;">
       <div >
         <div class="navbar-header">
-          <a class="navbar-brand" href="" style="width:60px;"><img src="../img/jv.png" style=" width: 10%; margin-top: -5px;"></a>
+          <a class="navbar-brand" href="" style="width:70px;"><img src="../img/jv.png" style=" width: 140%; margin-left:-5px; margin-top: -10px;"></a>
         </div>
-        <div class="collapse navbar-collapse" id="myNavbar" style="background-color:#333;">
+        <div class="collapse navbar-collapse" id="myNavbar" >
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="../front/main.php">Ordres de treball</a></li>
-            <li><a href="../front/usuari.php">'.$_SESSION["usuari"].'</a></li>
+
+            <li><a href="../front/main.php" style="margin-bottom:  6%; padding-top: 9%; padding-bottom: 8%; margin-top: 6%;">Ordres de treball</a></li>
+            <li><a href="../front/comandes.php" style="margin-bottom:  20%; padding-top: 17%; padding-bottom: 12.5%; margin-top: 6%;">Comandes</a></li>
+            <li><a href="../front/usuari.php" style="margin-bottom:  20%;padding-top: 18%;padding-bottom: 23.188;margin-top: 17.35;margin-top: 5px;padding-bottom: 16px;">'.$_SESSION["usuari"].'</a></li>
             </li>
-            <li style="margin-right:11px"><a href="../back/logout.php"><span class="glyphicon glyphicon-log-out"  ></span></a></li>
+            <li style="margin-right:11px"><a href="../back/logout.php" style="margin-bottom: 8.2;padding-top: 14.813;padding-bottom: 14.275;margin-top: 5px%;top: 27%;padding-bottom: 15.5;padding-bottom: 15.3;padding-bottom: 14px;padding-top: 35%;margin-top: -17%;"><span class="glyphicon glyphicon-log-out" style=""></span></a></li>
           </ul>
         </div>
       </div>
@@ -133,19 +107,21 @@ function capsalera ($titol){
     echo'<nav class="navbar navbar-default navbar-fixed-top" style="margin-left:2px;">
       <div >
         <div class="navbar-header">
-          <a class="navbar-brand" href="" style="width:60px;"><img src="../img/jv.png" style=" width: 10%; margin-top: -5px;"></a>
+          <a class="navbar-brand" href="" style="width:70px;"><img src="../img/jv.png" style=" width: 140%; margin-left:-5px; margin-top: -10px;"></a>
         </div>
-        <div class="collapse navbar-collapse" id="myNavbar" style="background-color:#333;">
+        <div class="collapse navbar-collapse" id="myNavbar" >
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="../front/main.php">Comandes</a></li>
-            <li><a href="../front/historial_comandes.php">Historial de Comandes</a></li>
-            <li><a href="../front/usuari.php">'.$_SESSION["usuari"].'</a></li>
+            <li><a href="../front/comandes.php" style="margin-bottom:  20%; padding-top: 17%; padding-bottom: 12.5%; margin-top: 6%;">Comandes</a></li>
+             <li><a href="../front/historial_comandes.php" style="margin-bottom: 6%; padding-top: 9%; padding-bottom: 15.825; margin-top: 3%; padding-bottom: 15px;">Historial de Comandes</a></li>
+            <li><a href="../front/usuari.php" style="margin-bottom: 20%;padding-top: 18%; padding-bottom: 19.712; margin-top: 14%;padding-bottom: 13px;">'.$_SESSION["usuari"].'</a></li>
             </li>
-            <li style="margin-right:11px"><a href="../back/logout.php"><span class="glyphicon glyphicon-log-out"  ></span></a></li>
+            <li style="margin-right:11px"><a href="../back/logout.php" style="margin-bottom: 8.2;padding-top: 14.813;padding-bottom: 14.275;margin-top: 5px%;top: 27%;padding-bottom: 15.5;padding-bottom: 15.3;padding-bottom: 14px;padding-top: 35%;margin-top: -17%;"><span class="glyphicon glyphicon-log-out"></span></a></li>
           </ul>
         </div>
       </div>
     </nav>';
+   
+            
   };
 
 
