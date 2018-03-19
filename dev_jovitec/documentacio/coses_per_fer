@@ -12,6 +12,10 @@ enviar (imprimir) un email a l'usuari amb el seu usuari i contrasenya
 
 moure el fitxer login.php fora del ../back
 
-implementar el salt+hash per les contrasenyes
-
 Imprimir informe pel client
+
+filtres:
+  -data_entrada
+  -prioritat
+  -tecnics
+  -administratius

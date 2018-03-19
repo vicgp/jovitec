@@ -53,20 +53,23 @@ function alta(){
   var administratius=document.getElementById('administratius').value;
   var anomalies=document.getElementById('anomalies').value;
   var ob=document.getElementById('ob').value;
-  var inventari=document.getElementById('inventari').value;
-
-
-  //var dataF=document.getElementById('dataF').value;
   var dataLL=document.getElementById('dataLL').value;
+
+  console.log(productes_client);
+ var inventari=JSON.stringify(productes_client);
+ console.log(inventari);
+ var parametres="curs="+curs+"&dataE="+dataE+"&usuari="+usuari+"&prioritat="+prioritat+"&supervisors="+supervisors+"&tecnics="+tecnics+"&administratius="+administratius+"&dataLL="+dataLL+"&anomalia="+anomalies+"&ob="+ob+"&inventari="+inventari;
+  //var dataF=document.getElementById('dataF').value;
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       document.getElementById('formOT').style.display="none";
       productes_client=[];
-      //carregaTaula();
+      carregaTaula();
     }
   };
-  xhttp.open("GET", "../back/alta_ot_final.php?curs="+curs+"&dataE="+dataE+"&usuari="+usuari+"&prioritat="+prioritat+"&supervisors="+supervisors+"&tecnics="+tecnics+"&administratius="+administratius+"&dataLL="+dataLL+"&anomalia="+anomalies+"&ob="+ob+"&inventari="+inventari, true);
-  xhttp.send();
+
+  xhttp.open("POST", "../back/alta_ot_final.php", true);
+  xhttp.send(parametres);
 }
 
 function cancelar(){
@@ -76,43 +79,71 @@ function cancelar(){
 function carregaTaula(){
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById('ot').value=this.responseText;
-      document.getElementById('ot').style.display="block";
+      document.getElementById('otTotal').value=this.responseText;
     }
   };
   xhttp.open("GET", "../back/carregaMain.php", true);
   xhttp.send();
 }
- function mostrarInventari(){
-   $("#objectes")[0].style.display="block";
-}
+
 function loadDrop(){
   var drop="";
   for(var i=0;i<productes_client.length;i++){
-    drop+="<option value=''>"+productes_client[i]+"</option>"
-
+    var marca=productes_client[i][1].split(",");
+    drop+="<option value='"+productes_client[i][0]+"'>"+productes_client[i][0]+" -- "+marca[0]+"</option>"
   }
   $("#inventari")[0].innerHTML=drop;
 }
 function addInventari(a){
-  if(a==1){
-      productes_client.push("Portatil");
+  if(productes_client.length<=1){
+    document.getElementById('modalProduct').style.display='block';
+
+    if(a==1){
+      document.getElementById('tipusProduct').value="portatil";
+    }
+    else if(a==2){
+      document.getElementById('tipusProduct').value="movil";
+    }
+    else if(a==3){
+      document.getElementById('tipusProduct').value="tablet";
+    }
+    else if(a==4){
+    document.getElementById('tipusProduct').value="PC Torre";
+    }
   }
-  else if(a==2){
-    productes_client.push("Movil");
+  else{
+    $("#MaximProduct")[0].style.display="block";
+	  setTimeout(clearAlertProduct,4000);
   }
-  else if(a==3){
-    productes_client.push("Tablet");
-  }
-  else if(a==4){
-    productes_client.push("Torre");
-  }
+}
+function clearAlertProduct(){
+	$("#MaximProduct")[0].style.display="none";
+  $("#productAfagit")[0].style.display="none";
+
+
+}
+function cancelarProduct(){
+  document.getElementById('modalProduct').style.display='none';
+
+}
+function addInventariFinal(){
+  var product=document.getElementById('tipusProduct').value;
+  var desc=document.getElementById('descProduct').value;
+  productes_client.push([product,desc]);
+  document.getElementById('modalProduct').style.display='none';
+  $("#productAfagit")[0].style.display="block";
+  setTimeout(clearAlertProduct,4000);
   loadDrop();
+  document.getElementById('descProduct').value="";
 }
 function eliminarObjecte(){
-  var name=$("#inventari option:selected").html();
-  console.log(name);
-  var pos=productes_client.indexOf(name);
-  productes_client.splice(pos,1)
+  var name=document.getElementById("inventari").value;
+  for(var i=0;i<productes_client.length;i++){
+    if(productes_client[i][0].includes(name)){
+      productes_client.splice(i,1)
+    }
+
+  }
+
   loadDrop();
 }

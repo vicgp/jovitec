@@ -9,19 +9,26 @@ $connection->set_charset("utf8"); //per triar el joc de caràcters amb accents
 if (!$connection) {
     die("Error de connexió: " . mysqli_connect_error());
 }
+foreach($_POST as $entry){
+  print $entry[0];
+}
+$curs=$_POST['curs'];
+$dataE=$_POST['dataE'];
+$prioritat=$_POST['prioritat'];
+// $dataF=$_POST['dataF'];
+$dataLL=$_POST['dataLL'];
+$usuari=$_POST['usuari'];
+$supervisors=$_POST['supervisors'];
+$tecnics=$_POST['tecnics'];
+$administratius=$_POST['administratius'];
+$anomalies=$_POST['anomalia'];
+$ob=$_POST['ob'];
+echo $_POST['parametres'];
+$inventari=json_decode($_POST['inventari']);
 
-$curs=$_GET['curs'];
-$dataE=$_GET['dataE'];
-$prioritat=$_GET['prioritat'];
-// $dataF=$_GET['dataF'];
-$dataLL=$_GET['dataLL'];
-$usuari=$_GET['usuari'];
-$supervisors=$_GET['supervisors'];
-$tecnics=$_GET['tecnics'];
-$administratius=$_GET['administratius'];
-$anomalies=$_GET['anomalia'];
-$ob=$_GET['ob'];
-$inventari=$_GET['inventari'];
+echo $inventari;
+exit();
+
 
 
 
@@ -35,9 +42,11 @@ echo "1";
 $obsevacio="INSERT INTO observacions_ot VALUES (null,'".$ob."',".$id_ot.")";
 $resultat_ob=consulta($obsevacio);
 echo "1";
-$inventaris="INSERT INTO inventari_client VALUES (null,'".$inventari."',".$id_ot.")";
-$resultat_inve=consulta($inventaris);
-echo "1";
+foreach( $inventari as $i){
+  $inventaris="INSERT INTO inventari_client VALUES (null,'".$i[0]."','".$i[1]."',".$id_ot.")";
+  $resultat_inve=consulta($inventaris);
+  echo "1";
+}
 
 
 $supervisor="INSERT INTO supervisors VALUES (null,".$supervisors.",".$id_ot.", null)";

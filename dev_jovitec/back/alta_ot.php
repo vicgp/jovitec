@@ -50,7 +50,7 @@ include("../php/funcions.php");
                   <label><b>Supervisors:</b></label>
                   <select id='supervisors'>
                   <option value=''>Tria Administratius</option>";
-                  $query_ot_supervisors="SELECT DISTINCT usuaris.id_usuari,username_usuari FROM usuaris INNER JOIN supervisors ON usuaris.id_usuari=supervisors.id_usuari WHERE usuaris.rol_usuari=2";
+                  $query_ot_supervisors="SELECT DISTINCT usuaris.id_usuari,username_usuari FROM usuaris INNER JOIN tecnics ON usuaris.id_usuari=tecnics.id_usuari WHERE usuaris.rol_usuari=2";
                   $resultat_ot_supervisors=consulta($query_ot_supervisors);
                   while ($fila_ot_supervisors=$resultat_ot_supervisors->fetch_assoc()){
                       echo "<option value=".$fila_ot_supervisors['id_usuari'].">".$fila_ot_supervisors['username_usuari']."</option>";
@@ -105,7 +105,7 @@ include("../php/funcions.php");
                   <div class='panel panel-default'>
                     <div class='panel-heading'>Entrar Anomalia</div>
                     <div class='panel-body'>
-                      <input type='text' placeholder='Entrar Anomalia 'id='anomalies' name='ANOMALIA'  style='height:70%;'>
+                      <input type='text' placeholder='Entrar Anomalia 'id='anomalies' name='ANOMALIA'  style='height:70%;font-size:20px;' maxlength='255'>
                     </div>
                   </div>
                 </div>
@@ -115,7 +115,7 @@ include("../php/funcions.php");
                   <div class='panel panel-default'>
                     <div class='panel-heading'>Entrar Observacio</div>
                     <div class='panel-body'>
-                      <input type='text' placeholder='Entrar Obsevacio 'id='ob' name='observacio' style='height:70%;'  >
+                      <input type='text' placeholder='Entrar Obsevacio 'id='ob' name='observacio' style='height:70%;font-size:20px;' maxlength='255'  >
                     </div>
                   </div>
                 </div>
@@ -124,63 +124,77 @@ include("../php/funcions.php");
                 <div class='col-sm-12'>
                   <div class='panel panel-default'>
                     <div class='panel-heading'>Inventari Client</div>
-                    <div class='panel-body'>
-                    <select id='inventari'>
-                    </select>
-                    <button type='button' class='btn btn-default btn-sm' onclick='eliminarObjecte()'>
-                      <span class='glyphicon glyphicon-remove'></span> Remove
-                    </button>
+                      <div class='panel-body'>
+                      <select id='inventari'>
+                        <option value=''>Productes Client</option>
+                      </select>
+                      <button type='button' class='btn btn-default btn-sm' onclick='eliminarObjecte()'>
+                        <span class='glyphicon glyphicon-remove'></span> Remove
+                      </button>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <div class='row'>
+                <div class='col-sm-12' >
+                  <div class='col-md-3'>
+                    <div class='thumbnail'>
+                      <img src='../img/portatil.png' alt='Lights' style='width:100%;height:100px;'>
+                          <div class='caption'>
+                            <button class=' btn btn-default btn-sm' onclick='addInventari(1)'>
+                                <span class='glyphicon glyphicon-plus' ></span> ADD
+                              </button>
+                          </div>
                     </div>
                   </div>
-                    <div class='col-sm-12' >
-                      <div class='col-md-3'>
-                        <div class='thumbnail'>
-                            <img src='../img/portatil.png' alt='Lights' style='width:100%;height:100px;'>
-                            <div class='caption'>
-                            <input type='text' placeholder='Entrar Descripcio Producte 'id='ob' name='Descripcio' style='height:70%;'  >
-                              <button class=' btn btn-default btn-sm' onclick='addInventari(1)'>
-                                <span class='glyphicon glyphicon-plus' ></span> ADD
-                              </button>
-                            </div>
+                  <div class='col-md-3'>
+                    <div class='thumbnail'>
+                        <img src='../img/movil.png' alt='Nature' style='width:100%;height:100px;'>
+                        <div class='caption'>
+                          <button class=' btn btn-default btn-sm' onclick='addInventari(2)'>
+                              <span class='glyphicon glyphicon-plus' ></span> ADD
+                          </button>
                         </div>
-                      </div>
-                      <div class='col-md-3'>
-                        <div class='thumbnail'>
-                            <img src='../img/movil.png' alt='Nature' style='width:100%;height:100px;'>
-                            <div class='caption'>
-                            <input type='text' placeholder='Entrar Descripcio Producte 'id='ob' name='Descripcio' style='height:70%;'  >
-                              <button class=' btn btn-default btn-sm' onclick='addInventari(2)'>
-                                <span class='glyphicon glyphicon-plus' ></span> ADD
-                              </button>
-                            </div>
-                          </a>
-                        </div>
-                      </div>
-                      <div class='col-md-3'>
-                        <div class='thumbnail'>
-                            <img src='../img/tablet.png' alt='Fjords' style='width:100%;height:100px;'>
-                            <div class='caption'>
-                            <input type='text' placeholder='Entrar Descripcio Producte 'id='ob' name='Descripcio' style='height:70%;'  >
+                    </div>
+                  </div>
+                  <div class='col-md-3'>
+                    <div class='thumbnail'>
+                        <img src='../img/tablet.png' alt='Fjords' style='width:100%;height:100px;'>
+                        <div class='caption'>
                               <button class=' btn btn-default btn-sm' onclick='addInventari(3)'>
                                 <span class='glyphicon glyphicon-plus' ></span> ADD
                               </button>
-                            </div>
-                          </a>
                         </div>
-                      </div>
-                      <div class='col-md-3'>
+                    </div>
+                  </div>
+                  <div class='col-md-3'>
                         <div class='thumbnail'>
                             <img src='../img/torre.jpg' alt='Fjords' style='width:100%;height:100px;'>
                             <div class='caption'>
-                            <input type='text' placeholder='Entrar Descripcio Producte 'id='ob' name='Descripcio' style='height:70%;'  >
                               <button class=' btn btn-default btn-sm' onclick='addInventari(4)'>
                                 <span class='glyphicon glyphicon-plus' ></span> ADD
                               </button>
                             </div>
-                          </a>
                         </div>
-                      </div>
-                    </div>
+                  </div>
+              </div>
+            </div>
+            <div class='row'>
+                  <div class='alert alert-danger' id='MaximProduct' style='display:none;z-index:9999;'>
+                    <strong>Danger!</strong> No pots ficar mes de 10 productes.
+                  </div>
+                  <div class='alert alert-success' id='productAfagit' style='display:none;z-index:9999;'>
+                    <strong>Success!</strong> El producte s'ha afagit correctament.
+                  </div>
+              <div id='modalProduct' class='w3-modal' style='display:none;'>
+                <div class='w3-modal-content' style='width:500px;'>
+                  <div class='w3-container' >
+                    <span onclick='cancelarProduct()' class='w3-button w3-display-topright'>&times;</span>
+                      <input type='text' id='tipusProduct' name='tipusProduct' style='height:50px;margin-top:8px;'  readonly>
+                      <input type='text' placeholder='Entrar Marca,Model,Caracteristiques' id='descProduct' name='descProduct' style='height:50px;font-size:20px'  >
+                      <button type='submit'  id='boto1' onclick='addInventariFinal()' >Acceptar</button>
+                      <button type='button' onclick='cancelarProduct()' class='cancelbtn' style='margin-bottom:8px;'>Cancel</button>
+                  </div>
                 </div>
               </div>
 
