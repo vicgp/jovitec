@@ -188,6 +188,7 @@ chat();
               </td>
             </tr> <!-- fi de la línia de dades de la OT -->
 
+<<<<<<< HEAD
         ";
             }
         echo "
@@ -195,4 +196,7 @@ chat();
           </div>
           </div>
         ";
+=======
+
+>>>>>>> aparreno
 peu("");

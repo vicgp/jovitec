@@ -1,7 +1,7 @@
 <?php
 session_start();
 include("../php/funcions.php");
-capsalera('nou usuari');
+capsalera('Nou Usuari');
 chat();
 
 
@@ -245,15 +245,18 @@ echo"
       </td>
     </tr>
   </table>
-  <input type='hidden' name='id_usuari' value=".$fila_usuari['id_usuari']." />
+  <input type='hidden' name='id_usuaris' value=".$fila_usuari['id_usuari']." />
   <button class=esquerra type='submit'>modificar usuari</button>
 </form>";
 ///////////// fi del formulari de modificació d'usuaris
    } //else de modificació de l'usuari
+   //Fiquem un boto d'avaluacio per el alumne i un altre de cancelar.
 echo<<<END
+
+
      <form action=usuaris.php method='POST'>
        <input type="hidden" name="altauser" value=True />
-       <button class=cancel class=esquerra type='submit'>cancel·lar</button>
+       <button class=cancel class=esquerra type='submit'>Cancel·lar</button>
      </form>
      <br />
 END;

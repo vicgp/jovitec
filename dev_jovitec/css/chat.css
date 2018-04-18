@@ -2,7 +2,7 @@
 
 #contenedor, #contenedor1,#contenedor2{
 	width: 20%;
-	height: 0%;
+	height: 81%;
 	background: #fff;
 	margin: 0 auto;
 	margin-top: 10px;
@@ -13,9 +13,8 @@
 	-webkit-border-radius: 12px;
 	position: fixed;
 	bottom: 0px;
-	right: 0px;
+	right: 19px;
 	display: none;
-
 }
 
 #contenedor-usuaris, #buttonMinimitzar {
@@ -39,8 +38,8 @@
 	border-top-right-radius: 12px;
 	border-top-left-radius: 12px;
 	background: #CCCCCC;
-	height: 30px;
-	width: 270px;
+	height: 100%;
+	width: 135%;
 }
 
 #users button{
@@ -101,7 +100,7 @@
 #buttonEnviar, #buttonEnviar1, #buttonEnviar2{
 	background-color: #000;
 	width: 96%;
-	height: 30px;
+	height: 9%;
 	color: white;
 }
 
@@ -111,13 +110,12 @@
 
 #caja-chat{
 	padding: 10px;
-	width: 261px;
-	height: 71%;
+	width: 113%;
+	height: 75%;
 	overflow-x: hidden;
 	overflow-y: scroll;
-	margin-bottom: 20px;
-	margin-left: -12px;
-	padding-right: 22px;
+	margin-left: -5.5%;
+	padding-right: 0%;
 }
 
 #caja-chat::-webkit-scrollbar {
@@ -215,6 +213,7 @@ textarea {
 	resize: none;
 	font-size: 13px;
 	color: #333;
+	margin-top: 7%;
 
 }
 
@@ -243,12 +242,12 @@ input, textarea{
 }
 
 #cerrar, #cerrarUser {
-  	width: 16px;
-	height: 16px;
+  	width: 0%;
+	height: 3%;
 	background: #CCCCCC;
-	margin-top: -22px;
-  	float: right;
-  	position: fixed;
+	margin-top: -1.7%;
+	float: right;
+	position: fixed;
 }
 
 #minimizar,#minimizar1,#minimizar2, #minimizarInici {

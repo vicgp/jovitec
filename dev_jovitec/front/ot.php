@@ -411,8 +411,23 @@ echo "
         <span style='position:relative;left:35%;'>".conversor_segons_a_hores_minuts($temps_total['SUM(segons)'])."</span>
       </td>
     </tr>
-  </table>
-";
+  </table>";
+
+
+ $query_ot_tecnics="SELECT username_usuari FROM usuaris INNER JOIN tecnics ON usuaris.id_usuari=tecnics.id_usuari WHERE tecnics.id_ot=".$_POST['id_ot'];
+  $resultat_ot_tecnics=consulta($query_ot_tecnics);
+  // echo "ordres de treball:";
+  while ($fila_ot_tecnics=$resultat_ot_tecnics->fetch_assoc()){
+
+
+echo "
+<form action=avaluacio.php method='POST'>
+  <input type='hidden' name='nom' value='".$fila_ot_tecnics['username_usuari']."'/>
+  <input type='hidden' name='ot' value='".$_POST['id_ot']."' />
+  <button class=avaluacio class=esquerra type='submit'>Avaluar ".$fila_ot_tecnics['username_usuari']."</button>
+</form>";
+
+}
 ////////////////////////////fins aqui taula actuacions//////////////////////////
 
 peu("");
