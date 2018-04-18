@@ -143,3 +143,49 @@ function OnCheck() {
     xhttp.open("GET", "../back/carregarUsuarisChecks.php?id="+rol, true);
     xhttp.send();
 }
+function w3_open(sitio) {
+    console.log(sitio);
+
+  if(sitio==1){
+   //  $.ajax({url: "../js/sidebar/moveOrdre.js?a=1", success: function(result){
+   //      $("#div1").html(result);
+   // }});
+      document.getElementById("ordres").style.marginLeft = "25%";
+
+
+  }
+  else if(sitio==2){
+   //  $.ajax({url: "../js/sidebar/moveUsuaris.js?a=1", success: function(result){
+   //      $("#div1").html(result);
+   // }});
+    document.getElementById("usuarisList").style.marginLeft = "25%";
+
+
+
+     }
+    document.getElementById("openNav").style.display = 'none';
+    document.getElementById("mySidebar").style.width = "25%";
+    document.getElementById("mySidebar").style.display = "block";
+}
+function w3_close(sitio) {
+  console.log(sitio);
+    if(sitio==1){
+   //      $.ajax({url: "../js/sidebar/moveOrdre.js?a=2", success: function(result){
+   // }});   
+   
+              document.getElementById("ordres").style.marginLeft = "7%";
+
+
+    }
+    else if(sitio==2){
+      // $.ajax({url: "../js/sidebar/moveUsuaris.js?a=2", success: function(result){
+      // }});
+            document.getElementById("usuarisList").style.marginLeft = "7%";
+
+   }    
+    
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("openNav").style.display = "inline-block";
+}
+
+

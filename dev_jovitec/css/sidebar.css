@@ -26,10 +26,12 @@
 #ordres{
   margin-left: 160px; /* Same as the width of the sidenav */
     padding: 0px 10px;
+    margin-top:7%;
 }
 #usuarisList{
   margin-left: 160px; /* Same as the width of the sidenav */
     padding: 0px 10px;
+    margin-top:7%;
 }
 
 @media screen and (max-height: 450px) {
@@ -37,5 +39,16 @@
     .sidenav a {font-size: 18px;}
 }
 #checks{
-  color: #C4CECE;
+  color: #ffffff;
+}
+h1{
+    margin-left:40%;
+}
+.w3-teal, .w3-hover-teal:hover {
+    color: #fff!important;
+    background-color: #00968800!important;
+}
+.w3-button:hover{
+    background-color: #f30808d4!important;
+    color: white!important;
 }

@@ -6,6 +6,7 @@
 <?php
 session_start();
 include("../php/funcions.php");
+$_SESSION['url']=2;
 capsalera('usuaris');
 chat();
 
@@ -16,8 +17,8 @@ chat();
    $resultat= consulta($qwery);
 
 
-echo '
-<div class="sidenav" style="width:15%;">
+echo '<div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
+  <button onclick="w3_close('.$_SESSION['url'].')" class="w3-bar-item w3-large">Close &times;</button>
           <!--CheckBoxes -->
           <div style="display:block;">
             <label id="checks"> Tots els usuaris </label>

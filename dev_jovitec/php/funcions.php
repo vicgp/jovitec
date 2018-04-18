@@ -1,4 +1,5 @@
 <?php
+
 ///////////////////////////////////////////////////////////////////////////
 // capçalera del lloc, $titol de la pàgina.
 ////////////////////////////////////////////////////////////////////////////////
@@ -12,7 +13,11 @@ function capsalera ($titol){
       <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
       <meta name='viewport' content='width=device-width, initial-scale=1'>
       <!--bootstrap -->
+<<<<<<< HEAD
 
+=======
+      <link rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css'>
+>>>>>>> 2e32b75b3c3e6e255e6afe9330a70c1c38bf60a2
       <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
       <link rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css'>
       <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Allerta+Stencil'>
@@ -23,6 +28,11 @@ function capsalera ($titol){
 
     <!--CSS -->
 
+<<<<<<< HEAD
+=======
+    <link rel='stylesheet' href='../css/UserProfile.css'>
+      <link href='../css/statproduct.css' rel='stylesheet' type='text/css'>
+>>>>>>> 2e32b75b3c3e6e255e6afe9330a70c1c38bf60a2
       <link rel='stylesheet' type='text/css' href='../css/jovitec.css'>
       <link rel='stylesheet' type='text/css' href='../css/boton.css'>
 	  <link rel='stylesheet' type='text/css' href='../css/style.css'>
@@ -32,9 +42,18 @@ function capsalera ($titol){
     <link rel='stylesheet' type='text/css' href='../css/modal.css'>
 
     <!--JS -->
+<<<<<<< HEAD
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
     <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
 
+=======
+    <script src='../js/func_alta_user.js'></script>
+    <script src='../js/func_alta_ot.js'></script>
+    <script src='../js/chat.js'></script>
+    <script src='../js/sidebar.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+        <script  src='../js/UserProfile.js'></script>
+>>>>>>> 2e32b75b3c3e6e255e6afe9330a70c1c38bf60a2
 
 
 
@@ -53,6 +72,7 @@ function capsalera ($titol){
     });*/
     </script>
     ";
+
 
   //Si la variable de sessió està buida vol dir que no ens hem autenticat i ens
   // redirigeix a la pàgina de login
@@ -80,6 +100,7 @@ function capsalera ($titol){
           <a class="navbar-brand" href="" style="width:70px;"><img src="../img/jv.png" style=" width: 140%; margin-left:-5px; margin-top: -10px;"></a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar" >
+<<<<<<< HEAD
 
           <ul class="nav navbar-nav navbar-right">
 
@@ -97,6 +118,15 @@ function capsalera ($titol){
             <li><a href="../front/usuaris.php" style="margin-bottom:  20%; padding-top: 17%; padding-bottom: 15%; margin-top: 11%;">Usuaris</a></li>
             <li><a href="../front/usuari.php" style="margin-bottom:  20%; padding-top: 18%; padding-bottom: 19%; margin-top: 14%;">'.$_SESSION["usuari"].'</a></li>
             <li style="margin-right:11px"><a href="../back/logout.php" style="margin-bottom: 8.2;padding-top: 14.813;padding-bottom: 14.275;margin-top: 5px%;top: 27%;padding-bottom: 15.5;padding-bottom: 15.3;padding-bottom: 14px;padding-top: 35%;margin-top: -17%;"><span class="glyphicon glyphicon-log-out"  ></span></a></li>
+=======
+        <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open('.$_SESSION['url'].')" style="display: inline-block;margin-top: -0.6%;">&#9776</button>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="../front/main.php" style="margin-bottom:  6%;padding-top: 9%;padding-bottom: 8%;margin-top: 6%;margin-left: -19%;">Ordres de treball</a></li>
+            <li><a href="../front/comandes.php" style="margin-bottom:  20%;padding-top: 17%;padding-bottom: 12.5%;margin-top: 6%;margin-left: -23%;">Comandes</a></li>
+            <li><a href="../front/usuaris.php" style="margin-bottom:  20%;padding-top: 17%;padding-bottom: 15%;margin-top: 11%;margin-left: -21%;">Usuaris</a></li>
+            <li><a class="Img" style="margin-bottom:  20%;padding-top: 18%;padding-bottom: 19%;margin-top: 21%;margin-left: -20%;"></span></a></li>
+            </li>
+>>>>>>> 2e32b75b3c3e6e255e6afe9330a70c1c38bf60a2
           </ul>
         </div>
       </div>
@@ -110,6 +140,7 @@ function capsalera ($titol){
           <a class="navbar-brand" href="" style="width:70px;"><img src="../img/jv.png" style=" width: 140%; margin-left:-5px; margin-top: -10px;"></a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar" >
+        
           <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -121,10 +152,16 @@ function capsalera ($titol){
               </ul>
           </li>
 
+<<<<<<< HEAD
             <li><a href="../front/main.php" style="margin-bottom:  6%; padding-top: 9%; padding-bottom: 8%; margin-top: 6%;">Ordres de treball</a></li>
             <li><a href="../front/usuari.php" style="margin-bottom:  20%;padding-top: 18%;padding-bottom: 23.188;margin-top: 17.35;margin-top: 5px;padding-bottom: 16px;">'.$_SESSION["usuari"].'</a></li>
             </li>
             <li style="margin-right:11px"><a href="../back/logout.php" style="margin-bottom: 8.2;padding-top: 14.813;padding-bottom: 14.275;margin-top: 5px%;top: 27%;padding-bottom: 15.5;padding-bottom: 15.3;padding-bottom: 14px;padding-top: 35%;margin-top: -17%;"><span class="glyphicon glyphicon-log-out" style=""></span></a></li>
+=======
+            <li><a href="../front/main.php" style="margin-bottom:  6%;padding-top: 9%;padding-bottom: 8%;margin-left: -13%;margin-top: 6%;">Ordres de treball</a></li>
+            <li><a href="../front/comandes.php" style="margin-bottom:  20%;padding-top: 17%;padding-bottom: 12.5%;margin-top: 6%; margin-left: -16%;">Comandes</a></li>
+            <li><a class="Img" style="margin-bottom:  20%;padding-top: 18%;padding-bottom: 19%;margin-top: 21%;margin-left: -20%;"></span></a></li>
+>>>>>>> 2e32b75b3c3e6e255e6afe9330a70c1c38bf60a2
           </ul>
         </div>
       </div>
@@ -139,6 +176,7 @@ function capsalera ($titol){
         </div>
         <div class="collapse navbar-collapse" id="myNavbar" >
           <ul class="nav navbar-nav navbar-right">
+<<<<<<< HEAD
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
               <span id="notificacio" class="glyphicon glyphicon-envelope" style="margin-bottom:  6%; padding-top: 6%; padding-bottom: 8%;color:#d5d5d5;">New Message</span>
@@ -153,6 +191,11 @@ function capsalera ($titol){
             <li><a href="../front/usuari.php" style="margin-bottom: 20%;padding-top: 18%; padding-bottom: 19.712; margin-top: 14%;padding-bottom: 13px;">'.$_SESSION["usuari"].'</a></li>
             </li>
             <li style="margin-right:11px"><a href="../back/logout.php" style="margin-bottom: 8.2;padding-top: 14.813;padding-bottom: 14.275;margin-top: 5px%;top: 27%;padding-bottom: 15.5;padding-bottom: 15.3;padding-bottom: 14px;padding-top: 35%;margin-top: -17%;"><span class="glyphicon glyphicon-log-out"></span></a></li>
+=======
+            <li><a href="../front/comandes.php" style="margin-bottom:  20%;padding-top: 17%;padding-bottom: 12.5%;margin-top: 6%;margin-left: -13%;">Comandes</a></li>
+             <li><a href="../front/historial_comandes.php" style="margin-bottom: 6%;padding-top: 9%;padding-bottom: 15.825;margin-top: 3%;padding-bottom: 15px;margin-left: -7%;">Historial de Comandes</a></li>
+            <li><a class="Img" style="margin-bottom:  20%;padding-top: 18%;padding-bottom: 19%;margin-top: 21%;margin-left: -20%;"></span></a></li>
+>>>>>>> 2e32b75b3c3e6e255e6afe9330a70c1c38bf60a2
           </ul>
         </div>
       </div>
@@ -160,20 +203,86 @@ function capsalera ($titol){
 
 
   };
-
-
-      echo'
-    <div id=logoJoviatFPI>
-      <img src="../img/JOVIAT_FPi_sota.svg" alt="JOVIAT FPi"/>
+   if ($_SESSION['rol'] == 1 || $_SESSION['rol'] == 2){
+  echo'<div class="ACon">
+<div class="Profile" >
+    <div class="overlay">
+      
     </div>
-    <div id=logoJovitec>
-      <img src="../img/jovitec.png" alt="Jovitec" class="jovitec"/>
+</div>
+
+<div class="clickPopUp">
+<h4><a class="username" href="" style="margin-left: 10px;">'.$_SESSION["usuari"].'</a></h4>
+<h5 class="buttons"><a class="username" href="../front/usuari.php">Perfil</a></h5>
+<h5 class="buttons"><a class="username" href="">Activity</a></h5>
+<h5 class="buttons"><a class="username" href="">Portfolio</a></h5>
+<h5 class="buttons b"><a class="username" href="">Favorites</a></h5>
+<div class="Social">
+<a href="../back/logout.php" style="margin-left: 29%; padding:1px;">logout <span class="glyphicon glyphicon-log-out"  ></span></a>
+  
+</div>
+
+</div>
+</div>';
+};
+if ($_SESSION['rol'] == 3 || $_SESSION['rol'] == 4){
+  echo'<div class="ACon">
+<div class="Profile" >
+    <div class="overlay">
+      
     </div>
+</div>
 
-<!-- inici del cos de la pàgina -->
+<div class="clickPopUp">
+<h4><a class="username" href="" style="margin-left: 10px;">'.$_SESSION["usuari"].'</a></h4>
+<h5 class="buttons"><a class="username" href="../front/usuari.php">Perfil</a></h5>
+<h5 class="buttons"><a class="username" href="">Activity</a></h5>
+<h5 class="buttons"><a class="username" href="">Portfolio</a></h5>
+<h5 class="buttons b"><a class="username" href="">Favorites</a></h5>
+<div class="Social">
+<a href="../back/logout.php" style="margin-left: 29%; padding:1px;">logout <span class="glyphicon glyphicon-log-out"  ></span></a>
+  
+</div>
 
-  <div id="cos">
-  ';
+</div>
+</div>';
+};
+if ($_SESSION['rol'] == 5){
+  echo'<div class="ACon">
+<div class="Profile" >
+    <div class="overlay">
+      
+    </div>
+</div>
+
+<div class="clickPopUp">
+<h4><a class="username" href="" style="margin-left: 10px;">'.$_SESSION["usuari"].'</a></h4>
+<h5 class="buttons"><a class="username" href="../front/usuari.php">Perfil</a></h5>
+<h5 class="buttons"><a class="username" href="">Dispositius</a></h5>
+<h5 class="buttons"><a class="username" href="../front/historial_comandes.php">La teva Historia</a></h5>
+<h5 class="buttons b"><a class="username" href="">DEMO</a></h5>
+<div class="Social">
+<a href="../back/logout.php" style="margin-left: 29%; padding:1px;">logout <span class="glyphicon glyphicon-log-out"  ></span></a>
+  
+</div>
+
+</div>
+</div>';
+};
+
+
+//       echo'
+    
+//     <div id=logoJovitec>
+//       <img src="../img/jovitec.png" alt="Jovitec" class="jovitec"/>
+//     </div>
+
+// <!-- inici del cos de la pàgina -->
+
+//   <div id="cos">
+ 
+//   ';
+
 
 } //fi_capsalera
 
@@ -214,6 +323,7 @@ function chat(){
                 }
 				echo "<li><span class='glyphicon glyphicon-user'style='color:".$conentat.";'></span> <button class='li' onclick='abrir(".$_SESSION['id_user'].",".$fila['id_usuari'].")'>".$fila['nom_usuari']."</button></li><br>";
 			}
+
       echo "
 		  </ul>
 		</div>
@@ -359,4 +469,5 @@ function fletxes($columna, $pagina){
   <input type=hidden name=ordre value=DESC />
 </form>
 ";
+
 }
