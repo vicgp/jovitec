@@ -16,14 +16,13 @@ google_ad_width = 728;
 google_ad_height = 90;
 //-->
 </script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</div>
 </script></div>
 <div class="jquery-script-clear"></div>
 </div>
 
-<div class="container">
-<h1>Informació del teu Dispositiu</h1>
+<div class="container" style="margin-top: 100px;">
+<h2>Informació del teu Dispositiu</h2>
 <div id="myGoal"></div>
 <?php 
 if($_SESSION['rol']<5){?>
@@ -37,10 +36,10 @@ if($_SESSION['rol']<5){?>
 
 }?>
 
-
 <script src="http://code.jquery.com/jquery-1.12.2.min.js"></script>
 <script src="../js/statproduct.js"></script>
 <script>
+
 $('#myGoal').stepProgressBar({
   currentValue: 10,
   steps: [
@@ -116,10 +115,16 @@ $('#myGoal').stepProgressBar({
   })();
 
 </script>
-<div id="foto" style="display: none;"><img src="../img/dis.png" style="margin-left: 15%; float: left;" />
+<div id="foto" style="display: none;"><img src="../img/dis.png" style="margin-left: 8%; float: left;" />
+<div>
   <p class="w3-xlarge">El teu dispositiu ja està arreglat!</p>
   <p class="w3-xlarge">Rebràs un Email confirmant que ja està apunt per recollir.</p>
 </div>
+
+</div>
+
+
+
 
 <?php
 

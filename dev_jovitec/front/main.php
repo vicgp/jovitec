@@ -1,8 +1,10 @@
 <?php
 session_start();
 include("../php/funcions.php");
+$_SESSION['url']=1;
 capsalera("jovitec");
 chat();
+
 
   /*mostrar les ordres de treball obertes, en funció del rol, és a dir
   * en el cas d'un usuari es mostrarà la informació associada a la seva reparació
@@ -39,12 +41,12 @@ chat();
   //fem la consulta de les ordres de treball
   $resultat_ot_generic=consulta($query_ot_generic);
 
-  echo '
-  <div class="sidenav" style="width:15%;">
+  echo '<div class="w3-sidebar w3-bar-block w3-border-right" style="display: none; position:absolute; z-index:9999; width: 25%; background-color: rgba(50, 54, 60, 0.83); color:black; margin-top:-3.5%;" id="mySidebar">
+  <button onclick="w3_close('.$_SESSION['url'].')" class="w3-bar-item w3-large" style="background-color:#f30808d4;">Close &times;</button>
             <!--drop tecnics -->
             <label id="checks"> Tots els Tecnics </label>
             <input type="checkbox" id="tecnicCheck" name="all" value="0" onclick="TecnicsOnCheck()">
-            <select id="tecnicsDisCheck" onchange="carregarTecnics()">
+            <select id="tecnicsDisCheck" class="form-control" onchange="carregarTecnics()">
               <option value="">Tria Tecnic</option>';
                 $query_ot_tecnics="SELECT DISTINCT usuaris.id_usuari ,username_usuari FROM usuaris  WHERE usuaris.rol_usuari=3";
                 $resultat_ot_tecnics=consulta($query_ot_tecnics);
@@ -55,7 +57,7 @@ chat();
 
             echo '
               </select>
-              <select id="tecnicsCheck" style="display:none; onchange="carregarTecnics()">
+              <select id="tecnicsCheck" class="form-control" style="display:none; onchange="carregarTecnics()">
                 <option value="">Tria Tecnic</option>';
 
                   $query_ot_tecnics="SELECT DISTINCT usuaris.id_usuari ,username_usuari FROM usuaris";
@@ -69,8 +71,8 @@ chat();
               </select>
               <!--drop administratius -->
               <label id="checks"> Tots els Administratius </label>
-              <input type="checkbox" id="adminCheck" name="some" value="1" onclick="AdminisOnCheck()">
-              <select id="adminisDisCheck" onchange="carregarAdminis()">
+              <input type="checkbox"  id="adminCheck" name="some" value="1" onclick="AdminisOnCheck()">
+              <select id="adminisDisCheck" class="form-control" onchange="carregarAdminis()">
                 <option value="">Tria Administratius</option>';
                   $query_ot_Adminis="SELECT DISTINCT usuaris.id_usuari ,username_usuari FROM usuaris  WHERE usuaris.rol_usuari=4";
                   $resultat_ot_adminis=consulta($query_ot_Adminis);
@@ -81,7 +83,7 @@ chat();
 
             echo '
             </select>
-            <select id="adminisCheck" style="display:none;" onchange="carregarAdminis()">
+            <select id="adminisCheck" class="form-control" style="display:none;" onchange="carregarAdminis()">
               <option value="">Tria Administratius</option>';
                 $query_ot_Adminis="SELECT DISTINCT usuaris.id_usuari ,username_usuari FROM usuaris";
                 $resultat_ot_adminis=consulta($query_ot_Adminis);
@@ -95,7 +97,7 @@ chat();
               </select>
               <!--drop prioritat -->
               <label id="checks">Prioritat</label>
-              <select id="prioritatFiltre" onchange="carregarPrioritat()">
+              <select id="prioritatFiltre" class="form-control" onchange="carregarPrioritat()">
                 <option value="">Tria Prioritat</option>';
 
                   $query_prioritats="SELECT * FROM prioritat";

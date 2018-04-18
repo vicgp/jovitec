@@ -4,7 +4,12 @@
   <?php
   require("php/funcions.php");
 
+   
+
+  
+
 ?>
+  
   <!-- Theme Made By www.w3schools.com - No Copyright -->
   <title>Jovitec</title>
   <meta charset="utf-8">
@@ -14,6 +19,8 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/passwd.js"></script>
+  <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
   <link href="css/style2.css" rel="stylesheet" type="text/css">
   <link href="css/login.css" rel="stylesheet" type="text/css">
   <link href="css/stgall.css" rel="stylesheet" type="text/css">
@@ -44,21 +51,87 @@
     </div>
   </div>
 </nav>
+<script type="text/javascript">
+  function login(){
+
+    document.getElementById('login-form').style.display='block';
+    document.getElementById('pepe').style.display='none';
+    
+
+  }
+  function register(){
+    document.getElementById('pepe').style.display='block';
+    document.getElementById('login-form').style.display='none';
+    document.getElementById('carousel').style.display='none';
+  }
+  function validar(){
+    var p1 = document.getElementById("pwd").value;
+    
+    var p2 = document.getElementById("pwd2").value;
+    var espacios = false;
+    var cont = 0;
+ 
+while (!espacios && (cont < p1.length)) {
+  if (p1.charAt(cont) == " ")
+    espacios = true;
+  cont++;
+
+}
+ 
+if (espacios) {
+  alert ("La contraseña no puede contener espacios en blanco");
+  return false;
+}
+if (p1.length == 0 || p2.length == 0) {
+  alert("Los campos de la password no pueden quedar vacios");
+  return false;
+}
+if (p1 != p2) {
+  alert("Las passwords deben de coincidir");
+  return false;
+} else {
+  alert("Todo esta correcto");
+  return true; 
+}
+  }
+</script>
 <div id="id01" class="modal">
-  
-  <form class="modal-content animate" method="POST" action="back/authorize.php">
+  <form class="modal-content animate" method="POST" action="back/authorize.php" style="margin-top: -2px;padding-right: 7px;border-left-width: 1px;padding-left: 7px;">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal" >&times;</span>
       <img src="img/logo.png"  alt="Avatar" class="avatar" style="width: 25%;">
     </div>
+    <style type="text/css">
+  
 
-    <div class="container">
-      <label><b>Username</b></label><br>
+
+     
+    
+    </style>
+
+    <div class="btn-group btn-group-justified" role="group"  >
+    
+  <div class="btn-group" role="group" >
+    <button id="b1" type="button" class="btn btn-default" href="#login-form" onclick="login()"> Login <span class="glyphicon glyphicon-user"></span></button>
+  </div>
+  
+  <div class="btn-group" role="group">
+    <button id="b2" type="button" class="btn btn-default" href="#pepe" onclick="register()"> Register<span class="glyphicon glyphicon-pencil"></span>
+    </button>
+  </div>
+</div>
+
+      <div class="tab-content" style="margin-top: 12px;">
+
+      <div class="tab-pane fade active in" id="login-form">
+  
+      <label><b>Nom d'usuari</b></label><br>
       <input type="text" placeholder="Enter Username" name="uname" id="uname" required><br><br>
 
-      <label><b>Password</b></label><br>
+      <label><b>Contrasenya</b></label><br>
       <input type="password" placeholder="Enter Password" name="psswd" id="psswd" required><br>
       <label><b>Curs</b></label><br>
+      
         <select name=curs_actual>
 <?php
     $query_curs_escolar="SELECT * FROM curs_escolar";
@@ -68,23 +141,79 @@
     }
 ?>
     </select>
-      <button type="submit">Login</button>
-      <!-- <label>
-        <input type="checkbox" checked="checked"> Remember me
-      </label> -->
-      
-    </div>
-
+    <button type="submit">Login</button>
     <div class="container" style="background-color:#f1f1f1">
       <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
       <span class="psw">Forgot <a href="#">password?</a></span>
-    </div>
-  </form>
+    </div> 
+     
+
+      <!-- <label>
+        <input type="checkbox" checked="checked"> Remember me
+      </label> -->
+      <!-- <div id="registration-form" class="tab-pane fade">
+         <form action="/">
+                         <div class="form-group">
+                                <label for="name">Your Name:</label>
+                                <input type="text" class="form-control" id="name" placeholder="Enter your name" name="name">
+                         </div>
+                         <div class="form-group">
+                                <label for="newemail">Email:</label>
+                                <input type="email" class="form-control" id="newemail" placeholder="Enter new email" name="newemail">
+                        </div>
+                         <div class="form-group">
+                               <label for="newpwd">Password:</label>
+                               <input type="password" class="form-control" id="newpwd" placeholder="New password" name="newpwd">
+                        </div>
+                    <button type="submit" class="btn btn-default">Register</button>
+          </form>
+    </div> -->
+
+</div>
+<style></style>
+</form>
+<div id="pepe" style="display: none;" >
+      <form action="back/registrar.php" method="POST">
+                        <br><div class="form-group">
+                                <label for="name">Nom:</label>
+                                <input type="text" class="form-control" id="Names" placeholder="Enter your name" name="Names" required>
+                         </div>
+                         
+
+                         <div class="form-group">
+                                <label for="newemail">Email:</label>
+                                <input type="email" class="form-control" id="newemail" placeholder="Enter new email" name="email" required>
+                        </div>
+
+                         <div class="form-group">
+                                <label for="name">Nom d'usuari:</label>
+                                <input type="text" class="form-control" id="name" placeholder="Enter your username" name="usname" required>
+                         </div>
+                         
+                         <div class="form-group">
+                               <label for="newpwd">Password:</label>
+                               <input type="password" class="form-control" id="password" placeholder="New password" name="pwd" required>
+                                <div class="pwstrength_viewport_progress"></div>
+                        </div>
+                        <div class="form-group">
+                        <button type="submit"  style="background-color:#2196F3;">Registrar-se</button>
+                    
+          </form>
+        </div>
+
+     <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div> 
+    
+   </div>
+ 
+</div>
 </div>
 </div>
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
-    <ol class="carousel-indicators">
+    <ol class="carousel-indicators" id="carousel">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
       <li data-target="#myCarousel" data-slide-to="1"></li>
       <li data-target="#myCarousel" data-slide-to="2"></li>
