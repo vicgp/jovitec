@@ -42,18 +42,15 @@ google_ad_height = 90;
 <div class="container" style="margin-top: 100px;">
 <h2>Informació del teu Dispositiu</h2>
 <div id="myGoal"></div>
-<<<<<<< HEAD
 <!-- <div id="user" style="dis'play: none;"> --> <!-- en procés para los roles-->
 <?php if($_SESSION['rol']==3){?>
-<span class="btn btn-primary" id="get-current-value-btn" style="float: left;margin-top: 3.36%;" onclick="bot1()">Recollit</span><br>
+    <span class="btn btn-primary" id="get-current-value-btn" style="float: left;margin-top: 3.36%;" onclick="bot1()">Recollit</span><br>
         <span class="btn btn-primary" id="set-current-value-btn" style="float: left;margin-left: 31%; margin-top: 1.3%;"onclick="bot2()" >En Procés</span><br>
         <span class="btn btn-primary" id="find-step-btn" style="float: left;margin-left: 69%;margin-top: -4.4%;" onclick="bot3()">Pendent d'entrega</span><br>
         <span class="btn btn-primary" id="remove-step-btn" style="float: left;margin-left: 92%;margin-top: -4.3%;" onclick="bot4()">Entregat</span>
         </div>
-<?php }?>
-=======
-<?php 
-if($_SESSION['rol']<5){?>
+<?php }
+else if($_SESSION['rol']<5){?>
   <!-- <div id="user" style="display: none;"> --> <!-- en procés para los roles-->
 <span class="btn btn-primary" id="get-current-value-btn" style="float: left;margin-top: 3.36%;" onclick="desc2()">Recollit</span><br>
         <span class="btn btn-primary" id="set-current-value-btn" style="float: left;margin-left: 31%; margin-top: 1.3%;"onclick="desc()" >En Procés</span><br>
@@ -63,7 +60,6 @@ if($_SESSION['rol']<5){?>
 <?php
 
 }?>
->>>>>>> 2e32b75b3c3e6e255e6afe9330a70c1c38bf60a2
 
 <script src="../js/statproduct.js"></script>
 <script>
@@ -140,7 +136,6 @@ consulta($sql);
 }
 
 </script>
-<<<<<<< HEAD
 
 <?php if($_SESSION['rol']==5 && $percentatge==800){?>
   <div id="foto1" style="display: block;"><img src="../img/dis.png" style="margin-left: 15%; float: left;" />
@@ -154,19 +149,13 @@ else{?>
   <p class="w3-xlarge">Rebràs un Email confirmant que ja està apunt per recollir.</p>
 </div>
 <?php }?>
-=======
-<div id="foto" style="display: none;"><img src="../img/dis.png" style="margin-left: 8%; float: left;" />
-<div>
-  <p class="w3-xlarge">El teu dispositiu ja està arreglat!</p>
-  <p class="w3-xlarge">Rebràs un Email confirmant que ja està apunt per recollir.</p>
-</div>
+
 
 </div>
 
 
 
 
->>>>>>> 2e32b75b3c3e6e255e6afe9330a70c1c38bf60a2
 <?php
 
 peu("");?>
