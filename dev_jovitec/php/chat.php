@@ -6,14 +6,12 @@ $emisor=$_GET['emisor'];
 
 
 $receptor=$_GET['receptor'];
-	$sql = "SELECT * FROM chat WHERE (id_emisor=".$emisor." AND id_receptor=".$receptor.") OR (id_emisor=".$receptor." AND id_receptor=".$emisor.") ORDER BY fecha";
-	$ejecutar = consulta($sql);
+$sql = "SELECT * FROM chat WHERE (id_emisor=".$emisor." AND id_receptor=".$receptor.") OR (id_emisor=".$receptor." AND id_receptor=".$emisor.") ORDER BY fecha Desc";
+$ejecutar = consulta($sql);
 	if(!$ejecutar){
 		return $conexion->error;
 	}
 		else{
-
-
 	while($fila = $ejecutar->fetch_array()){
 		if($emisor==$fila['id_emisor']) {
 		?>
@@ -37,5 +35,16 @@ $receptor=$_GET['receptor'];
 			</div>
 
 <?php }
-}}
+
+
+}
+$estat_receptor="SELECT Conectat FROM usuaris WHERE id_usuari=".$emisor;
+$resultat_estat=consulta($estat_receptor);
+while($fila = $ejecutar->fetch_array()){
+	if($fila['Conectat']==1){
+		$updateEstatMissatge = "UPDATE chat SET estat=1 WHERE (id_emisor=".$emisor." AND id_receptor=".$receptor.") OR (id_emisor=".$receptor." AND id_receptor=".$emisor.")";
+		$ejecutar = consulta($updateEstatMissatge);
+	}
+}
+}
 ?>

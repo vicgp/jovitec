@@ -31,7 +31,7 @@ input[type=date], select {
 }
 .cancelbtn:hover {
   opacity: 0.6;
- 
+
 }
 /* Center the image and position the close button */
 
@@ -112,4 +112,8 @@ span.psw {
     .cancelbtn {
        width: 100%;
     }
+}
+#anomalies, #ob{
+  height:20%;
+  font-size:20px;
 }

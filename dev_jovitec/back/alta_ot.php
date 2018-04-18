@@ -105,7 +105,7 @@ include("../php/funcions.php");
                   <div class='panel panel-default'>
                     <div class='panel-heading'>Entrar Anomalia</div>
                     <div class='panel-body'>
-                      <input type='text' placeholder='Entrar Anomalia 'id='anomalies' name='ANOMALIA'  style='height:70%;font-size:20px;' maxlength='255'>
+                      <textarea placeholder='Entrar Anomalia 'id='anomalies' name='ANOMALIA'  ></textarea>
                     </div>
                   </div>
                 </div>
@@ -115,7 +115,7 @@ include("../php/funcions.php");
                   <div class='panel panel-default'>
                     <div class='panel-heading'>Entrar Observacio</div>
                     <div class='panel-body'>
-                      <input type='text' placeholder='Entrar Obsevacio 'id='ob' name='observacio' style='height:70%;font-size:20px;' maxlength='255'  >
+                      <textarea placeholder='Entrar Obsevacio 'id='ob' name='observacio'    ></textarea>
                     </div>
                   </div>
                 </div>

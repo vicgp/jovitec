@@ -1,9 +1,27 @@
-
+<html>
+  <head>
+    <link  rel='stylesheet' type='text/css' href='src/css/jquerysctipttop.css'>
+      <link  rel='stylesheet' type='text/css' href='../css/statproduct.css'>
 <?php
 session_start();
 include("../php/funcions.php");
 capsalera("modificar usuari");
-chat();?>
+chat();
+$sql="SELECT id_ot,id_estat FROM ordre_treball WHERE id_usuari=".$_SESSION['id_user']." AND id_estat!=4  LIMIT 1";
+$result=consulta($sql);
+$comanda=$result->fetch_assoc();
+
+if($comanda['id_estat']==2){
+   $percentatge=500;
+}
+else if($comanda['id_estat']==3){
+   $percentatge=800;
+}
+else{
+  $percentatge=1200;
+}
+
+?>
 
 
 <div id="jquery-script-menu">
@@ -25,21 +43,22 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 <div class="container">
 <h1>Informació del teu Dispositiu</h1>
 <div id="myGoal"></div>
-<!-- <div id="user" style="display: none;"> --> <!-- en procés para los roles-->
-<span class="btn btn-primary" id="get-current-value-btn" style="float: left;margin-top: 3.36%;" onclick="desc2()">Recollit</span><br>
-        <span class="btn btn-primary" id="set-current-value-btn" style="float: left;margin-left: 31%; margin-top: 1.3%;"onclick="desc()" >En Procés</span><br>
-        <span class="btn btn-primary" id="find-step-btn" style="float: left;margin-left: 69%;margin-top: -4.4%;" onclick="intro()">Pendent d'entrega</span><br>
-        <span class="btn btn-primary" id="remove-step-btn" style="float: left;margin-left: 92%;margin-top: -4.3%;" onclick="desc3()">Entregat</span>
+<!-- <div id="user" style="dis'play: none;"> --> <!-- en procés para los roles-->
+<?php if($_SESSION['rol']==3){?>
+<span class="btn btn-primary" id="get-current-value-btn" style="float: left;margin-top: 3.36%;" onclick="bot1()">Recollit</span><br>
+        <span class="btn btn-primary" id="set-current-value-btn" style="float: left;margin-left: 31%; margin-top: 1.3%;"onclick="bot2()" >En Procés</span><br>
+        <span class="btn btn-primary" id="find-step-btn" style="float: left;margin-left: 69%;margin-top: -4.4%;" onclick="bot3()">Pendent d'entrega</span><br>
+        <span class="btn btn-primary" id="remove-step-btn" style="float: left;margin-left: 92%;margin-top: -4.3%;" onclick="bot4()">Entregat</span>
         </div>
+<?php }?>
 
-<script src="http://code.jquery.com/jquery-1.12.2.min.js"></script>
 <script src="../js/statproduct.js"></script>
 <script>
 $('#myGoal').stepProgressBar({
-  currentValue: 10,
+  currentValue: <?php echo $percentatge ?>,
   steps: [
     { value: 100,
-    topLabel: 'Recollit',    
+    topLabel: 'Recollit',
     bottomLabel: '<i class="material-icons">transfer_within_a_station</i>' },
 
     {
@@ -51,12 +70,12 @@ $('#myGoal').stepProgressBar({
       topLabel: 'Pendent Entregat',
       value: 800,
       bottomLabel: '<i class="material-icons">notifications_active</i>'
-      
+
     },
-    
-    {  
+
+    {
       topLabel: 'Entregat',
-      value: 1000, 
+      value: 1000,
       bottomLabel: '<i class="material-icons">done</i>',
       mouseOver: function() { alert('mouseOver'); },
       click: function() { alert('click'); }
@@ -64,6 +83,7 @@ $('#myGoal').stepProgressBar({
   ],
   unit: '$'
 });
+
 
         $('#get-current-value-btn').click(function() {
           $('#myGoal').stepProgressBar('setCurrentValue', 100);
@@ -80,41 +100,45 @@ $('#myGoal').stepProgressBar({
         });
 </script>
 <script type="text/javascript">
-  function intro() {
 
-  document.getElementById("foto").style.display="block";
+  function bot1() {
+  document.getElementById("foto").style.display="none";
+  $sql="UPDATE ordre_treball SET id_estat=1 WHERE id_ot=".$comanda['id_ot'];
+  consulta($sql);
+ }
+ function bot2(){
+  document.getElementById("foto").style.display="none";
+  $sql="UPDATE ordre_treball SET id_estat=2 WHERE id_ot=".$comanda['id_ot'];
+  consulta($sql);
 
  }
- function desc(){
-  document.getElementById("foto").style.display="none";
- }
- function desc2(){
-  document.getElementById("foto").style.display="none";
- }
- function desc3(){
-  document.getElementById("foto").style.display="none";
- }
+ function bot3() {
+ document.getElementById("foto").style.display="block";
+ $sql="UPDATE ordre_treball SET id_estat=3 WHERE id_ot=".$comanda['id_ot'];
+ consulta($sql);
+
+}
+function bot4() {
+document.getElementById("foto").style.display="none";
+$sql="UPDATE ordre_treball SET id_estat=4 WHERE id_ot=".$comanda['id_ot'];
+consulta($sql);
+
+}
+
 </script>
 
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-36251023-1']);
-  _gaq.push(['_setDomainName', 'jqueryscript.net']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
+<?php if($_SESSION['rol']==5 && $percentatge==800){?>
+  <div id="foto1" style="display: block;"><img src="../img/dis.png" style="margin-left: 15%; float: left;" />
+    <p class="w3-xlarge">El teu dispositiu ja està arreglat!</p>
+    <p class="w3-xlarge">Rebràs un Email confirmant que ja està apunt per recollir.</p>
+  </div>
+<?php }
+else{?>
 <div id="foto" style="display: none;"><img src="../img/dis.png" style="margin-left: 15%; float: left;" />
   <p class="w3-xlarge">El teu dispositiu ja està arreglat!</p>
   <p class="w3-xlarge">Rebràs un Email confirmant que ja està apunt per recollir.</p>
 </div>
-
+<?php }?>
 <?php
 
 peu("");?>

@@ -4,9 +4,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 function capsalera ($titol){
   echo "
-  <!DOCTYPE html>
-  <html>
-    <head>
+
       <meta name='author' content='Xavier Morera'>
       <meta name='viewport' content='width=device-width, initial-scale=1.0'>
       <meta http-equiv='Content-Type' content='text/html' charset='utf-8' />
@@ -14,31 +12,28 @@ function capsalera ($titol){
       <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
       <meta name='viewport' content='width=device-width, initial-scale=1'>
       <!--bootstrap -->
+
       <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
-    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
-    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
-    <link rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css'>
-    <link href='src/css/jquerysctipttop.css' rel='stylesheet' type='text/css'>
-    <link rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css'>
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Allerta+Stencil'>
-    <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
-    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css' integrity='sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd' crossorigin='anonymous'>
-<link href='../css/statproduct.css' rel='stylesheet' type='text/css'>
+      <link rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css'>
+      <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Allerta+Stencil'>
+      <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+      <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css' integrity='sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd' crossorigin='anonymous'>
+      <!--icons fontawesome -->
+      <script src='https://use.fontawesome.com/210d3549a1.js'></script>
+
     <!--CSS -->
-      <link href='../css/statproduct.css' rel='stylesheet' type='text/css'>
+
       <link rel='stylesheet' type='text/css' href='../css/jovitec.css'>
       <link rel='stylesheet' type='text/css' href='../css/boton.css'>
 	  <link rel='stylesheet' type='text/css' href='../css/style.css'>
     <link rel='stylesheet' type='text/css' href='../css/navbar.css'>
-    <link rel='stylesheet' type='text/css' href='../css/modal.css'>
     <link rel='stylesheet' type='text/css' href='../css/chat.css'>
     <link rel='stylesheet' type='text/css' href='../css/sidebar.css'>
+    <link rel='stylesheet' type='text/css' href='../css/modal.css'>
 
     <!--JS -->
-    <script src='../js/func_alta_user.js'></script>
-    <script src='../js/func_alta_ot.js'></script>
-    <script src='../js/chat.js'></script>
-    <script src='../js/sidebar.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
 
 
 
@@ -46,6 +41,17 @@ function capsalera ($titol){
       <title>".$titol."</title>
     </head>
     <body>
+    <script>
+    /*$(document).ready(function(){
+          $(window).on('beforeunload', function(){
+            alert('prova');
+            $.ajax({url: '../back/Disconnect.php', success: function(result){
+            }});
+            return 'Are you sure you qant to quit';
+
+          });
+    });*/
+    </script>
     ";
 
   //Si la variable de sessió està buida vol dir que no ens hem autenticat i ens
@@ -74,12 +80,22 @@ function capsalera ($titol){
           <a class="navbar-brand" href="" style="width:70px;"><img src="../img/jv.png" style=" width: 140%; margin-left:-5px; margin-top: -10px;"></a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar" >
+
           <ul class="nav navbar-nav navbar-right">
+
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              <span id="notificacio" class="fa fa-comments-o" style="margin-bottom:  6%; padding-top: 20%; padding-bottom: 8%;color:#d5d5d5;font-s;font-size: 2em;"></span>
+            </a>
+              <ul class="dropdown-menu" id="missatgeNous">
+
+                <!-- crear tants <li><a href="#">Page 1-1</a></li> com missatges nous -->
+              </ul>
+          </li>
+
             <li><a href="../front/main.php" style="margin-bottom:  6%; padding-top: 9%; padding-bottom: 8%; margin-top: 6%;">Ordres de treball</a></li>
-            <li><a href="../front/comandes.php" style="margin-bottom:  20%; padding-top: 17%; padding-bottom: 12.5%; margin-top: 6%;">Comandes</a></li>
             <li><a href="../front/usuaris.php" style="margin-bottom:  20%; padding-top: 17%; padding-bottom: 15%; margin-top: 11%;">Usuaris</a></li>
             <li><a href="../front/usuari.php" style="margin-bottom:  20%; padding-top: 18%; padding-bottom: 19%; margin-top: 14%;">'.$_SESSION["usuari"].'</a></li>
-            </li>
             <li style="margin-right:11px"><a href="../back/logout.php" style="margin-bottom: 8.2;padding-top: 14.813;padding-bottom: 14.275;margin-top: 5px%;top: 27%;padding-bottom: 15.5;padding-bottom: 15.3;padding-bottom: 14px;padding-top: 35%;margin-top: -17%;"><span class="glyphicon glyphicon-log-out"  ></span></a></li>
           </ul>
         </div>
@@ -95,9 +111,17 @@ function capsalera ($titol){
         </div>
         <div class="collapse navbar-collapse" id="myNavbar" >
           <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              <span id="notificacio" class="glyphicon glyphicon-envelope" style="margin-bottom:  6%; padding-top: 6%; padding-bottom: 8%;color:#d5d5d5;">New Message</span>
+            </a>
+              <ul class="dropdown-menu" id="missatgeNous">
+
+                <!-- crear tants <li><a href="#">Page 1-1</a></li> com missatges nous -->
+              </ul>
+          </li>
 
             <li><a href="../front/main.php" style="margin-bottom:  6%; padding-top: 9%; padding-bottom: 8%; margin-top: 6%;">Ordres de treball</a></li>
-            <li><a href="../front/comandes.php" style="margin-bottom:  20%; padding-top: 17%; padding-bottom: 12.5%; margin-top: 6%;">Comandes</a></li>
             <li><a href="../front/usuari.php" style="margin-bottom:  20%;padding-top: 18%;padding-bottom: 23.188;margin-top: 17.35;margin-top: 5px;padding-bottom: 16px;">'.$_SESSION["usuari"].'</a></li>
             </li>
             <li style="margin-right:11px"><a href="../back/logout.php" style="margin-bottom: 8.2;padding-top: 14.813;padding-bottom: 14.275;margin-top: 5px%;top: 27%;padding-bottom: 15.5;padding-bottom: 15.3;padding-bottom: 14px;padding-top: 35%;margin-top: -17%;"><span class="glyphicon glyphicon-log-out" style=""></span></a></li>
@@ -115,6 +139,15 @@ function capsalera ($titol){
         </div>
         <div class="collapse navbar-collapse" id="myNavbar" >
           <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              <span id="notificacio" class="glyphicon glyphicon-envelope" style="margin-bottom:  6%; padding-top: 6%; padding-bottom: 8%;color:#d5d5d5;">New Message</span>
+            </a>
+              <ul class="dropdown-menu" id="missatgeNous">
+
+                <!-- crear tants <li><a href="#">Page 1-1</a></li> com missatges nous -->
+              </ul>
+          </li>
             <li><a href="../front/comandes.php" style="margin-bottom:  20%; padding-top: 17%; padding-bottom: 12.5%; margin-top: 6%;">Comandes</a></li>
              <li><a href="../front/historial_comandes.php" style="margin-bottom: 6%; padding-top: 9%; padding-bottom: 15.825; margin-top: 3%; padding-bottom: 15px;">Historial de Comandes</a></li>
             <li><a href="../front/usuari.php" style="margin-bottom: 20%;padding-top: 18%; padding-bottom: 19.712; margin-top: 14%;padding-bottom: 13px;">'.$_SESSION["usuari"].'</a></li>
@@ -160,25 +193,43 @@ function chat(){
 		</div>
 		<div id='users' class='w3-container'>
 			<ul class='ul'>";
-			$user="SELECT * FROM usuaris WHERE id_usuari!=".$_SESSION['id_user'];
-			$ejecutar = consulta($user);
+      if($_SESSION['rol']==3 || $_SESSION['rol']==4){
+        	$user="SELECT * FROM usuaris WHERE id_usuari in(SELECT o.id_usuari FROM usuaris u , ordre_treball o, tecnics t WHERE t.id_ot=o.id_ot AND t.id_usuari=u.id_usuari AND u.id_usuari=".$_SESSION['id_user'].")";
+      }
+      else if($_SESSION['rol']==5){
+        $user="SELECT * FROM usuaris WHERE id_usuari in(SELECT o.id_usuari FROM usuaris u , ordre_treball o, tecnics t WHERE t.id_ot=o.id_ot AND t.id_usuari=u.id_usuari AND u.id_usuari=4)";
+
+      }
+      else{
+			     $user="SELECT * FROM usuaris WHERE id_usuari!=".$_SESSION['id_user'];
+      }
+      $ejecutar = consulta($user);
+      $conentat="";
 			while($fila = $ejecutar->fetch_array()){
-				echo "<li><button class='li' onclick='abrir(".$_SESSION['id_user'].",".$fila['id_usuari'].")'>".$fila['nom_usuari']."</button></li><br>";
+        if($fila['Conectat']==1){
+                $conentat="green";
+               }
+                else{
+                  $conentat="black";
+                }
+				echo "<li><span class='glyphicon glyphicon-user'style='color:".$conentat.";'></span> <button class='li' onclick='abrir(".$_SESSION['id_user'].",".$fila['id_usuari'].")'>".$fila['nom_usuari']."</button></li><br>";
 			}
       echo "
-		</ul>
+		  </ul>
 		</div>
 	</div>
 
 	<!--CHAT -->
+  <!--chat 1 -->
+
 	<div id='btnChat'>
 		<img id='icon' src='../css/exit.ico'>
-		<button onclick='abrirChat(2)' id='btnChatUser2'><p style='margin: -10px 0 10px;'>ABRIR CHAT</p></button>
+    <p> ABRIR CHAT</p>
+
 	</div>
 
 			<div id='contenedor'>
 				<div id='minimizar'>
-					<button id='buttonMinimitzarChat' onclick='minimizar(2)' ><p id='noms1'></p></button>
 					<input type='hidden' id='id_user1' value=''>
 				</div>
 				<button onclick='cerrar(2)' id='cerrar'><img id='icon' src='../css/exit.ico'></button>
@@ -190,14 +241,16 @@ function chat(){
 					<button id='buttonEnviar' onclick='enviar(1,".$_SESSION['id_user'].")'>Enviar</button>
 			</div>
 
-			<div id='btnChat1'>
+  <!--chat 2 -->
+
+	<div id='btnChat1'>
 				<img id='icon' src='../css/exit.ico'>
-				<button onclick='abrirChat(3)' id='btnChatUser3'><p style='margin: -10px 0 10px;'>ABRIR CHAT</p></button>
+        <p> ABRIR CHAT</p>
+
 			</div>
 
 					<div id='contenedor1'>
 						<div id='minimizar1'>
-							<button id='buttonMinimitzarChat1' onclick='minimizar(3)' > <p id='noms2'></p></button>
 							<input type='hidden' id='id_user2' value=''>
 
 						</div>
@@ -208,15 +261,14 @@ function chat(){
 						<textarea name='mensaje2'  id='textarea2' placeholder='Ingresa tu mensaje'></textarea>
 						<button id='buttonEnviar1' onclick='enviar(2,".$_SESSION['id_user'].")'>Enviar</button>
 					</div>
-
-					<div id='btnChat2'>
+<!--chat 3 -->
+	<div id='btnChat2'>
 						<img id='icon' src='../css/exit.ico'>
-						<button onclick='abrirChat(4)' id='btnChatUser4' ><p style='margin: -10px 0 10px;'>ABRIR CHAT</p></button>
+            <p> ABRIR CHAT</p>
 					</div>
 
 							<div id='contenedor2'>
 								<div id='minimizar2'>
-									<button id='buttonMinimitzarChat2' onclick='minimizar(4)' ><p id='noms3'></p></button>
 									<input type='hidden' id='id_user3' value=''>
 
 								</div>
@@ -226,9 +278,9 @@ function chat(){
 								</div>
 								<textarea name='mensaje3'  id='textarea3' placeholder='Ingresa tu mensaje'></textarea>
 								<button id='buttonEnviar2' onclick='enviar(3,".$_SESSION['id_user'].")'>Enviar</button>
+							</div>
+              <script src='../js/chat.js'></script>";
 
-
-							</div>";
 }
 /////
 ////////////////////////////////////////////////////////////////////////////////

@@ -24,8 +24,12 @@ $administratius=$_POST['administratius'];
 $anomalies=$_POST['anomalia'];
 $ob=$_POST['ob'];
 echo $_POST['parametres'];
-$inventari=json_decode($_POST['inventari']);
+header("Content-Type: application/json; charset=UTF-8");
+$inventari=json_decode($_POST['inventari'],false);
+foreach( $inventari as $i){
 
+  echo $i;
+}
 echo $inventari;
 exit();
 

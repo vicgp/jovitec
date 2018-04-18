@@ -60,6 +60,8 @@ function alta(){
  console.log(inventari);
  var parametres="curs="+curs+"&dataE="+dataE+"&usuari="+usuari+"&prioritat="+prioritat+"&supervisors="+supervisors+"&tecnics="+tecnics+"&administratius="+administratius+"&dataLL="+dataLL+"&anomalia="+anomalies+"&ob="+ob+"&inventari="+inventari;
   //var dataF=document.getElementById('dataF').value;
+  console.log(parametres);
+
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       document.getElementById('formOT').style.display="none";
@@ -69,6 +71,7 @@ function alta(){
   };
 
   xhttp.open("POST", "../back/alta_ot_final.php", true);
+  xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send(parametres);
 }
 

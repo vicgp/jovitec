@@ -14,8 +14,9 @@ moure el fitxer login.php fora del ../back
 
 Imprimir informe pel client
 
-filtres:
-  -data_entrada
-  -prioritat
-  -tecnics
-  -administratius
+-servidor de correus
+-autregistrar client
+-canvair logo jovitec
+-tecnics :
+  -visualitxar nomes les ordres sense finalitzar
+  -per visualitzar totes fer un radio buton

@@ -3,11 +3,31 @@ usuarisOberts=[];
 chatsMin=[];
 numChats=chats.length+1;
 receptor = 0;
+numMissatge=0;
 var req = new XMLHttpRequest();
+read=false;
+setInterval(actualizarChat,1000);
+setInterval(newMessage,1000);
+$("#caja-chat").animate({ scrollTop: $('#caja-chat').prop("scrollHeight")}, 0);
 
-setInterval(actualizarChat,1000)
+function newMessage(){
+	$.ajax({url: "../back/nombreMissatge.php", success: function(result){
+			if(parseInt(result)>numMissatge && read==false){
+				$("#notificacio").css("color","red");
+				$.ajax({url: "../back/missatgesNous.php", success: function(result){
+						$("#missatgeNous").html(result);
+					}});
+			}
+			else{
+				$("#notificacio").css("color","#d5d5d5");
+			}
+			numMissatge=parseInt(result);
 
-
+	 }});
+}
+$("#notificacio")[0].addEventListener("click", function(){
+		read=true;
+});
 
 function actualizarChat(){
 	for(var i=0;i<usuarisOberts.length;i++){
@@ -147,6 +167,7 @@ function abrir(emisor,receptor){
             width: '20%',
             right: '250px'
         });
+				// $('#contenedor').scrollTop=$('#contenedor').scrollHeight;
 
       }
       else if(!chats.includes('3')){
@@ -189,72 +210,96 @@ function abrir(emisor,receptor){
     }
     openChat(emisor,receptor);
 }}
-function abrirChat(chat){
-	if(chat==2){
-		$("#contenedor").animate({
-				height: '350px'});
-				$("#contenedor").show();
-  		$('#btnChat').hide();
-	}
-	else if(chat==3){
-		$("#contenedor1").animate({
-				height: '350px'});
-				$("#contenedor1").show();
-  		$('#btnChat1').hide();
 
-	}
-	else if(chat==4){
-		$("#contenedor2").animate({
-				height: '350px'});
-				$("#contenedor2").show();
-  		$('#btnChat2').hide();
-
-	}
-
+//------------------------------------------------------------
+//-----------------boto "enter" eniva missatge----------------
+//------------------------------------------------------------
+var input1 = document.getElementById("textarea1");
+input1.addEventListener("keyup", function(event) {
+if (event.keyCode === 13) {
+		document.getElementById("buttonEnviar").click();
 }
-function minimizar(numchat){
-  if('2'==numchat){
-    $("#contenedor").animate({height: "0px"});
-		$('#btnChat').show();
-		$('#btnChat').animate({
-			right: '250px'
-		});
-    $('#btnChatUser2').show();
-		$('#btnChatUser2').animate({
-			right: '250px'
-		});
-    $('#contenedor').hide();
+});
 
-  }
-  else if('3'==numchat){
-    $("#contenedor1").animate({height: "0px"});
-		$('#btnChat1').show();
-		$('#btnChat1').animate({
-			right: '540px'
-		});
-    $('#btnChatUser3').show();
-		$('#btnChatUser3').animate({
-			right: '540px'
-		});
-    $('#contenedor1').hide();
-
-
-  }
-  else if('4'==numchat){
-    $("#contenedor2").animate({height: "0px"});
-		$('#btnChat2').show();
-		$('#btnChat2').animate({
-			right: '830px'
-		});
-    $('#btnChatUser4').show();
-		$('#btnChatUser4').animate({
-			right: '830px'
-		});
-    $('#contenedor2').hide();
-
-  }
-
+var input2 = document.getElementById("textarea2");
+input2.addEventListener("keyup", function(event) {
+if (event.keyCode === 13) {
+		document.getElementById("buttonEnviar1").click();
 }
+});
+
+var input3 = document.getElementById("textarea3");
+input3.addEventListener("keyup", function(event) {
+if (event.keyCode === 13) {
+		document.getElementById("buttonEnviar2").click();
+}
+});
+
+//------------------------------------------------------------
+//-----------------event obrir chats----------------
+//------------------------------------------------------------
+$("#btnChat2")[0].addEventListener("click",function(){
+	$("#contenedor2").animate({
+			height: '350px'});
+			$("#contenedor2").show();
+		$('#btnChat2').hide();
+});
+$("#btnChat1")[0].addEventListener("click",function(){
+	$("#contenedor1").animate({
+			height: '350px'});
+			$("#contenedor1").show();
+		$('#btnChat1').hide();
+});
+$("#btnChat")[0].addEventListener("click",function(){
+	$("#contenedor").animate({
+			height: '350px'});
+			$("#contenedor").show();
+		$('#btnChat').hide();
+});
+
+//------------------------------------------------------------
+//-----------------event minimitzar chats----------------
+//------------------------------------------------------------
+$("#minimizar")[0].addEventListener("click",function(){
+		$("#contenedor").animate({height: "0px"});
+			$('#btnChat').show();
+			$('#btnChat').animate({
+				right: '250px'
+			});
+			$('#btnChatUser2').show();
+			$('#btnChatUser2').animate({
+				right: '250px'
+			});
+			$('#contenedor').hide();
+});
+$("#minimizar1")[0].addEventListener("click",function(){
+	$("#contenedor1").animate({height: "0px"});
+	$('#btnChat1').show();
+	$('#btnChat1').animate({
+		right: '540px'
+	});
+	$('#btnChatUser3').show();
+	$('#btnChatUser3').animate({
+		right: '540px'
+	});
+	$('#contenedor1').hide();
+
+});
+$("#minimizar2")[0].addEventListener("click",function(){
+	$("#contenedor2").animate({height: "0px"});
+	$('#btnChat2').show();
+	$('#btnChat2').animate({
+		right: '830px'
+	});
+	$('#btnChatUser4').show();
+	$('#btnChatUser4').animate({
+		right: '830px'
+	});
+	$('#contenedor2').hide();
+
+});
+
+
 
 function minimizarInici(){
     $("#contenedor-usuaris").animate({height: "0px"});
@@ -280,7 +325,7 @@ function cerrar(id) {
 			var posU=buscarUsuari(receptor);
 			usuarisOberts.splice(posU,1);
 			var pos=buscar('2');
-			chats.splice(pos,1)
+			chats.splice(pos,1);
 
 
     }

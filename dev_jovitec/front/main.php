@@ -1,3 +1,8 @@
+<html>
+  <head>
+    <script src='../js/func_alta_ot.js'></script>
+    <script src='../js/sidebar.js'></script>
+
 <?php
 session_start();
 include("../php/funcions.php");
@@ -211,7 +216,7 @@ chat();
         ";
             while ($fila_ot_generic=$resultat_ot_generic->fetch_assoc()){
         echo "
-            <tr ondblclick=document.getElementById('modificar_ot".$fila_ot_generic['id_ot']."').submit(); title='doble click per veure/modificar'>
+            <tr id='ordre' title='doble click per veure/modificar'>
               <form id='modificar_ot".$fila_ot_generic['id_ot']."' method='POST' action='ot.php'>
                 <input type='hidden' name='id_ot' value='".$fila_ot_generic['id_ot']."' />
               </form>

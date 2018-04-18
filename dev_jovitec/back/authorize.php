@@ -15,12 +15,15 @@ if ($resultat->fetch_assoc()['password_usuari'] != $_POST['psswd']){
 }
 else {
   // fem una consulta per saber el rol de l'usuari
+  $conented="UPDATE usuaris SET Conectat=1 WHERE id_usuari=";
   $query_id="SELECT id_usuari FROM usuaris WHERE username_usuari = '$uname'";
   $resultat_id=consulta($query_id);
 // es defineixen les variables de sessió
   session_start();
   $_SESSION['usuari']=$uname;
   $_SESSION['id_user']=($resultat_id->fetch_assoc()['id_usuari']);
+  $connected="UPDATE usuaris SET Conectat=1 WHERE id_usuari=".$_SESSION['id_user'];
+  $res=consulta($connected);
 
   $query_rol="SELECT rol_usuari FROM usuaris WHERE username_usuari = '$uname'";
   $resultat_rol=consulta($query_rol);

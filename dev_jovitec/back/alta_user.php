@@ -24,7 +24,7 @@ include("../php/funcions.php");
                     <input type='text' id='username' placeholder='Escriu el nom de usuari desitgat' required></input>
                   </div>
                   <div class='col-sm-6'>
-                    <label><b>Pasword:</b></label>
+                    <label><b>Pasword:</b></label><br>
                     <input type='password' id='password' placeholder='Escriu la Password' required></input>
                   </div>
                 </div>

@@ -1,3 +1,8 @@
+<html>
+  <head>
+    <script src='../js/func_alta_user.js'></script>
+    <script src='../js/sidebar.js'></script>
+
 <?php
 session_start();
 include("../php/funcions.php");
