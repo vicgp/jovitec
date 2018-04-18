@@ -88,14 +88,30 @@ function capsalera ($titol){
       <div >
 
         <div class="navbar-header">
-          <a class="navbar-brand" href="" style="width:70px;"><img src="../img/jv.png" style=" width: 140%; margin-left:-5px; margin-top: -10px;"></a>
+          <a class="navbar-brand" href="" style="width:70px;"><img src="../img/jv.png" style=" width: 140%; margin-left:-20%; margin-top: -20%;"></a>
+          <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open('.$_SESSION['url'].')" style="display: inline-block; margin-top: -7%;">&#9776</button>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar" >
 
-          <ul class="nav navbar-nav navbar-right">
+          
 
+          
+
+
+        
+          <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="
+    margin-left: -50%;
+    margin-top: -17.8%;
+    
+    padding-top: 37%;
+    padding-bottom: 10%;
+    padding-right: 12%;
+
+
+
+">
               <span id="notificacio" class="fa fa-comments-o" style="margin-bottom:  6%; padding-top: 20%; padding-bottom: 8%;color:#d5d5d5;font-s;font-size: 2em;"></span>
             </a>
               <ul class="dropdown-menu" id="missatgeNous">
@@ -103,10 +119,6 @@ function capsalera ($titol){
                 <!-- crear tants <li><a href="#">Page 1-1</a></li> com missatges nous -->
               </ul>
           </li>
-
-
-        <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open('.$_SESSION['url'].')" style="display: inline-block;margin-top: -0.6%;">&#9776</button>
-          <ul class="nav navbar-nav navbar-right">
             <li><a href="../front/main.php" style="margin-bottom:  6%;padding-top: 9%;padding-bottom: 8%;margin-top: 6%;margin-left: -19%;">Ordres de treball</a></li>
             <li><a href="../front/comandes.php" style="margin-bottom:  20%;padding-top: 17%;padding-bottom: 12.5%;margin-top: 6%;margin-left: -23%;">Comandes</a></li>
             <li><a href="../front/usuaris.php" style="margin-bottom:  20%;padding-top: 17%;padding-bottom: 15%;margin-top: 11%;margin-left: -21%;">Usuaris</a></li>
