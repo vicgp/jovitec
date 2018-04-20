@@ -23,7 +23,7 @@ function capsalera ($titol){
       <script src='https://use.fontawesome.com/210d3549a1.js'></script>
 
     <!--CSS -->
-
+    
     <link rel='stylesheet' href='../css/UserProfile.css'>
       <link href='../css/statproduct.css' rel='stylesheet' type='text/css'>
       <link rel='stylesheet' type='text/css' href='../css/jovitec.css'>
@@ -33,8 +33,19 @@ function capsalera ($titol){
     <link rel='stylesheet' type='text/css' href='../css/chat.css'>
     <link rel='stylesheet' type='text/css' href='../css/sidebar.css'>
     <link rel='stylesheet' type='text/css' href='../css/modal.css'>
+<!--Perfil-->
+<link rel='stylesheet' type='text/css' href='../css/perfil/normalize.css' />
+    <link rel='stylesheet' type='text/css' href='../css/perfil/component.css' />
+    <link rel='stylesheet' type='text/css' href='../css/perfil/common.css' />
+    <link rel='stylesheet' type='text/css' href='../css/perfil/perfil.css' />
+<script src='../js/perfil/custom-file-input.js'></script>
+<script src='../js/perfil/jquery-v1.min.js'></script>
+<script src='../js/perfil/jquery.custom-file-input.js'></script>
 
+
+<!---->
     <!--JS -->
+    <script type='text/javascript' src='../js/modernizr.custom.79639.js'></script>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
     <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
 
