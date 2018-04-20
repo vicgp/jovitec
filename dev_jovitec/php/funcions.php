@@ -35,12 +35,11 @@ function capsalera ($titol){
     <link rel='stylesheet' type='text/css' href='../css/modal.css'>
 
     <!--JS -->
-    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
     <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
 
     <script src='../js/func_alta_user.js'></script>
     <script src='../js/func_alta_ot.js'></script>
-    <script src='../js/chat.js'></script>
     <script src='../js/sidebar.js'></script>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
         <script  src='../js/UserProfile.js'></script>
