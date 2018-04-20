@@ -36,6 +36,7 @@ function actualizarChat(){
 }
 
 function openChat(emisor,receptor){
+			
 			req.onreadystatechange = function(){
 				if(req.readyState == 4 && req.status == 200){
 					if(!chats.includes('2')){
@@ -389,11 +390,7 @@ $(document).ready(function(){
     });
 });
 
-$(document).ready(function(){
-    $("#minimizar").click(function(){
-    minimizar();
-    });
-});
+
 
 $(document).ready(function(){
     $("#minimizarInici").click(function(){

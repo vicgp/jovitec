@@ -4,12 +4,12 @@
   <?php
   require("php/funcions.php");
 
-   
 
-  
+
+
 
 ?>
-  
+
   <!-- Theme Made By www.w3schools.com - No Copyright -->
   <title>Jovitec</title>
   <meta charset="utf-8">
@@ -19,12 +19,14 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
   <script type="text/javascript" src="js/passwd.js"></script>
   <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
   <link href="css/style2.css" rel="stylesheet" type="text/css">
   <link href="css/login.css" rel="stylesheet" type="text/css">
   <link href="css/stgall.css" rel="stylesheet" type="text/css">
 <script src="js/script.js"></script>
+
 
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
@@ -35,7 +37,7 @@
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
+        <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href=""><img src="img/jv.png" style="width: 7%; margin-top: -10px;"></a>
     </div>
@@ -56,7 +58,7 @@
 
     document.getElementById('login-form').style.display='block';
     document.getElementById('pepe').style.display='none';
-    
+
 
   }
   function register(){
@@ -66,18 +68,18 @@
   }
   function validar(){
     var p1 = document.getElementById("pwd").value;
-    
+
     var p2 = document.getElementById("pwd2").value;
     var espacios = false;
     var cont = 0;
- 
+
 while (!espacios && (cont < p1.length)) {
   if (p1.charAt(cont) == " ")
     espacios = true;
   cont++;
 
 }
- 
+
 if (espacios) {
   alert ("La contraseña no puede contener espacios en blanco");
   return false;
@@ -91,7 +93,7 @@ if (p1 != p2) {
   return false;
 } else {
   alert("Todo esta correcto");
-  return true; 
+  return true;
 }
   }
 </script>
@@ -102,19 +104,19 @@ if (p1 != p2) {
       <img src="img/logo.png"  alt="Avatar" class="avatar" style="width: 25%;">
     </div>
     <style type="text/css">
-  
 
 
-     
-    
+
+
+
     </style>
 
     <div class="btn-group btn-group-justified" role="group"  >
-    
+
   <div class="btn-group" role="group" >
     <button id="b1" type="button" class="btn btn-default" href="#login-form" onclick="login()"> Login <span class="glyphicon glyphicon-user"></span></button>
   </div>
-  
+
   <div class="btn-group" role="group">
     <button id="b2" type="button" class="btn btn-default" href="#pepe" onclick="register()"> Register<span class="glyphicon glyphicon-pencil"></span>
     </button>
@@ -124,14 +126,14 @@ if (p1 != p2) {
       <div class="tab-content" style="margin-top: 12px;">
 
       <div class="tab-pane fade active in" id="login-form">
-  
+
       <label><b>Nom d'usuari</b></label><br>
       <input type="text" placeholder="Enter Username" name="uname" id="uname" required><br><br>
 
       <label><b>Contrasenya</b></label><br>
       <input type="password" placeholder="Enter Password" name="psswd" id="psswd" required><br>
       <label><b>Curs</b></label><br>
-      
+
         <select name=curs_actual>
 <?php
     $query_curs_escolar="SELECT * FROM curs_escolar";
@@ -145,8 +147,8 @@ if (p1 != p2) {
     <div class="container" style="background-color:#f1f1f1">
       <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
       <span class="psw">Forgot <a href="#">password?</a></span>
-    </div> 
-     
+    </div>
+
 
       <!-- <label>
         <input type="checkbox" checked="checked"> Remember me
@@ -174,40 +176,53 @@ if (p1 != p2) {
 </form>
 <div id="pepe" style="display: none;" >
       <form action="back/registrar.php" method="POST">
-                        <br><div class="form-group">
-                                <label for="name">Nom:</label>
-                                <input type="text" class="form-control" id="Names" placeholder="Enter your name" name="Names" required>
-                         </div>
-                         
+                        <br><div id="NameForm" class="form-group  has-feedback">
 
-                         <div class="form-group">
-                                <label for="newemail">Email:</label>
-                                <input type="email" class="form-control" id="newemail" placeholder="Enter new email" name="email" required>
+                                <label class="control-label" for="nom">Nom:</label>
+                                <input type="text" class="form-control" id="nom" placeholder="Enter your name" name="Names" required>
+                                <i id="NameIcon" class="material-icons form-control-feedback"  aria-hidden="true">done</i>
+                                <!-- <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span> -->
+                                <!-- <span id="inputSuccess2Status" class="sr-only">(success)</span> -->
+                         </div>
+
+
+                         <div id="emailForm" class="form-group has-feedback">
+                                <label  class="control-label" for="newemail">Email:</label>
+                                <div class="input-group">
+                                  <span class="input-group-addon">@</span>
+                                  <input type="email" class="form-control" id="newemail" placeholder="Enter new email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+                              </div>
+                                <i id="emailIcon" class="material-icons form-control-feedback">highlight_off</i>
                         </div>
 
-                         <div class="form-group">
-                                <label for="name">Nom d'usuari:</label>
-                                <input type="text" class="form-control" id="name" placeholder="Enter your username" name="usname" required>
+                         <div id="usernameForm" class="form-group  has-feedback">
+                                <label class="control-label" for="username">Nom d'usuari:</label>
+                                <input type="text" class="form-control" id="username" placeholder="Enter your username" name="usname" required>
+                                <i id="usernameIcon" class="material-icons form-control-feedback"  aria-hidden="true">done</i>
+
                          </div>
-                         
-                         <div class="form-group">
-                               <label for="newpwd">Password:</label>
+
+                         <div class="form-group  has-feedback">
+                               <label class="control-label" for="newpwd">Password:</label>
                                <input type="password" class="form-control" id="password" placeholder="New password" name="pwd" required>
                                 <div class="pwstrength_viewport_progress"></div>
+                                <i class="material-icons form-control-feedback"  aria-hidden="true">done</i>
+
                         </div>
+                        <input type="hidden" id="hidenValue" value="">
                         <div class="form-group">
-                        <button type="submit"  style="background-color:#2196F3;">Registrar-se</button>
-                    
+                        <button id="botoRegistrar" type="submit"  style="background-color:#2196F3;">Registrar-se</button>
+
           </form>
         </div>
 
      <div class="container" style="background-color:#f1f1f1">
       <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
       <span class="psw">Forgot <a href="#">password?</a></span>
-    </div> 
-    
+    </div>
+
    </div>
- 
+
 </div>
 </div>
 </div>
@@ -226,7 +241,7 @@ if (p1 != p2) {
         <div class="carousel-caption">
           <h3 style="color:white;">Hardware</h3>
           <p>Ajudem a buscar el component que necessitis</p>
-        </div>      
+        </div>
       </div>
 
       <div class="item">
@@ -234,15 +249,15 @@ if (p1 != p2) {
         <div class="carousel-caption">
           <h3>Servei Tècnic</h3>
           <p>La millor manera de contactar amb el soport Tènic a través del xat!</p>
-        </div>      
+        </div>
       </div>
-    
+
       <div class="item">
         <img src="img/ss.jpg" alt="Los Angeles" width="1200" height="700">
         <div class="carousel-caption">
           <h3 id="co">Tècnics</h3>
           <p style="color:black;">Confia amb els tècnics de l'escola Joviat!</p>
-        </div>      
+        </div>
       </div>
     </div>
 
@@ -327,11 +342,11 @@ if (p1 != p2) {
       </div>
     </div>
   </div>
-  
+
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
-    
+
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
@@ -348,7 +363,7 @@ if (p1 != p2) {
               <label for="usrname"><span class="glyphicon glyphicon-user"></span> Send To</label>
               <input type="text" class="form-control" id="usrname" placeholder="Enter email">
             </div>
-              <button type="submit" class="btn btn-block">Pay 
+              <button type="submit" class="btn btn-block">Pay
                 <span class="glyphicon glyphicon-ok"></span>
               </button>
           </form>
@@ -394,7 +409,7 @@ if (p1 != p2) {
       </div>
     </div>
   </div>
-  
+
 </div>
 
 <!-- Add Google Maps -->
@@ -411,7 +426,7 @@ Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
   <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
     <span class="glyphicon glyphicon-chevron-up"></span>
   </a><br><br>
-  <p>Jovitec by<a href="https://www.joviat.com" data-toggle="tooltip" title="jovia.com"> www.joviat.cat</a></p>  
+  <p>Jovitec by<a href="https://www.joviat.com" data-toggle="tooltip" title="jovia.com"> www.joviat.cat</a></p>
 </footer>
 <!-- <script>
 // Get the modal
@@ -424,6 +439,7 @@ window.onclick = function(event) {
     }
 }
 </script> -->
+<script src="js/registrar.js"></script>
 
 </body>
 </html>
