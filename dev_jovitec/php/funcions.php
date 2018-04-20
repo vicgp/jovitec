@@ -23,7 +23,7 @@ function capsalera ($titol){
       <script src='https://use.fontawesome.com/210d3549a1.js'></script>
 
     <!--CSS -->
-    
+
     <link rel='stylesheet' href='../css/UserProfile.css'>
       <link href='../css/statproduct.css' rel='stylesheet' type='text/css'>
       <link rel='stylesheet' type='text/css' href='../css/jovitec.css'>
@@ -45,12 +45,9 @@ function capsalera ($titol){
 
 <!---->
     <!--JS -->
-<<<<<<< HEAD
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-=======
+
     <script type='text/javascript' src='../js/modernizr.custom.79639.js'></script>
-    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
->>>>>>> mmoreno
     <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
 
     <script src='../js/func_alta_user.js'></script>
@@ -107,18 +104,18 @@ function capsalera ($titol){
         </div>
         <div class="collapse navbar-collapse" id="myNavbar" >
 
-          
-
-          
 
 
-        
+
+
+
+
           <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="
     margin-left: -50%;
     margin-top: -17.8%;
-    
+
     padding-top: 37%;
     padding-bottom: 10%;
     padding-right: 12%;
