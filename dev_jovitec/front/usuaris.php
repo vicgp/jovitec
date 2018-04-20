@@ -17,8 +17,8 @@ chat();
    $resultat= consulta($qwery);
 
 
-echo '<div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
-  <button onclick="w3_close('.$_SESSION['url'].')" class="w3-bar-item w3-large">Close &times;</button>
+echo '<div class="w3-sidebar w3-bar-block w3-border-right" style="display: none; position:absolute; z-index:9999; width: 25%; background-color: rgba(50, 54, 60, 0.83); color:black; margin-top:-3.5%;" id="mySidebar">
+  <button onclick="w3_close('.$_SESSION['url'].')" class="w3-bar-item w3-large" style="background-color:#f30808d4;">Close &times;</button>
           <!--CheckBoxes -->
           <div style="display:block;">
             <label id="checks"> Tots els usuaris </label>
