@@ -24,19 +24,19 @@ chat();
   $query_ot_generic="";
 
   if($_SESSION['rol']<=2){
-    $query_ot_generic="SELECT ordre_treball.id_ot, curs_escolar.curs, usuaris.cognoms_usuari, usuaris.nom_usuari, usuaris.email_usuari, data_entrada, prioritat, data_finalitzacio, data_lliurament
+    $query_ot_generic="SELECT ordre_treball.id_estat,ordre_treball.id_ot, curs_escolar.curs, usuaris.cognoms_usuari, usuaris.nom_usuari, usuaris.email_usuari, data_entrada, prioritat, data_finalitzacio, data_lliurament
     FROM ordre_treball INNER JOIN curs_escolar ON ordre_treball.id_curs=curs_escolar.id_curs
     INNER JOIN usuaris ON usuaris.id_usuari=ordre_treball.id_usuari
     ORDER BY id_ot DESC";
   }
   else if($_SESSION['rol']==3 ){
-    $query_ot_generic="SELECT ordre_treball.id_ot, curs_escolar.curs, usuaris.cognoms_usuari, usuaris.nom_usuari, usuaris.email_usuari, data_entrada, prioritat, data_finalitzacio, data_lliurament
+    $query_ot_generic="SELECT ordre_treball.id_estat,ordre_treball.id_ot, curs_escolar.curs, usuaris.cognoms_usuari, usuaris.nom_usuari, usuaris.email_usuari, data_entrada, prioritat, data_finalitzacio, data_lliurament
      FROM ordre_treball INNER JOIN curs_escolar ON ordre_treball.id_curs=curs_escolar.id_curs
      INNER JOIN usuaris ON usuaris.id_usuari=ordre_treball.id_usuari INNER JOIN tecnics ON tecnics.id_ot=ordre_treball.id_ot
      WHERE tecnics.id_usuari=".$_SESSION['id_user']." ORDER BY id_ot DESC";
   }
   else if($_SESSION['rol']==4 ){
-      $query_ot_generic="SELECT ordre_treball.id_ot, curs_escolar.curs, usuaris.cognoms_usuari, usuaris.nom_usuari, usuaris.email_usuari, data_entrada, prioritat, data_finalitzacio, data_lliurament
+      $query_ot_generic="SELECT  ordre_treball.id_estat,ordre_treball.id_ot, curs_escolar.curs, usuaris.cognoms_usuari, usuaris.nom_usuari, usuaris.email_usuari, data_entrada, prioritat, data_finalitzacio, data_lliurament
       FROM ordre_treball INNER JOIN curs_escolar ON ordre_treball.id_curs=curs_escolar.id_curs
       INNER JOIN usuaris ON usuaris.id_usuari=ordre_treball.id_usuari INNER JOIN administratius ON administratius.id_ot=ordre_treball.id_ot
       WHERE administratius.id_usuari=".$_SESSION['id_user']." ORDER BY id_ot DESC";
@@ -121,7 +121,7 @@ chat();
           <div id='ordres'>
           <h1>Ordres de Treball:</h1>
 
-          <button id='ot' class='' onclick='ot_alta()' style= width:100%; >Nova OT</button>
+          <button id='ot'  onclick='ot_alta()' style= width:100%; >Nova OT</button>
           <div id='newOT'>
           </div>
 
@@ -214,11 +214,14 @@ chat();
                   <input type=hidden name=ordre value=DESC />
                 </form>
               </th>
+              <th>
+                Editar
+              </th>
             </tr> <!-- fi de la primera fila de títols i botons -->
         ";
             while ($fila_ot_generic=$resultat_ot_generic->fetch_assoc()){
         echo "
-            <tr id='ordre' title='doble click per veure/modificar'>
+            <tr id='ordre' ondblclick=document.getElementById('modificar_ot".$fila_ot_generic['id_ot']."').submit(); title='doble click per veure/modificar'>
               <form id='modificar_ot".$fila_ot_generic['id_ot']."' method='POST' action='ot.php'>
                 <input type='hidden' name='id_ot' value='".$fila_ot_generic['id_ot']."' />
               </form>
@@ -275,6 +278,21 @@ chat();
               <td>
                 ".$fila_ot_generic['data_lliurament']."
               </td>
+              <td onclick=$('#editarComanda".$fila_ot_generic['id_ot']."').submit();>
+                  <form id='editarComanda".$fila_ot_generic['id_ot']."' method='POST' action='comandes.php'>
+                    <input type='hidden' name='id_ot' value='".$fila_ot_generic['id_ot']."' />
+                    <i class='material-icons' style='font-size: 2em;color:";if($fila_ot_generic['id_estat']==1){
+                                                                                echo "red;";
+                                                                            }
+                                                                            else if($fila_ot_generic['id_estat']==2 || $fila_ot_generic['id_estat']==3){
+                                                                              echo "orange;";
+                                                                            }
+                                                                            else{
+                                                                              echo "green;";
+                                                                            }
+                       echo "'>linear_scale</i>
+                  </form>
+              </td>
             </tr> <!-- fi de la línia de dades de la OT -->
 
         ";
@@ -285,3 +303,4 @@ chat();
           </div>
         ";
 peu("");
+?>

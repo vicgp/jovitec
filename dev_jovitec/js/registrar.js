@@ -16,43 +16,59 @@ $("#nom")[0].addEventListener("focusout",function(){
 
 });
 $("#newemail")[0].addEventListener("focusout",function(){
-  $.ajax({url: "back/validarRegistrar.php?infoPassar=2&email="+$("#newemail").val(), success: function(result){
-    if(result!="1"){
-      $("#emailForm").removeClass("has-success");
-      $("#emailForm").addClass("has-error");
-      $("#emailIcon").html("highlight_off");
-      $("#hidenValue").val("0");
+  if($("#newemail").val().split()!=""){
+      $.ajax({url: "back/validarRegistrar.php?infoPassar=2&email="+$("#newemail").val(), success: function(result){
+        if(result!="1"){
+          $("#emailForm").removeClass("has-success");
+          $("#emailForm").addClass("has-error");
+          $("#emailIcon").html("highlight_off");
+          $("#hidenValue").val("0");
 
-    }
-    else{
-      $("#emailForm").removeClass("has-error");
-      $("#emailForm").addClass("has-success");
-      $("#emailIcon").html("done");
-      $("#hidenValue").val("1");
+        }
+        else{
+          $("#emailForm").removeClass("has-error");
+          $("#emailForm").addClass("has-success");
+          $("#emailIcon").html("done");
+          $("#hidenValue").val("1");
 
-    }
-    $("#emailIcon").show();
+        }
+        $("#emailIcon").show();
 
-}})
+    }});
+  }
+  else{
+    $("#emailForm").removeClass("has-success");
+    $("#emailForm").addClass("has-error");
+    $("#emailIcon").html("highlight_off");
+    $("#hidenValue").val("0");
+  }
 });
 $("#username")[0].addEventListener("focusout",function(){
-  $.ajax({url: "back/validarRegistrar.php?infoPassar=1&username="+$("#username").val(), success: function(result){
-    if(result!="1"){
-      $("#usernameForm").removeClass("has-success");
-      $("#usernameForm").addClass("has-error");
-      $("#usernameIcon").html("highlight_off");
-      $("#hidenValue").val("0");
-    }
-    else{
-      $("#usernameForm").removeClass("has-error");
-      $("#usernameForm").addClass("has-success");
-      $("#usernameIcon").html("done");
-      $("#hidenValue").val("1");
+  if($("#username").val()!=""){
+      $.ajax({url: "back/validarRegistrar.php?infoPassar=1&username="+$("#username").val(), success: function(result){
+        if(result!="1"){
+          $("#usernameForm").removeClass("has-success");
+          $("#usernameForm").addClass("has-error");
+          $("#usernameIcon").html("highlight_off");
+          $("#hidenValue").val("0");
+        }
+        else{
+          $("#usernameForm").removeClass("has-error");
+          $("#usernameForm").addClass("has-success");
+          $("#usernameIcon").html("done");
+          $("#hidenValue").val("1");
 
-    }
-    $("#usernameIcon").show();
+        }
+        $("#usernameIcon").show();
 
-}})
+    }});
+  }
+  else{
+    $("#usernameForm").removeClass("has-success");
+    $("#usernameForm").addClass("has-error");
+    $("#usernameIcon").html("highlight_off");
+    $("#hidenValue").val("0");
+  }
 });
 
 $("#botoRegistrar")[0].addEventListener("click",function(){

@@ -23,7 +23,6 @@ function capsalera ($titol){
       <script src='https://use.fontawesome.com/210d3549a1.js'></script>
 
     <!--CSS -->
-
     <link rel='stylesheet' href='../css/UserProfile.css'>
       <link href='../css/statproduct.css' rel='stylesheet' type='text/css'>
       <link rel='stylesheet' type='text/css' href='../css/jovitec.css'>
@@ -33,6 +32,7 @@ function capsalera ($titol){
     <link rel='stylesheet' type='text/css' href='../css/chat.css'>
     <link rel='stylesheet' type='text/css' href='../css/sidebar.css'>
     <link rel='stylesheet' type='text/css' href='../css/modal.css'>
+
 <!--Perfil-->
 <link rel='stylesheet' type='text/css' href='../css/perfil/normalize.css' />
     <link rel='stylesheet' type='text/css' href='../css/perfil/component.css' />
@@ -62,8 +62,8 @@ function capsalera ($titol){
       <title>".$titol."</title>
     </head>
     <body>
-    <script>
-    /*$(document).ready(function(){
+    <!--<script>
+    $(document).ready(function(){
           $(window).on('beforeunload', function(){
             alert('prova');
             $.ajax({url: '../back/Disconnect.php', success: function(result){
@@ -71,8 +71,8 @@ function capsalera ($titol){
             return 'Are you sure you qant to quit';
 
           });
-    });*/
-    </script>
+    });
+    </script>-->
     ";
 
 
