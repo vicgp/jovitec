@@ -49,32 +49,40 @@
 }
 
 #btnUser {
-	/* width: 17.9%; */
+	width: 17.9%;
 	height: 0%;
 	background: #fff;
 	margin: 0 auto;
 	margin-top: 10px;
 	padding: 20px;
-	border-radius: 12px;
-	-moz-border-radius: 12px;
+	border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
+    -moz-border-radius: 12px;
 	-o-border-radius: 12px;
-	-webkit-border-radius: 12px;
+	border-left-color: #fff!important;
+	border-top-color: #fff!important;
+	border-bottom-color: #fff0 !important;
+	border-right-color: #fff0 !important;
 	position: fixed;
 	bottom: 0px;
 	right: 0px;
 }
 
 #btnChat, #btnChat1, #btnChat2{
-	width: 180px;
+	width: 18%;
 	height: 0%;
 	background: #fff;
 	margin: 0 auto;
 	margin-top: 10px;
 	padding: 20px;
-	border-radius: 12px;
-	-moz-border-radius: 12px;
+	border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
+    -moz-border-radius: 12px;
 	-o-border-radius: 12px;
-	-webkit-border-radius: 12px;
+	border-left-color: #fff!important;
+	border-top-color: #fff!important;
+	border-bottom-color: #fff0 !important;
+	border-right-color: #fff0 !important;
 	position: fixed;
 	bottom: 0px;
 	right: 250px;
@@ -99,9 +107,10 @@
 
 #buttonEnviar, #buttonEnviar1, #buttonEnviar2{
 	background-color: #000;
-	width: 96%;
+	width: 110%;
 	height: 9%;
 	color: white;
+	margin-left: -6%;
 }
 
 #contenedor form{
@@ -110,11 +119,11 @@
 
 #caja-chat{
 	padding: 10px;
-	width: 113%;
+	width: 121%;
 	height: 75%;
 	overflow-x: hidden;
 	overflow-y: scroll;
-	margin-left: -5.5%;
+	margin-left: -12.5%;
 	padding-right: 0%;
 }
 
@@ -207,14 +216,15 @@ input[type='submit']:hover {
 
 textarea {
 	background: #fbfbfb;
-	width: 96%;
-	height: 35px;
+	width: 109%;
+	height: 36px;
 	border: 2px solid #CCCCCC;
 	border-radius: 3px;
 	resize: none;
 	font-size: 13px;
 	color: #333;
-	margin-top: 7%;
+	margin-top: 4%;
+	margin-left: -5%;
 
 }
 
@@ -239,13 +249,18 @@ input, textarea{
 	width: 15px;
 	height: 15px;
 	margin-left: -7px;
-	margin-top: -15px;
+	margin-top: 1%;
 }
 
 #cerrar, #cerrarUser {
+	 -webkit-appearance:inherit;
+	box-shadow: 0px 0px #888888 !important;
   	width: 0%;
 	height: 3%;
-	background: #CCCCCC;
+	border-left-color: #fff0!important;
+	border-top-color: #fff0!important;
+	border-bottom-color: #fff0 !important;
+	border-right-color: #fff0 !important;
 	margin-top: -1.7%;
 	float: right;
 	position: fixed;
@@ -255,8 +270,8 @@ input, textarea{
 	border-top-right-radius: 12px;
 	border-top-left-radius: 12px;
 	background: #ccc;
-	height: 30px;
-	width: 240px;
+	height: 10%;
+	width: 117%;
 	margin-top: -20px;
 	margin-left: -20px;
 	padding-right: 40px;
@@ -276,6 +291,7 @@ input, textarea{
 	text-align: center;
 	cursor: pointer;
 	white-space: nowrap;
+	-moz-webbkit-
 }
 
 .ul{

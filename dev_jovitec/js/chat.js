@@ -166,7 +166,7 @@ function abrir(emisor,receptor){
         $("#contenedor").animate({
             height: '350px',
             width: '20%',
-            right: '250px'
+            right: '18.5%'
         });
 				// $('#contenedor').scrollTop=$('#contenedor').scrollHeight;
 
@@ -187,7 +187,7 @@ function abrir(emisor,receptor){
         $("#contenedor1").animate({
             height: '350px',
             width: '20%',
-            right: '537px'
+            right: '39.5%'
         });
 
       }
@@ -241,19 +241,19 @@ if (event.keyCode === 13) {
 //------------------------------------------------------------
 $("#btnChat2")[0].addEventListener("click",function(){
 	$("#contenedor2").animate({
-			height: '350px'});
+			height: '53%'});
 			$("#contenedor2").show();
 		$('#btnChat2').hide();
 });
 $("#btnChat1")[0].addEventListener("click",function(){
 	$("#contenedor1").animate({
-			height: '350px'});
+			height: '53%'});
 			$("#contenedor1").show();
 		$('#btnChat1').hide();
 });
 $("#btnChat")[0].addEventListener("click",function(){
 	$("#contenedor").animate({
-			height: '350px'});
+			height: '53%'});
 			$("#contenedor").show();
 		$('#btnChat').hide();
 });
@@ -265,11 +265,11 @@ $("#minimizar")[0].addEventListener("click",function(){
 		$("#contenedor").animate({height: "0px"});
 			$('#btnChat').show();
 			$('#btnChat').animate({
-				right: '250px'
+				right: '19%'
 			});
 			$('#btnChatUser2').show();
 			$('#btnChatUser2').animate({
-				right: '250px'
+				right: '19%'
 			});
 			$('#contenedor').hide();
 });
@@ -277,11 +277,11 @@ $("#minimizar1")[0].addEventListener("click",function(){
 	$("#contenedor1").animate({height: "0px"});
 	$('#btnChat1').show();
 	$('#btnChat1').animate({
-		right: '540px'
+		right: '40%'
 	});
 	$('#btnChatUser3').show();
 	$('#btnChatUser3').animate({
-		right: '540px'
+		right: '40%'
 	});
 	$('#contenedor1').hide();
 
@@ -290,11 +290,11 @@ $("#minimizar2")[0].addEventListener("click",function(){
 	$("#contenedor2").animate({height: "0px"});
 	$('#btnChat2').show();
 	$('#btnChat2').animate({
-		right: '830px'
+		right: '61%'
 	});
 	$('#btnChatUser4').show();
 	$('#btnChatUser4').animate({
-		right: '830px'
+		right: '61%'
 	});
 	$('#contenedor2').hide();
 

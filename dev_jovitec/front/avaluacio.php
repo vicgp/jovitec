@@ -54,18 +54,66 @@ $queryAlumnos= $conexion->query($alumnos);
           $(parent).remove();
         });
       });
+
+    /*  function loadDrop(){
+      var drop="";
+      for(var i=0;i<productes_client.length;i++){
+        var marca=productes_client[i][1].split(",");
+        drop+="<option value='"+productes_client[i][0]+"'>"+productes_client[i][0]+" -- "+marca[0]+"</option>"
+      }
+      $("#inventari")[0].innerHTML=drop;
+    }
+    function addInventari(a){
+      if(productes_client.length<=1){
+        document.getElementById('modalProduct').style.display='block';
+
+        if(a==1){
+          document.getElementById('tipusProduct').value="portatil";
+        }
+        else if(a==2){
+          document.getElementById('tipusProduct').value="movil";
+        }
+        else if(a==3){
+          document.getElementById('tipusProduct').value="tablet";
+        }
+        else if(a==4){
+        document.getElementById('tipusProduct').value="PC Torre";
+        }
+      }
+      else{
+        $("#MaximProduct")[0].style.display="block";
+        setTimeout(clearAlertProduct,4000);
+      }
+    }*/
     </script>
   </head>
+  <style type="text/css">
+    #tota_avaluacio{
+      margin-top: 50px;
+    }
+    #tabla, #titol{
+      background-color: rgba(0,0,0,0) !important;
+      margin-bottom: 10px;
+    }
 
+    #botones, #menos {
+      margin-bottom: 20px;
+    }
+    select, input, #botones {
+      width: 30%;
+      margin-left: 35%;
+      color: black;
+    }
+  </style>
   <body>
-    <div>
-      <h3 class="bg-primary text-center pad-basic no-btm">Agregar Nuevo Nota </h3>
+    <div id="tota_avaluacio">
+      <h3 id="titol" class="bg-primary text-center pad-basic no-btm">Agregar Nova Nota </h3>
       <div class="table bg-info" id="tabla">
         <div class="fila-fija">
           
           <input type="hidden" name="id_usuari[]" value="1"/>
-          <input required name="nombre[]" value=<?php echo $_POST['nom'] ?> disabled/>
-          <input required name="ot[]" value=<?php echo $_POST['ot'] ?> disabled/>
+          <input required name="nombre[]" id="Nombre" value=<?php echo $_POST['nom'] ?> disabled/>
+          <input required name="ot[]" id="OrdreT" value=<?php echo $_POST['ot'] ?> disabled/>
           <?php
 
           echo "<select required name='competencia[]'' placeholder='Competencia'>";
@@ -88,10 +136,10 @@ $queryAlumnos= $conexion->query($alumnos);
           }
           echo "</select>";
             ?>
-         <input type="button" class="eliminar" value="Menys -"/></td>
+         <input type="button" id="menos" class="eliminar" value="Menys -"/></td>
         </div>
       </div>
-      <div class="btn-der">
+      <div id="botones" class="btn-der">
         <button id="insertar" name="insertar" type="submit" class="btn btn-info"> Insertar Nota </button>
         <button id="adicional" name="adicional" type="button" class="btn btn-warning"> Més + </button>
         <a href="ot.php"><button id="cancelar" name="cancelar" class="btn btn-delete"> Cancel·lar </button></a>

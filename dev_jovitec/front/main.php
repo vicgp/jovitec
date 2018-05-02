@@ -218,7 +218,7 @@ chat();
         ";
             while ($fila_ot_generic=$resultat_ot_generic->fetch_assoc()){
         echo "
-            <tr id='ordre' title='doble click per veure/modificar'>
+            <tr ondblclick=document.getElementById('modificar_ot".$fila_ot_generic['id_ot']."').submit(); id='ordre' title='doble click per veure/modificar'>
               <form id='modificar_ot".$fila_ot_generic['id_ot']."' method='POST' action='ot.php'>
                 <input type='hidden' name='id_ot' value='".$fila_ot_generic['id_ot']."' />
               </form>
