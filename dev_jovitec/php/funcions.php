@@ -304,9 +304,11 @@ function chat(){
                 $conentat="green";
                }
                 else{
-                  $conentat="black";
+                  $conentat="white";
                 }
-				echo "<li><span class='glyphicon glyphicon-user'style='color:".$conentat.";'></span> <button class='li' onclick='abrir(".$_SESSION['id_user'].",".$fila['id_usuari'].")'>".$fila['nom_usuari']."</button></li><br>";
+				echo "<li><button class='li' onclick='abrir(".$_SESSION['id_user'].",".$fila['id_usuari'].")'>".$fila['nom_usuari']."
+        <div style='margin-left: 92%;margin-top: -15%;'><span class='glyphicon glyphicon-user'style='margin-left:20%; color:".$conentat.";'></span><div>
+        </button></li><br>";
 			}
 
       echo "
@@ -319,15 +321,13 @@ function chat(){
 
 	<div id='btnChat'>
 		<img id='icon' src='../css/exit.ico'>
-    <p> ABRIR CHAT</p>
-
 	</div>
 
 			<div id='contenedor'>
 				<div id='minimizar'>
 					<input type='hidden' id='id_user1' value=''>
 				</div>
-				<button onclick='cerrar(2)' id='cerrar'><img id='icon' src='../css/exit.ico'></button>
+				<span onclick='cerrar(2)' id='cerrar'><img id='icon' src='../css/exit.ico'></span>
 				<div id='caja-chat'>
 					<div id='chat1'></div>
 				</div>
@@ -338,10 +338,8 @@ function chat(){
 
   <!--chat 2 -->
 
-	<div id='btnChat1'>
+	   <div id='btnChat1'>
 				<img id='icon' src='../css/exit.ico'>
-        <p> ABRIR CHAT</p>
-
 			</div>
 
 					<div id='contenedor1'>
@@ -349,7 +347,7 @@ function chat(){
 							<input type='hidden' id='id_user2' value=''>
 
 						</div>
-						<button onclick='cerrar(3)' id='cerrar'><img id='icon' src='../css/exit.ico'></button>
+						<span onclick='cerrar(3)' id='cerrar'><img id='icon' src='../css/exit.ico'></span>
 						<div id='caja-chat'>
 							<div id='chat2'></div>
 						</div>
@@ -357,9 +355,8 @@ function chat(){
 						<button id='buttonEnviar1' onclick='enviar(2,".$_SESSION['id_user'].")'>Enviar</button>
 					</div>
 <!--chat 3 -->
-	<div id='btnChat2'>
+	        <div id='btnChat2'>
 						<img id='icon' src='../css/exit.ico'>
-            <p> ABRIR CHAT</p>
 					</div>
 
 							<div id='contenedor2'>
@@ -367,7 +364,7 @@ function chat(){
 									<input type='hidden' id='id_user3' value=''>
 
 								</div>
-								<button onclick='cerrar(4)' id='cerrar'><img id='icon' src='../css/exit.ico'></button>
+								<span onclick='cerrar(4)' id='cerrar'><img id='icon' src='../css/exit.ico'></span>
 								<div id='caja-chat'>
 									<div id='chat3'></div>
 								</div>

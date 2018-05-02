@@ -367,7 +367,6 @@ if (p1 != p2) {
 <!-- Container (Contact Section) -->
 <div id="contact" class="container">
   <h3 class="text-center" style="color: black;">Contacta</h3>
-  <p class="text-center"><em>We love our fans!</em></p>
 
   <div class="row">
     <div class="col-md-4">
@@ -376,23 +375,25 @@ if (p1 != p2) {
       <p><span class="glyphicon glyphicon-phone"></span>938 75 41 78</p>
       <p><span class="glyphicon glyphicon-envelope"></span>Email: xmorera@joviat.com</p>
     </div>
+    <form action="php/contacte.php" method="POST">
     <div class="col-md-8">
       <div class="row">
         <div class="col-sm-6 form-group">
-          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+          <input class="form-control" id="name" name="name" placeholder="Nom" type="text" required>
         </div>
         <div class="col-sm-6 form-group" style="    margin-top: 8px;">
           <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
         </div>
       </div>
-      <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea>
+      <textarea class="form-control" id="comments" name="comments" placeholder="Missatge" rows="5"></textarea>
       <br>
       <div class="row">
         <div class="col-md-12 form-group">
-          <button class="button3" type="submit" >Send</button>
+          <button class="button3" type="submit" >Enviar</button>
         </div>
       </div>
     </div>
+  </form>
   </div>
   
 </div>
