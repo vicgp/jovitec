@@ -166,7 +166,8 @@
 	float: right;
 }
 
-input[type='text']{
+
+#textarea1,#textarea2,#textarea3{
 	background: #fbfbfb;
 	width: 96%;
 	height: 10px;

@@ -12,11 +12,10 @@ chat();
       // mostrar la taula de camps d'usuari omplerta amb els valors actuals
       echo<<< END
       <br />
-      <div id="ft">
-      <form method=POST action=../back/modificar_usuari.php>
-        <div id="perfi">
-END;
-          echo "<ul class='ch-grid'>
+      <br>
+      <div class="w3-container w3-card-4 w3-light-grey w3-text-blue" style='margin:auto; width:50%;'>
+      <h2 class="w3-container w3-red" style='text-align:center;'>El meu Perfil</h2>
+      <ul class='ch-grid'>
           <li>
             <div class='ch-item ch-img-1'>
               <div class='ch-info'>
@@ -26,50 +25,71 @@ END;
               </div>
             </div>
           </li>
-          </ul>";
-          echo"
-          <p>Nom<input type='text' name='nom' required value='".$fila_usuari['nom_usuari']."' /></p><br>";
-          echo "cognoms:<input type='text' name='cognoms' required value='".$fila_usuari['cognoms_usuari']."' /> <br>";
-          echo "contrasenya:<input type='password' name='passwd' required value='".$fila_usuari['password_usuari']."'";
-          echo"<br>";
-          echo "<div class='input-group'>
-                  <span class='input-group-addon' id='basic-addon1'>@</span>
-                 <input type='text' class='form-control' name='email' required value='".$fila_usuari['email_usuari']."' aria-describedby='sizing-addon1' />
-              </div><br>";
-          echo "telef:<input type='tel' name='telef' pattern='[0-9]{9}' value='".$fila_usuari['telef_usuari']."'><br>";
+          </ul>
 
-        echo "<input type='hidden' name='id_usuari' value='".$fila_usuari['id_usuari']."' />";
-        echo "<input type='hidden' name='user' required value='".$fila_usuari['username_usuari']."' />";
-        echo "<input type='hidden' name='rol' required value='".$fila_usuari['rol_usuari']."' />";
-        echo "<input type='hidden' name='observacions' required value='".$fila_usuari['observacions']."' />";
+      <form method=POST action=../back/modificar_usuari.php style="padding-right: 22px;">
+      
+      
+      
+            
+        
+END;
+
+          
+          echo"<div class='w3-row w3-section'>
+          <div class='w3-col' style='width:50px'><i class='material-icons' style='font-size:45px; margin-top: 18px;'>account_circle</i></div>
+          <div class='w3-rest'>
+              <p>Nom<input class='w3-input w3-border' type='text' name='nom' required value='".$fila_usuari['nom_usuari']."' /></p></div>
+          </div>";
+
+          echo "<div class='w3-row w3-section'>
+          <div class='w3-col' style='width:50px'><i class='material-icons' style='font-size:45px; margin-top: 15px;'>person</i></div>
+          <div class='w3-rest'>
+          cognoms:<input class='w3-input w3-border' type='text' name='cognoms' required value='".$fila_usuari['cognoms_usuari']."' /></div></div>";
+          echo "<div class='w3-row w3-section'>
+          <div class='w3-col' style='width:50px'><i class='material-icons' style='font-size:45px;margin-top: 18px;'>vpn_key</i></div>
+          <div class='w3-rest'>
+          <p>contrasenya:<input class='w3-input w3-border' type='password' name='passwd' required value='".$fila_usuari['password_usuari']."'";
+          echo"</p</div></div>
+          </div>";
+          echo "<div class='w3-row w3-section'>
+                  <div class='w3-col' style='width:50px'><i class='material-icons' style='font-size:45px; margin-top: -2;'>email</i></div>
+                  <div class='w3-rest'>
+                 <input type='text' class='w3-input w3-border' name='email' required value='".$fila_usuari['email_usuari']."' aria-describedby='sizing-addon1' />
+              </div></div>";
+
+          echo "<div class='w3-row w3-section'>
+          <div class='w3-col' style='width:50px'><i class='material-icons' style='font-size:45px; margin-top: 17px;'>phone_iphone</i></div>
+          <div class='w3-rest'>
+          telef:<input type='tel' class='w3-input w3-border' name='telef' pattern='[0-9]{9}' value='".$fila_usuari['telef_usuari']."'></div>
+          </div>";
+
+        // echo "<input type='hidden' name='id_usuari' value='".$fila_usuari['id_usuari']."' />";
+        // echo "<input type='hidden' name='user' required value='".$fila_usuari['username_usuari']."' />";
+        // echo "<input type='hidden' name='rol' required value='".$fila_usuari['rol_usuari']."' />";
+        // echo "<input type='hidden' name='observacions' required value='".$fila_usuari['observacions']."' />";
 
         echo "<input type='hidden' name='torna_usuari' value='True' />";
+echo'<div class="row">';
+          echo "<div class='col-sm-6'><button class='w3-button w3-block w3-section w3-green w3-ripple w3-padding' type='submit' style='margin-left:20%; margin-top:10px; width:60%;' >modificar usuari</button></div>";
 
-          echo "<button class=esquerra type='submit' style='margin-left:200px; margin-top:10px; width:72%;' >modificar usuari</button>";
-
-
-          echo "<button class=esquerra type='submit' id='edit' >modificar usuari</button>";
-        
-
-
-
-          echo "<button class=esquerra type='submit' style='margin-left:200px; margin-top:10px; width:72%;' >modificar usuari</button>";
-
-          echo "<button class=esquerra type='submit' id='edit' >modificar usuari</button>";
+          
         
 
 
         echo "</form>";
       ///////////// fi del formulari de modificació d'usuaris
         echo<<<END
-        <form action=main.php method='POST'>
+        <div class="col-sm-6">
+        <form action=main.php method='POST' >
         <input type="hidden" name="altauser" value=True />
         <input type='hidden' name='torna_usuari' value='False' />
-        <button class=cancel class=esquerra type='submit' id='cancel'>cancel·lar</button>
 
-        </div>
+        <button class="w3-button w3-block w3-section w3-red w3-ripple w3-padding" style='margin-left:20%; margin-top:10px; width:60%;' type='submit' >cancel·lar
+        </button>
       </form>
-
+      </div>
+      </div>
       <br />
 END;
    ///////////// fi del formulari de modificació d'usuaris

@@ -23,7 +23,7 @@ function capsalera ($titol){
       <script src='https://use.fontawesome.com/210d3549a1.js'></script>
 
     <!--CSS -->
-
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
     <link rel='stylesheet' href='../css/UserProfile.css'>
       <link href='../css/statproduct.css' rel='stylesheet' type='text/css'>
       <link rel='stylesheet' type='text/css' href='../css/jovitec.css'>
@@ -100,7 +100,7 @@ function capsalera ($titol){
 
         <div class="navbar-header">
           <a class="navbar-brand" href="" style="width:70px;"><img src="../img/jv.png" style=" width: 140%; margin-left:-20%; margin-top: -20%;"></a>
-          <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open('.$_SESSION['url'].')" style="display: inline-block; margin-top: -7%;">&#9776</button>
+          <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open('.$_SESSION['url'].')" style="display: inline-block;margin-top: -6%;padding-top: 11px;padding-bottom: 8px;">&#9776</button>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar" >
 
@@ -114,7 +114,7 @@ function capsalera ($titol){
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="
     margin-left: -50%;
-    margin-top: -17.8%;
+    margin-top: -13.8%;
 
     padding-top: 37%;
     padding-bottom: 10%;
@@ -123,7 +123,7 @@ function capsalera ($titol){
 
 
 ">
-              <span id="notificacio" class="fa fa-comments-o" style="margin-bottom:  6%; padding-top: 20%; padding-bottom: 8%;color:#d5d5d5;font-s;font-size: 2em;"></span>
+              <span id="notificacio" class="material-icons" style=" margin-bottom:  6%; padding-top: 20%; padding-bottom: 8%;font-s;font-size: 2em;">notifications</span>
             </a>
               <ul class="dropdown-menu" id="missatgeNous">
 

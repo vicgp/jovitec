@@ -13,7 +13,7 @@ $("#caja-chat").animate({ scrollTop: $('#caja-chat').prop("scrollHeight")}, 0);
 function newMessage(){
 	$.ajax({url: "../back/nombreMissatge.php", success: function(result){
 			if(parseInt(result)>numMissatge && read==false){
-				$("#notificacio").css("color","red");
+				$("#notificacio").css("color","orange");
 				$.ajax({url: "../back/missatgesNous.php", success: function(result){
 						$("#missatgeNous").html(result);
 					}});
