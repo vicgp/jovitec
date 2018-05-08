@@ -24,19 +24,19 @@ chat();
   $query_ot_generic="";
 
   if($_SESSION['rol']<=2){
-    $query_ot_generic="SELECT ordre_treball.id_estat,ordre_treball.id_ot, curs_escolar.curs, usuaris.cognoms_usuari, usuaris.nom_usuari, usuaris.email_usuari, data_entrada, prioritat, data_finalitzacio, data_lliurament
+    $query_ot_generic="SELECT ordre_treball.AvaluadaAdministratiu,ordre_treball.AvaluadaTecnic, ordre_treball.id_estat,ordre_treball.id_ot, curs_escolar.curs, usuaris.cognoms_usuari, usuaris.nom_usuari, usuaris.email_usuari, data_entrada, prioritat, data_finalitzacio, data_lliurament
     FROM ordre_treball INNER JOIN curs_escolar ON ordre_treball.id_curs=curs_escolar.id_curs
     INNER JOIN usuaris ON usuaris.id_usuari=ordre_treball.id_usuari
     ORDER BY id_ot DESC";
   }
   else if($_SESSION['rol']==3 ){
-    $query_ot_generic="SELECT ordre_treball.id_estat,ordre_treball.id_ot, curs_escolar.curs, usuaris.cognoms_usuari, usuaris.nom_usuari, usuaris.email_usuari, data_entrada, prioritat, data_finalitzacio, data_lliurament
+    $query_ot_generic="SELECT ordre_treball.AvaluadaAdministratiu,ordre_treball.AvaluadaTecnic, ordre_treball.id_estat,ordre_treball.id_ot, curs_escolar.curs, usuaris.cognoms_usuari, usuaris.nom_usuari, usuaris.email_usuari, data_entrada, prioritat, data_finalitzacio, data_lliurament
      FROM ordre_treball INNER JOIN curs_escolar ON ordre_treball.id_curs=curs_escolar.id_curs
      INNER JOIN usuaris ON usuaris.id_usuari=ordre_treball.id_usuari INNER JOIN tecnics ON tecnics.id_ot=ordre_treball.id_ot
      WHERE tecnics.id_usuari=".$_SESSION['id_user']." ORDER BY id_ot DESC";
   }
   else if($_SESSION['rol']==4 ){
-      $query_ot_generic="SELECT  ordre_treball.id_estat,ordre_treball.id_ot, curs_escolar.curs, usuaris.cognoms_usuari, usuaris.nom_usuari, usuaris.email_usuari, data_entrada, prioritat, data_finalitzacio, data_lliurament
+      $query_ot_generic="SELECT ordre_treball.AvaluadaAdministratiu,ordre_treball.AvaluadaTecnic,  ordre_treball.id_estat,ordre_treball.id_ot, curs_escolar.curs, usuaris.cognoms_usuari, usuaris.nom_usuari, usuaris.email_usuari, data_entrada, prioritat, data_finalitzacio, data_lliurament
       FROM ordre_treball INNER JOIN curs_escolar ON ordre_treball.id_curs=curs_escolar.id_curs
       INNER JOIN usuaris ON usuaris.id_usuari=ordre_treball.id_usuari INNER JOIN administratius ON administratius.id_ot=ordre_treball.id_ot
       WHERE administratius.id_usuari=".$_SESSION['id_user']." ORDER BY id_ot DESC";
@@ -215,8 +215,14 @@ chat();
                 </form>
               </th>
               <th>
-                Editar
-              </th>
+                Estat Ordre
+              </th>";
+              if($_SESSION['rol']==2){
+                echo "<th>Avaluar Tecnic</th>";
+                echo "<th>Avaluar Administratius</th>";
+
+              }
+              echo "
             </tr> <!-- fi de la primera fila de títols i botons -->
         ";
             while ($fila_ot_generic=$resultat_ot_generic->fetch_assoc()){
@@ -224,6 +230,7 @@ chat();
             <tr id='ordre' ondblclick=document.getElementById('modificar_ot".$fila_ot_generic['id_ot']."').submit(); title='doble click per veure/modificar'>
               <form id='modificar_ot".$fila_ot_generic['id_ot']."' method='POST' action='ot.php'>
                 <input type='hidden' name='id_ot' value='".$fila_ot_generic['id_ot']."' />
+
               </form>
               <td align='right'>
                 ".$fila_ot_generic['id_ot']."
@@ -278,7 +285,7 @@ chat();
               <td>
                 ".$fila_ot_generic['data_lliurament']."
               </td>
-              <td onclick=$('#editarComanda".$fila_ot_generic['id_ot']."').submit();>
+              <td onclick=$('#editarComanda".$fila_ot_generic['id_ot']."').submit(); title='click per veure lestat de lordre'>
                   <form id='editarComanda".$fila_ot_generic['id_ot']."' method='POST' action='comandes.php'>
                     <input type='hidden' name='id_ot' value='".$fila_ot_generic['id_ot']."' />
                     <i class='material-icons' style='font-size: 2em;color:";if($fila_ot_generic['id_estat']==1){
@@ -292,8 +299,48 @@ chat();
                                                                             }
                        echo "'>linear_scale</i>
                   </form>
-              </td>
-            </tr> <!-- fi de la línia de dades de la OT -->
+              </td>";
+              if($_SESSION['rol']==2){
+
+
+                echo "<td onclick=$('#avaluarTecnic".$fila_ot_generic['id_ot']."').submit(); title='click per avaluar el tecnic de lordre'>
+                    <form id='avaluarTecnic".$fila_ot_generic['id_ot']."' method='POST' action='avaluacio.php'>
+                      <input type='hidden' name='id_ot' value='".$fila_ot_generic['id_ot']."' />
+                      <input type='hidden' name='QuiAvaluem' value='1' />";
+
+                    echo "
+                      <i class='material-icons' style='font-size: 2em;color:";if($fila_ot_generic['AvaluadaTecnic']==1){
+                                                                                  echo "green;";
+                                                                              }
+
+                                                                              else{
+                                                                                echo "red;";
+                                                                              }
+                      echo "'>spellcheck</i>
+                    </form>
+                </td>";
+                echo "<td onclick=$('#avaluarAdministratiu".$fila_ot_generic['id_ot']."').submit(); title='click per avaluar el administratius de lordre'>
+                    <form id='avaluarAdministratiu".$fila_ot_generic['id_ot']."' method='POST' action='avaluacio.php'>
+                      <input type='hidden' name='id_ot' value='".$fila_ot_generic['id_ot']."' />
+                      <input type='hidden' name='QuiAvaluem' value='2' />";
+                    echo "
+                      <i class='material-icons' style='font-size: 2em;color:";if($fila_ot_generic['AvaluadaAdministratiu']==1){
+                                                                                  echo "green;";
+                                                                              }
+
+                                                                              else{
+                                                                                echo "red;";
+                                                                              }
+                      echo "'>spellcheck</i>
+                    </form>
+                </td>";
+
+              }
+
+              echo "
+            </tr>
+
+            <!-- fi de la línia de dades de la OT -->
 
         ";
             }
