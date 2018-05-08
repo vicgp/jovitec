@@ -125,6 +125,9 @@ chat();
                   <input type=hidden name=ordre value=DESC />
                 </form>
               </th>
+              <th>
+                Editar
+              </th>
             </tr> <!-- fi de la primera fila de títols i botons -->
         ";
             while ($fila_ot_generic=$resultat_ot_generic->fetch_assoc()){
@@ -186,9 +189,23 @@ chat();
               <td>
                 ".$fila_ot_generic['data_lliurament']."
               </td>
+              <td onclick=$('#editarComanda".$fila_ot_generic['id_ot']."').submit();>
+                  <form id='editarComanda".$fila_ot_generic['id_ot']."' method='POST' action='comandes.php'>
+                    <input type='hidden' name='id_ot' value='".$fila_ot_generic['id_ot']."' />
+                    <i class='material-icons' style='font-size: 2em;color:";if($fila_ot_generic['id_estat']==1){
+                                                                                echo "red;";
+                                                                            }
+                                                                            else if($fila_ot_generic['id_estat']==2 || $fila_ot_generic['id_estat']==3){
+                                                                              echo "orange;";
+                                                                            }
+                                                                            else{
+                                                                              echo "green;";
+                                                                            }
+                       echo "'>linear_scale</i>
+                  </form>
+              </td>
             </tr> <!-- fi de la línia de dades de la OT -->
 
-<<<<<<< HEAD
         ";
             }
         echo "
@@ -196,7 +213,5 @@ chat();
           </div>
           </div>
         ";
-=======
 
->>>>>>> aparreno
 peu("");
