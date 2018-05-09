@@ -36,7 +36,7 @@ if($_SESSION['rol']<5){
 
 }
 else{
-  header("location:../front/usuari.php");
+  header("location:../front/historial_comandes.php");
 
 }
   //redirigim a la pàgina principal del lloc

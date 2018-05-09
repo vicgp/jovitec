@@ -132,7 +132,6 @@ function capsalera ($titol){
               </ul>
           </li>
             <li><a href="../front/main.php" style="margin-bottom:  6%;padding-top: 9%;padding-bottom: 8%;margin-top: 6%;margin-left: -19%;">Ordres de treball</a></li>
-            <li><a href="../front/comandes.php" style="margin-bottom:  20%;padding-top: 17%;padding-bottom: 12.5%;margin-top: 6%;margin-left: -23%;">Comandes</a></li>
             <li><a href="../front/usuaris.php" style="margin-bottom:  20%;padding-top: 17%;padding-bottom: 15%;margin-top: 11%;margin-left: -21%;">Usuaris</a></li>
             <li><a class="Img" style="margin-bottom:  20%;padding-top: 18%;padding-bottom: 19%;margin-top: 21%;margin-left: -20%;"></span></a></li>
             </li>
@@ -162,7 +161,6 @@ function capsalera ($titol){
           </li>
 
             <li><a href="../front/main.php" style="margin-bottom:  6%;padding-top: 9%;padding-bottom: 8%;margin-left: -13%;margin-top: 6%;">Ordres de treball</a></li>
-            <li><a href="../front/comandes.php" style="margin-bottom:  20%;padding-top: 17%;padding-bottom: 12.5%;margin-top: 6%; margin-left: -16%;">Comandes</a></li>
             <li><a class="Img" style="margin-bottom:  20%;padding-top: 18%;padding-bottom: 19%;margin-top: 21%;margin-left: -20%;"></span></a></li>
           </ul>
         </div>
@@ -187,7 +185,6 @@ function capsalera ($titol){
                 <!-- crear tants <li><a href="#">Page 1-1</a></li> com missatges nous -->
               </ul>
           </li>
-            <li><a href="../front/comandes.php" style="margin-bottom:  20%; padding-top: 17%; padding-bottom: 12.5%; margin-top: 6%;">Comandes</a></li>
              <li><a href="../front/historial_comandes.php" style="margin-bottom: 6%; padding-top: 9%; padding-bottom: 15.825; margin-top: 3%; padding-bottom: 15px;">Historial de Comandes</a></li>
             <li><a href="../front/usuari.php" style="margin-bottom: 20%;padding-top: 18%; padding-bottom: 19.712; margin-top: 14%;padding-bottom: 13px;">'.$_SESSION["usuari"].'</a></li>
             </li>
