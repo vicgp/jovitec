@@ -211,11 +211,10 @@ function capsalera ($titol){
 <div class="clickPopUp">
 <h4><a class="username" href="" style="margin-left: 10px;">'.$_SESSION["usuari"].'</a></h4>
 <h5 class="buttons"><a class="username" href="../front/usuari.php">Perfil</a></h5>
-<h5 class="buttons"><a class="username" href="">Activity</a></h5>
-<h5 class="buttons"><a class="username" href="">Portfolio</a></h5>
-<h5 class="buttons b"><a class="username" href="">Favorites</a></h5>
+<h5 class="buttons"><a class="username" href="">Qualificacions</a></h5>
+<h5 class="buttons"><a href="../back/logout.php" >logout <span class="glyphicon glyphicon-log-out"  ></span></a></h5>
 <div class="Social">
-<a href="../back/logout.php" style="margin-left: 29%; padding:1px;">logout <span class="glyphicon glyphicon-log-out"  ></span></a>
+<h5 ><a href=""></span></a></h5>
 
 </div>
 
@@ -233,11 +232,10 @@ if ($_SESSION['rol'] == 3 || $_SESSION['rol'] == 4){
 <div class="clickPopUp">
 <h4><a class="username" href="" style="margin-left: 10px;">'.$_SESSION["usuari"].'</a></h4>
 <h5 class="buttons"><a class="username" href="../front/usuari.php">Perfil</a></h5>
-<h5 class="buttons"><a class="username" href="">Activity</a></h5>
-<h5 class="buttons"><a class="username" href="">Portfolio</a></h5>
-<h5 class="buttons b"><a class="username" href="">Favorites</a></h5>
+<h5 class="buttons"><a class="username" href="">Qualificacions</a></h5>
+<h5 class="buttons"><a href="../back/logout.php" >logout <span class="glyphicon glyphicon-log-out"  ></span></a></h5>
 <div class="Social">
-<a href="../back/logout.php" style="margin-left: 29%; padding:1px;">logout <span class="glyphicon glyphicon-log-out"  ></span></a>
+<h5 class="buttons"><a href=""></span></a></h5>
 
 </div>
 
@@ -257,9 +255,9 @@ if ($_SESSION['rol'] == 5){
 <h5 class="buttons"><a class="username" href="../front/usuari.php">Perfil</a></h5>
 <h5 class="buttons"><a class="username" href="">Dispositius</a></h5>
 <h5 class="buttons"><a class="username" href="../front/historial_comandes.php">La teva Historia</a></h5>
-<h5 class="buttons b"><a class="username" href="">DEMO</a></h5>
+<h5 class="buttons b"><a href="../back/logout.php">logout <span class="glyphicon glyphicon-log-out"  ></span></a></h5>
 <div class="Social">
-<a href="../back/logout.php" style="margin-left: 29%; padding:1px;">logout <span class="glyphicon glyphicon-log-out"  ></span></a>
+<h5 class="buttons"><a href=""></span></a></h5>
 
 </div>
 

@@ -5,7 +5,7 @@ include("../php/funcions.php");
   echo "<div id='formUser' class='modal'>
           <div class='modal-content animate'>
             <span onclick='cancelarUser()' class='close' title='Close Modal'>&times;</span>
-              <div class='container'>
+              <div class='container' style='margin-top: 0px; margin-bottom: 0px;'>
                 <div class='row'>
                   <div class='col-sm-12'>
                     <label><b>rol:</b></label>

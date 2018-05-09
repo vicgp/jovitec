@@ -6,8 +6,8 @@ include("../php/funcions.php");
           <div class='modal-content animate'>
             <span onclick='cancelar()' class='close' title='Close Modal'>&times;</span>
               <div id='modalOrdre' class='container'>
-                  <div class='row'>
-                  <div id='persones' class='col-sm-4'>
+                  <div class='row' style='margin-top: 298px;'>
+                  <div id='persones' class='col-sm-4' style='padding-left: 0px;padding-right: 0px;margin-left: -7%; margin-top: 1%;' >
                         <div class='row'>
                         <div class='col-sm-4'>
                           <label><b>Curs:</b></label>
@@ -103,12 +103,12 @@ include("../php/funcions.php");
                          </div>
                         </div>
                     </div>
-                    <div id='ObAn' class='col-sm-4'>
+                    <div id='ObAn' class='col-sm-4' style='padding-left: 9px; padding-right: 0px; margin-left: 5%; margin-top: 1%;'>
                         <div class='row'>
                           <div class='col-sm-12'>
                             <div class='panel panel-default'>
                               <div class='panel-heading'>Entrar Anomalia</div>
-                              <div class='panel-body'>
+                              <div class='panel-body' style='padding-left: 10px;padding-right: 37px;'>
                                 <textarea placeholder='Entrar Anomalia 'id='anomalies' name='ANOMALIA'  ></textarea>
                               </div>
                             </div>
@@ -118,14 +118,14 @@ include("../php/funcions.php");
                           <div class='col-sm-12'>
                             <div class='panel panel-default'>
                               <div class='panel-heading'>Entrar Observacio</div>
-                              <div class='panel-body'>
+                              <div class='panel-body' style='padding-left: 10px;padding-right: 37px;'>
                                 <textarea placeholder='Entrar Obsevacio 'id='ob' name='observacio'    ></textarea>
                               </div>
                             </div>
                           </div>
                         </div>
                   </div>
-                  <div id='containerInventari' class='col-sm-4'>
+                  <div id='containerInventari' class='col-sm-4' style='margin-top: 1%;'>
                         <div class='row'>
                           <div class='col-sm-12'>
                             <div class='panel panel-default'>

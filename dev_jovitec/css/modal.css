@@ -6,11 +6,7 @@ input[type=date], select {
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
-#persones,#ObAn,#containerInventari{
-  position: relative;
-  top: 300px;
-  left: 10px;
-}
+
 #botons{
   position: relative;
   bottom:0px;
@@ -130,4 +126,9 @@ span.psw {
 #anomalies, #ob{
   height:20%;
   font-size:20px;
+}
+.modal-header, h4, .close {
+    background-color: #fff!important;
+    color: #000000 !important;
+    text-align: center;
 }
