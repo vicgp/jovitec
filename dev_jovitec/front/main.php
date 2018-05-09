@@ -304,7 +304,7 @@ chat();
 
 
                 echo "<td onclick=$('#avaluarTecnic".$fila_ot_generic['id_ot']."').submit(); title='click per avaluar el tecnic de lordre'>
-                    <form id='avaluarTecnic".$fila_ot_generic['id_ot']."' method='POST' action='avaluacio.php'>
+                    <form id='avaluarTecnic".$fila_ot_generic['id_ot']."' method='POST' action='../back/calcularNombreTecnics.php'>
                       <input type='hidden' name='id_ot' value='".$fila_ot_generic['id_ot']."' />
                       <input type='hidden' name='QuiAvaluem' value='1' />";
 
@@ -320,7 +320,7 @@ chat();
                     </form>
                 </td>";
                 echo "<td onclick=$('#avaluarAdministratiu".$fila_ot_generic['id_ot']."').submit(); title='click per avaluar el administratius de lordre'>
-                    <form id='avaluarAdministratiu".$fila_ot_generic['id_ot']."' method='POST' action='avaluacio.php'>
+                    <form id='avaluarAdministratiu".$fila_ot_generic['id_ot']."' method='POST' action='../back/calcularNombreTecnics.php'>
                       <input type='hidden' name='id_ot' value='".$fila_ot_generic['id_ot']."' />
                       <input type='hidden' name='QuiAvaluem' value='2' />";
                     echo "

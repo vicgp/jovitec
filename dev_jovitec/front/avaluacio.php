@@ -3,44 +3,7 @@ session_start();
 include("../php/funcions.php");
 capsalera('Avaluació');
 chat();
-
-//
-// $host = 'localhost';
-// $basededatos = 'dev_jovitec';
-// $usuario = 'root';
-// $contraseña = '';
-
-
-
-// $conexion = new mysqli($host, $usuario,$contraseña, $basededatos);
-// if ($conexion -> connect_errno) {
-// die( "Fallo la conexión : (" . $conexion -> mysqli_connect_errno()
-// . ") " . $conexion -> mysqli_connect_error());
-// }
-  ///////////////////CONSULTA DE LOS ALUMNOS///////////////////////
-
-$quiAvaluem=$_POST['QuiAvaluem'];
-$idot=$_POST['id_ot'];
-if($quiAvaluem==1){
-  $numTecnics="SELECT COUNT(*) a,username_usuari,usuaris.id_usuari FROM usuaris INNER JOIN tecnics ON usuaris.id_usuari=tecnics.id_usuari WHERE tecnics.id_ot=".$idot;
-
-}
-else {
-  $numTecnics="SELECT COUNT(*) a,username_usuari,usuaris.id_usuari FROM usuaris INNER JOIN administratius ON usuaris.id_usuari=administratius.id_usuari WHERE administratius.id_ot=".$idot;
-}
-  $res=consulta($numTecnics);
 ?>
-
-<div id='id01' class='w3-modal' style='display:none;'>
-  <div class='w3-modal-content'>
-    <div class='w3-container'>
-      <span onclick='document.getElementById('id01').style.display='none'' class='w3-button w3-display-topright'>&times;</span>
-      <p>Some text. Some text. Some text.</p>
-      <p>Some text. Some text. Some text.</p>
-    </div>
-  </div>
-</div>
-
 <html lang="es">
 
   <head>
@@ -63,6 +26,25 @@ else {
   </head>
 
   <body>
+<?php
+
+$quiAvaluem=$_GET['quiAvaluem'];
+$idot=$_GET['id_ot'];
+if($quiAvaluem==1){
+    $sql="SELECT username_usuari,usuaris.id_usuari FROM usuaris INNER JOIN tecnics ON usuaris.id_usuari=tecnics.id_usuari WHERE tecnics.id_ot=".$idot;
+}
+else{
+  $sql="SELECT username_usuari,usuaris.id_usuari FROM usuaris INNER JOIN administratius ON usuaris.id_usuari=administratius.id_usuari WHERE administratius.id_ot=".$idot;
+}
+$res=consulta($sql);
+$fila_ot_res=$res->fetch_assoc();
+$nom=$fila_ot_res['username_usuari'];
+$idUser=$fila_ot_res['id_usuari'];
+?>
+
+
+
+
     <div class="w3-container" >
       <h2>Competencies Avaluades</h2>
       <ul class="w3-ul w3-card-4" id="llistaCompetencies">
@@ -118,5 +100,6 @@ else {
 
 
 <?php
+
   peu("");
 ?>
