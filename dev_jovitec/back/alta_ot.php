@@ -7,9 +7,9 @@ include("../php/funcions.php");
             <span onclick='cancelar()' class='close' title='Close Modal'>&times;</span>
               <div id='modalOrdre' class='container'>
                   <div class='row' style='margin-top: 298px;'>
-                  <div id='persones' class='col-sm-4' style='padding-left: 0px;padding-right: 0px;margin-left: -7%; margin-top: 1%;' >
+                  <div id='persones' class='col-sm-5' style='padding-left: 0px;padding-right: 0px;margin-left: -7%; margin-top: 1%;' >
                         <div class='row'>
-                        <div class='col-sm-4'>
+                          <div class='col-sm-6'>
                           <label><b>Curs:</b></label>
                             <select id='curs' >";
                             $query_select_curs="SELECT * FROM curs_escolar";
@@ -20,19 +20,7 @@ include("../php/funcions.php");
 
                             echo "</select>
                           </div>
-                          <div class='col-sm-4'>
-                            <label><b>Usuaris:</b></label>
-                            <select id='usuari'>
-                            <option value=''>Tria Usuari</option>";
-                            $query_ot_usuaris="SELECT DISTINCT id_usuari,username_usuari FROM usuaris WHERE usuaris.rol_usuari=5";
-                            $resultat_ot_usuaris=consulta($query_ot_usuaris);
-                            while ($fila_ot_usuari=$resultat_ot_usuaris->fetch_assoc()){
-                                echo "<option value=".$fila_ot_usuari['id_usuari'].">".$fila_ot_usuari['username_usuari']."</option>";
-                            }
-
-                            echo "</select>
-                          </div>
-                          <div class='col-sm-4'>
+                          <div class='col-sm-6'>
                             <label><b>Prioritat:</b></label>
                             <select id='prioritat' >";
 
@@ -46,13 +34,25 @@ include("../php/funcions.php");
                             echo"
                             </select>
                           </div>
-                        </div>
-                        <div class='row'>
-                          <div class='col-sm-4'>
+                      </div>
+                      <div class='row'>
+                          <div class='col-sm-6'>
+                            <label><b>Usuaris:</b></label>
+                            <select id='usuari'>
+                            <option value=''>Tria Usuari</option>";
+                            $query_ot_usuaris="SELECT DISTINCT id_usuari,username_usuari FROM usuaris WHERE usuaris.rol_usuari=5";
+                            $resultat_ot_usuaris=consulta($query_ot_usuaris);
+                            while ($fila_ot_usuari=$resultat_ot_usuaris->fetch_assoc()){
+                                echo "<option value=".$fila_ot_usuari['id_usuari'].">".$fila_ot_usuari['username_usuari']."</option>";
+                            }
+
+                            echo "</select>
+                          </div>
+                          <div class='col-sm-6'>
                             <label><b>Supervisors:</b></label>
                             <select id='supervisors'>
-                            <option value=''>Tria Administratius</option>";
-                            $query_ot_supervisors="SELECT DISTINCT usuaris.id_usuari,username_usuari FROM usuaris INNER JOIN tecnics ON usuaris.id_usuari=tecnics.id_usuari WHERE usuaris.rol_usuari=2";
+                            <option value='0'>Tria Supervisors</option>";
+                            $query_ot_supervisors="SELECT DISTINCT usuaris.id_usuari,username_usuari FROM usuaris WHERE usuaris.rol_usuari=2";
                             $resultat_ot_supervisors=consulta($query_ot_supervisors);
                             while ($fila_ot_supervisors=$resultat_ot_supervisors->fetch_assoc()){
                                 echo "<option value=".$fila_ot_supervisors['id_usuari'].">".$fila_ot_supervisors['username_usuari']."</option>";
@@ -60,13 +60,15 @@ include("../php/funcions.php");
 
                             echo "</select>
                           </div>
-                          <div class='col-sm-4'>
+                      </div>
+                      <div class='row'>
+                          <div class='col-sm-6'>
                             <label><b>Tecnics:</b></label>
                             <select id='tecnics'>
                             <option value=''>Tria Tecnic</option>";
 
 
-                            $query_ot_tecnics="SELECT DISTINCT usuaris.id_usuari ,username_usuari FROM usuaris INNER JOIN tecnics ON usuaris.id_usuari=tecnics.id_usuari WHERE usuaris.rol_usuari=3";
+                            $query_ot_tecnics="SELECT DISTINCT usuaris.id_usuari ,username_usuari FROM usuaris  WHERE usuaris.rol_usuari=3";
                             $resultat_ot_tecnics=consulta($query_ot_tecnics);
                             while ($fila_ot_tecnics=$resultat_ot_tecnics->fetch_assoc()){
 
@@ -75,11 +77,11 @@ include("../php/funcions.php");
 
                             echo "</select>
                           </div>
-                          <div class='col-sm-4'>
+                          <div class='col-sm-6'>
                             <label><b>Administratius:</b></label>
                             <select id='administratius'>
                               <option value=''>Tria Administratius</option>";
-                            $query_ot_administratius="SELECT DISTINCT usuaris.id_usuari,username_usuari FROM usuaris INNER JOIN administratius ON usuaris.id_usuari=administratius.id_usuari WHERE usuaris.rol_usuari=4";
+                            $query_ot_administratius="SELECT DISTINCT usuaris.id_usuari,username_usuari FROM usuaris WHERE usuaris.rol_usuari=4";
                             $resultat_ot_administratius=consulta($query_ot_administratius);
                             while ($fila_ot_administratius=$resultat_ot_administratius->fetch_assoc()){
                               echo "<option value=".$fila_ot_administratius['id_usuari'].">".$fila_ot_administratius['username_usuari']."</option>";
@@ -89,21 +91,17 @@ include("../php/funcions.php");
                           </div>
                         </div>
                         <div class='row'>
-                          <div class='col-sm-4'>
+                          <div class='col-sm-6'>
                             <label><b>Data d'Entrada:</b></label>
                             <input type='date' placeholder='Entra Data'id='dataE' name='dataE' value='2018-01-25' readonly>
                           </div>
-                          <!--<div class='col-sm-4'>
-                            <label><b>Data de Finalitzacio:</b></label>
-                            <input type='date' placeholder='Entra Data' id='dataF' name='dataF' readonly>
-                          </div>-->
-                          <div class='col-sm-4'>
+                          <div class='col-sm-6'>
                             <label><b>Data de Lliuramnet:</b></label>
                             <input type='date' placeholder='Entra Data' id='dataLL' name='dataLL' >
                          </div>
                         </div>
-                    </div>
-                    <div id='ObAn' class='col-sm-4' style='padding-left: 9px; padding-right: 0px; margin-left: 5%; margin-top: 1%;'>
+                  </div>
+                  <div id='ObAn' class='col-sm-3' style='padding-left: 9px; padding-right: 0px; margin-left: 5%; margin-top: 1%;'>
                         <div class='row'>
                           <div class='col-sm-12'>
                             <div class='panel panel-default'>
@@ -124,7 +122,7 @@ include("../php/funcions.php");
                             </div>
                           </div>
                         </div>
-                  </div>
+                      </div>
                   <div id='containerInventari' class='col-sm-4' style='margin-top: 1%;'>
                         <div class='row'>
                           <div class='col-sm-12'>
@@ -192,19 +190,19 @@ include("../php/funcions.php");
                             <div class='alert alert-success' id='productAfagit' style='display:none;z-index:9999;'>
                               <strong>Success!</strong> El producte s'ha afagit correctament.
                             </div>
-                        <div id='modalProduct' class='w3-modal' style='display:none;'>
-                          <div class='w3-modal-content' style='width:500px;'>
-                            <div class='w3-container' >
-                              <span onclick='cancelarProduct()' class='w3-button w3-display-topright'>&times;</span>
-                                <input type='text' id='tipusProduct' name='tipusProduct' style='height:50px;margin-top:8px;'  readonly>
-                                <input type='text' placeholder='Entrar Marca,Model,Caracteristiques' id='descProduct' name='descProduct' style='height:50px;font-size:20px'  >
-                                <button type='submit'  id='boto1' onclick='addInventariFinal()' >Acceptar</button>
-                                <button type='button' onclick='cancelarProduct()' class='cancelbtn' style='margin-bottom:8px;'>Cancel</button>
+                            <div id='modalProduct' class='w3-modal' style='display:none;'>
+                              <div class='w3-modal-content' style='width:500px;'>
+                                <div class='w3-container' >
+                                  <span onclick='cancelarProduct()' class='w3-button w3-display-topright'>&times;</span>
+                                    <input type='text' id='tipusProduct' name='tipusProduct' style='height:50px;margin-top:8px;'  readonly>
+                                    <input type='text' placeholder='Entrar Marca,Model,Caracteristiques' id='descProduct' name='descProduct' style='height:50px;font-size:20px'  >
+                                    <button type='submit'  id='boto1' onclick='addInventariFinal()' >Acceptar</button>
+                                    <button type='button' onclick='cancelarProduct()' class='cancelbtn' style='margin-bottom:8px;'>Cancel</button>
+                                </div>
+                              </div>
                             </div>
-                          </div>
-                        </div>
-                      </div>
                     </div>
+                </div>
                 </div>
                 <div id='botons' class='row'>
                   <div class='col-md-12'>
@@ -212,5 +210,6 @@ include("../php/funcions.php");
                     <button type='button' onclick='cancelar()' class='cancelbtn'>Cancel</button>
                   </div>
                 </div>
+              </div>
             </div>
           </div>";

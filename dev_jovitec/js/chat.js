@@ -36,7 +36,7 @@ function actualizarChat(){
 }
 
 function openChat(emisor,receptor){
-			
+
 			req.onreadystatechange = function(){
 				if(req.readyState == 4 && req.status == 200){
 					if(!chats.includes('2')){

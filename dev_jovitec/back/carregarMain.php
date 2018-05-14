@@ -1,102 +1,29 @@
 <?php
 session_start();
 include("../php/funcions.php");
-$query_ot_generic="SELECT ordre_treball.id_ot, curs_escolar.curs, usuaris.cognoms_usuari, usuaris.nom_usuari, usuaris.email_usuari, data_entrada, prioritat, data_finalitzacio, data_lliurament
-FROM ordre_treball INNER JOIN curs_escolar ON ordre_treball.id_curs=curs_escolar.id_curs
-INNER JOIN usuaris ON usuaris.id_usuari=ordre_treball.id_usuari
-ORDER BY id_ot DESC";
+$query_ot_generic="";
+
+if($_SESSION['rol']<=2){
+  $query_ot_generic="SELECT ordre_treball.AvaluadaAdministratiu,ordre_treball.AvaluadaTecnic, ordre_treball.id_estat,ordre_treball.id_ot, curs_escolar.curs, usuaris.cognoms_usuari, usuaris.nom_usuari, usuaris.email_usuari, data_entrada, prioritat, data_finalitzacio, data_lliurament
+  FROM ordre_treball INNER JOIN curs_escolar ON ordre_treball.id_curs=curs_escolar.id_curs
+  INNER JOIN usuaris ON usuaris.id_usuari=ordre_treball.id_usuari
+  ORDER BY id_ot DESC";
+}
+else if($_SESSION['rol']==3 ){
+  $query_ot_generic="SELECT ordre_treball.AvaluadaAdministratiu,ordre_treball.AvaluadaTecnic, ordre_treball.id_estat,ordre_treball.id_ot, curs_escolar.curs, usuaris.cognoms_usuari, usuaris.nom_usuari, usuaris.email_usuari, data_entrada, prioritat, data_finalitzacio, data_lliurament
+   FROM ordre_treball INNER JOIN curs_escolar ON ordre_treball.id_curs=curs_escolar.id_curs
+   INNER JOIN usuaris ON usuaris.id_usuari=ordre_treball.id_usuari INNER JOIN tecnics ON tecnics.id_ot=ordre_treball.id_ot
+   WHERE tecnics.id_usuari=".$_SESSION['id_user']." ORDER BY id_ot DESC";
+}
+else if($_SESSION['rol']==4 ){
+    $query_ot_generic="SELECT ordre_treball.AvaluadaAdministratiu,ordre_treball.AvaluadaTecnic,  ordre_treball.id_estat,ordre_treball.id_ot, curs_escolar.curs, usuaris.cognoms_usuari, usuaris.nom_usuari, usuaris.email_usuari, data_entrada, prioritat, data_finalitzacio, data_lliurament
+    FROM ordre_treball INNER JOIN curs_escolar ON ordre_treball.id_curs=curs_escolar.id_curs
+    INNER JOIN usuaris ON usuaris.id_usuari=ordre_treball.id_usuari INNER JOIN administratius ON administratius.id_ot=ordre_treball.id_ot
+    WHERE administratius.id_usuari=".$_SESSION['id_user']." ORDER BY id_ot DESC";
+
+}
+
 $resultat_ot_generic=consulta($query_ot_generic);
-
-
-echo "<form method=POST action=nova_ot.php id='formulario'>
-<table id='taula' class='table-fill'>
-  <tr>
-    <th colspan='2' >
-        nº ordre
-          <span class='fletxes' title='ordena AZ' onclick=document.getElementById('ordre_up').submit();>&uarr;</span>
-          <span class='fletxes' title='ordena ZA' onclick=document.getElementById('ordre_down').submit();>&darr;</span>
-        <form id='ordre_up' method=POST action=main.php>
-         <input type=hidden name=columna value=id_ot />
-          <input type=hidden name=ordre value=ASC />
-        </form>
-        <form id='ordre_down' method=POST action=main.php>
-          <input type=hidden name=columna value=id_ot />
-          <input type=hidden name=ordre value=DESC />
-        </form>
-    </th>
-    <th>
-      data entrada
-        <span class='fletxes' title='ordena AZ' onclick=document.getElementById('entrada_up').submit();>&uarr;</span>
-        <span class='fletxes' title='ordena ZA' onclick=document.getElementById('entrada_down').submit();>&darr;</span>
-      <form id='entrada_up' method=POST action=main.php>
-        <input type=hidden name=columna value=data_entrada />
-        <input type=hidden name=ordre value=ASC />
-      </form>
-      <form id='entrada_down' method=POST action=main.php>
-        <input type=hidden name=columna value=data_entrada />
-        <input type=hidden name=ordre value=DESC />
-      </form>
-    </th>
-    <th class='text-left'>
-      usuari
-        <span class='fletxes' title='ordena AZ' onclick=document.getElementById('usuari_up').submit();>&uarr;</span>
-        <span class='fletxes' title='ordena ZA' onclick=document.getElementById('usuari_down').submit();>&darr;</span>
-      <form id='usuari_up' method=POST action=main.php>
-        <input type=hidden name=columna value=cognoms_usuari />
-        <input type=hidden name=ordre value=ASC />
-      </form>
-      <form id='usuari_down' method=POST action=main.php>
-        <input type=hidden name=columna value=cognoms_usuari />
-        <input type=hidden name=ordre value=DESC />
-      </form>
-    </th>
-    <th>
-      prioritat
-      <span class='fletxes' title='ordena AZ' onclick=document.getElementById('prioritat_up').submit();>&uarr;</span>
-      <span class='fletxes' title='ordena ZA' onclick=document.getElementById('prioritat_down').submit();>&darr;</span>
-      <form id='prioritat_up' method=POST action=main.php>
-        <input type=hidden name=columna value=prioritat />
-        <input type=hidden name=ordre value=DESC />
-      </form>
-      <form id='prioritat_down' method=POST action=main.php>
-        <input type=hidden name=columna value=prioritat />
-        <input type=hidden name=ordre value=ASC />
-      </form>
-    </th>
-    <th>
-      tècnics
-    </th>
-    <th>
-      administratius
-    </th>
-    <th>
-      data finalització
-        <span class='fletxes' title='ordena AZ' onclick=document.getElementById('fi_up').submit();>&uarr;</span>
-        <span class='fletxes' title='ordena ZA' onclick=document.getElementById('fi_down').submit();>&darr;</span>
-      <form id='fi_up' method=POST action=main.php>
-        <input type=hidden name=columna value=data_finalitzacio />
-        <input type=hidden name=ordre value=ASC />
-      </form>
-      <form id='fi_down' method=POST action=main.php>
-        <input type=hidden name=columna value=data_finalitzacio />
-        <input type=hidden name=ordre value=DESC />
-      </form>
-    </th>
-    <th>
-      data lliurament
-        <span class='fletxes' title='ordena AZ' onclick=document.getElementById('lliurament_up').submit();>&uarr;</span>
-        <span class='fletxes' title='ordena ZA' onclick=document.getElementById('lliurament_down').submit();>&darr;</span>
-      <form id='lliurament_up' method=POST action=main.php>
-        <input type=hidden name=columna value=data_lliurament />
-        <input type=hidden name=ordre value=ASC />
-      </form>
-      <form id='lliurament_down' method=POST action=main.php>
-        <input type=hidden name=columna value=data_lliurament />
-        <input type=hidden name=ordre value=DESC />
-      </form>
-    </th>
-  </tr> <!-- fi de la primera fila de títols i botons -->
-";
   while ($fila_ot_generic=$resultat_ot_generic->fetch_assoc()){
 echo "
   <tr ondblclick=document.getElementById('modificar_ot".$fila_ot_generic['id_ot']."').submit(); title='doble click per veure/modificar'>
@@ -156,10 +83,59 @@ echo "
     <td>
       ".$fila_ot_generic['data_lliurament']."
     </td>
+    <td onclick=$('#editarComanda".$fila_ot_generic['id_ot']."').submit(); title='click per veure lestat de lordre'>
+        <form id='editarComanda".$fila_ot_generic['id_ot']."' method='POST' action='comandes.php'>
+          <input type='hidden' name='id_ot' value='".$fila_ot_generic['id_ot']."' />
+          <i class='material-icons' style='font-size: 2em;color:";if($fila_ot_generic['id_estat']==1){
+                                                                      echo "red;";
+                                                                  }
+                                                                  else if($fila_ot_generic['id_estat']==2 || $fila_ot_generic['id_estat']==3){
+                                                                    echo "orange;";
+                                                                  }
+                                                                  else{
+                                                                    echo "green;";
+                                                                  }
+             echo "'>linear_scale</i>
+        </form>
+    </td>";
+    if($_SESSION['rol']==2){
+
+
+      echo "<td onclick=$('#avaluarTecnic".$fila_ot_generic['id_ot']."').submit(); title='click per avaluar el tecnic de lordre'>
+          <form id='avaluarTecnic".$fila_ot_generic['id_ot']."' method='POST' action='../back/calcularNombreTecnics.php'>
+            <input type='hidden' name='id_ot' value='".$fila_ot_generic['id_ot']."' />
+            <input type='hidden' name='QuiAvaluem' value='1' />";
+
+          echo "
+            <i class='material-icons' style='font-size: 2em;color:";if($fila_ot_generic['AvaluadaTecnic']==1){
+                                                                        echo "green;";
+                                                                    }
+
+                                                                    else{
+                                                                      echo "red;";
+                                                                    }
+            echo "'>spellcheck</i>
+          </form>
+      </td>";
+      echo "<td onclick=$('#avaluarAdministratiu".$fila_ot_generic['id_ot']."').submit(); title='click per avaluar el administratius de lordre'>
+          <form id='avaluarAdministratiu".$fila_ot_generic['id_ot']."' method='POST' action='../back/calcularNombreTecnics.php'>
+            <input type='hidden' name='id_ot' value='".$fila_ot_generic['id_ot']."' />
+            <input type='hidden' name='QuiAvaluem' value='2' />";
+          echo "
+            <i class='material-icons' style='font-size: 2em;color:";if($fila_ot_generic['AvaluadaAdministratiu']==1){
+                                                                        echo "green;";
+                                                                    }
+
+                                                                    else{
+                                                                      echo "red;";
+                                                                    }
+            echo "'>spellcheck</i>
+          </form>
+      </td>
   </tr> <!-- fi de la línia de dades de la OT -->
 
 ";
   }
-echo "
-</table>";
+}
+
 ?>
