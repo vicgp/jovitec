@@ -2,3 +2,26 @@
 	background-color: transparent;
 	margin-bottom: 55px;
 }
+#tota_avaluacio{
+	margin-top: 50px;
+}
+#tabla, #titol{
+	background-color: rgba(0,0,0,0) !important;
+	margin-bottom: 10px;
+}
+
+#botones, #menos {
+	margin-bottom: 20px;
+}
+select, input, #botones {
+	width: 30%;
+	margin-left: 35%;
+	color: black;
+}
+.w3-container{
+	position: absolute;
+}
+#llistaCompetencies{
+	background-color: white;
+
+}
