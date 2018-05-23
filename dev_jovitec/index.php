@@ -4,10 +4,6 @@
   <?php
   require("php/funcions.php");
 
-
-
-
-
 ?>
 
   <!-- Theme Made By www.w3schools.com - No Copyright -->

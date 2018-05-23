@@ -1,5 +1,3 @@
-
-
 #contenedor, #contenedor1,#contenedor2{
 	width: 20%;
 	height: 81%;
@@ -43,8 +41,8 @@
 }
 
 #users button{
-	margin-left: 10px;
-	margin-top: 10px;
+	margin-left: -4px;
+	margin-top: 2px;
 	background: #fff;
 }
 
@@ -267,12 +265,24 @@ input, textarea{
 	position: fixed;
 }
 
-#minimizar,#minimizar1,#minimizar2, #minimizarInici {
+#minimizarInici {
 	border-top-right-radius: 12px;
 	border-top-left-radius: 12px;
 	background: #ccc;
 	height: 10%;
-	width: 117%;
+	width: 120%;
+	margin-top: -20px;
+	margin-left: -20px;
+	padding-right: 40px;
+
+} 
+
+#minimizar, #minimizar1, #minimizar2 {
+	border-top-right-radius: 12px;
+	border-top-left-radius: 12px;
+	background: #ccc;
+	height: 10%;
+	width: 116%;
 	margin-top: -20px;
 	margin-left: -20px;
 	padding-right: 40px;

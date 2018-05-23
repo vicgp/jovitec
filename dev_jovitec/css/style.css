@@ -21,7 +21,7 @@ div.table-title {
 
 #formulario {
   overflow: auto;
-  height: 380px;
+  height: 65%;
 }
 
 #formulario::-webkit-scrollbar{

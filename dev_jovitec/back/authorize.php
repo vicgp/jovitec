@@ -8,10 +8,10 @@ $resultat=consulta($query_usuari);
 // if(!$resultat){echo "no hi ha resultat";}
 
 if ($resultat->fetch_assoc()['password_usuari'] != $_POST['psswd']){
-  echo" <br />ho sento, no estàs autoritzat!<br />";
-  echo" <br />introduir usuari i contrasenya correctes<br />";
-  echo '<meta http-equiv="refresh" content="4; url=../index.html" />';
-
+  echo "<script language='javascript'>
+                alert('Contrasenya incorrecte!');
+                window.location= '../index.php'
+    </script>";
 }
 else {
   // fem una consulta per saber el rol de l'usuari

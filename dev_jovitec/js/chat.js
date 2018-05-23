@@ -164,7 +164,7 @@ function abrir(emisor,receptor){
         $('#contenedor').show();
         $('#btnChat').hide();
         $("#contenedor").animate({
-            height: '350px',
+            height: '41%',
             width: '20%',
             right: '18.5%'
         });
@@ -185,7 +185,7 @@ function abrir(emisor,receptor){
         $('#contenedor1').show();
         $('#btnChat1').hide();
         $("#contenedor1").animate({
-            height: '350px',
+            height: '41%',
             width: '20%',
             right: '39.5%'
         });
@@ -197,9 +197,9 @@ function abrir(emisor,receptor){
         $('#contenedor2').show();
         $('#btnChat2').hide();
         $("#contenedor2").animate({
-            height: '350px',
+            height: '41%',
             width: '20%',
-            right: ''+(dreta+90)+'px'
+            right: ''+(dreta+135)+'px'
         });
 
 
@@ -241,19 +241,19 @@ if (event.keyCode === 13) {
 //------------------------------------------------------------
 $("#btnChat2")[0].addEventListener("click",function(){
 	$("#contenedor2").animate({
-			height: '53%'});
+			height: '41%'});
 			$("#contenedor2").show();
 		$('#btnChat2').hide();
 });
 $("#btnChat1")[0].addEventListener("click",function(){
 	$("#contenedor1").animate({
-			height: '53%'});
+			height: '41%'});
 			$("#contenedor1").show();
 		$('#btnChat1').hide();
 });
 $("#btnChat")[0].addEventListener("click",function(){
 	$("#contenedor").animate({
-			height: '53%'});
+			height: '41%'});
 			$("#contenedor").show();
 		$('#btnChat').hide();
 });
@@ -262,38 +262,27 @@ $("#btnChat")[0].addEventListener("click",function(){
 //-----------------event minimitzar chats----------------
 //------------------------------------------------------------
 $("#minimizar")[0].addEventListener("click",function(){
-		$("#contenedor").animate({height: "0px"});
-			$('#btnChat').show();
-			$('#btnChat').animate({
-				right: '19%'
-			});
-			$('#btnChatUser2').show();
-			$('#btnChatUser2').animate({
-				right: '19%'
-			});
-			$('#contenedor').hide();
+	$("#contenedor").animate({height: "0px"});
+	$('#btnChat').show();
+	$('#btnChat').animate({
+		right: '19%'
+	});
+	$('#contenedor').hide();
 });
+
 $("#minimizar1")[0].addEventListener("click",function(){
 	$("#contenedor1").animate({height: "0px"});
 	$('#btnChat1').show();
 	$('#btnChat1').animate({
 		right: '40%'
 	});
-	$('#btnChatUser3').show();
-	$('#btnChatUser3').animate({
-		right: '40%'
-	});
 	$('#contenedor1').hide();
-
 });
+
 $("#minimizar2")[0].addEventListener("click",function(){
 	$("#contenedor2").animate({height: "0px"});
 	$('#btnChat2').show();
 	$('#btnChat2').animate({
-		right: '61%'
-	});
-	$('#btnChatUser4').show();
-	$('#btnChatUser4').animate({
 		right: '61%'
 	});
 	$('#contenedor2').hide();
@@ -313,11 +302,17 @@ function cerrar(id) {
     if(2==id){
       $("#contenedor").animate({height: "0px"});
 			if(chats.includes('3')){
-				$("#contenedor1").animate({right: "270px"});
-				$("#contenedor2").animate({right: "615px"});			}
-			else{
-				$("#contenedor2").animate({right: "270px"});
+				$("minimizar1")[1].animate({right: "19%"});
+				$("#contenedor1").animate({right: "19%"});
+				$("#btnChat1").animate({right: "19%"});
 
+				$("#contenedor2").animate({right: "40%"});
+				$("#btnChat2").animate({right: "40%"});	
+			}
+
+			else{
+				$("#contenedor2").animate({right: "19%"});
+				$("#btnChat2").animate({right: "19%"});
 			}
 
       $('#contenedor').hide();
@@ -333,12 +328,14 @@ function cerrar(id) {
     else if(3==id){
       $("#contenedor1").animate({height: "0px"});
 			if(chats.includes('2')){
-				$("#contenedor2").animate({right: "615px"});
+				$("#contenedor2").animate({right: "40%"});
+				$("#btnChat2").animate({right: "40%"});
 			}
 			else{
-				$("#contenedor2").animate({right: "270px"});
-
+				$("#contenedor2").animate({right: "19%"});
+				$("#btnChat2").animate({right: "19%"});
 			}
+
       $('#contenedor1').hide();
       $('#btn').show();
       numChats--;

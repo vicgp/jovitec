@@ -229,7 +229,7 @@ if ($_SESSION['rol'] == 3 || $_SESSION['rol'] == 4){
 <div class="clickPopUp">
 <h4><a class="username" href="" style="margin-left: 10px;">'.$_SESSION["usuari"].'</a></h4>
 <h5 class="buttons"><a class="username" href="../front/usuari.php">Perfil</a></h5>
-<h5 class="buttons"><a class="username" href="">Qualificacions</a></h5>
+<h5 class="buttons"><a class="username" href="avaluat.php">Qualificacions</a></h5>
 <h5 class="buttons"><a href="../back/logout.php" >logout <span class="glyphicon glyphicon-log-out"  ></span></a></h5>
 <div class="Social">
 <h5 class="buttons"><a href=""></span></a></h5>
@@ -314,7 +314,7 @@ function chat(){
                   $conentat="white";
                 }
 				echo "<li><button class='li' onclick='abrir(".$_SESSION['id_user'].",".$fila['id_usuari'].")'>".$fila['nom_usuari']."
-        <div style='margin-left: 92%;margin-top: -15%;'><span class='glyphicon glyphicon-user'style='margin-left:20%; color:".$conentat.";'></span><div>
+        <div style='margin-left: 90%;margin-top: -10%;'><span class='glyphicon glyphicon-user'style='margin-left:20%; color:".$conentat.";'></span><div>
         </button></li><br>";
 			}
 
