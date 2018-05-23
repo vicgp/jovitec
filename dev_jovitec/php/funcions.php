@@ -13,6 +13,7 @@ function capsalera ($titol){
       <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
       <meta name='viewport' content='width=device-width, initial-scale=1'>
       <!--bootstrap -->
+      <script src='../js/jquery-3.3.1.min.js'></script>
 
       <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
       <link rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css'>
@@ -52,7 +53,6 @@ function capsalera ($titol){
     <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
 
     <script src='../js/func_alta_user.js'></script>
-    <script src='../js/func_alta_ot.js'></script>
     <script src='../js/sidebar.js'></script>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
         <script  src='../js/UserProfile.js'></script>
@@ -281,6 +281,23 @@ if ($_SESSION['rol'] == 5){
 // pàgina per posar les funcions d'us comú en tot el lloc
 function chat(){
   echo "
+  <style>
+  #searchNom {
+
+  position: absolute;
+  bottom: 1px;
+margin-bottom: 1px;
+bottom: 3px;
+left: 2px;
+
+}
+#containerSearch{
+  background-color:white;
+}
+#contanedorButton{
+  height:50%;
+}
+</style>
   <div class='btnUsuario'>
 		<button id='btnUser'><p style='margin: -10px 0 10px;'>ABRIR USUARIOS</p></button>
 	</div>
@@ -317,10 +334,11 @@ function chat(){
         <div style='margin-left: 90%;margin-top: -10%;'><span class='glyphicon glyphicon-user'style='margin-left:20%; color:".$conentat.";'></span><div>
         </button></li><br>";
 			}
-
       echo "
 		  </ul>
+      <input type='text' id='searchNom' class='w3-input' style='' placeholder='Busca per noms' title='Type in a name'>
 		</div>
+
 	</div>
 
 	<!--CHAT -->

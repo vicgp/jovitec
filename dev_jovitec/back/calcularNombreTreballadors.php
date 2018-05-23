@@ -54,18 +54,20 @@ $numFinal=12/$fila_ot_res['a'];
 
       <body>
     <div class='panel panel-default' style='height:40%;width:65%;position:relative;top:30%;left:20%;'>
+      <input type="hidden" id='quiAvaluem' value=<?php echo $quiAvaluem ?>>
+      <input type="hidden" id='idot' value=<?php echo $idot ?>>
       <div class='panel-heading' style='text-align:center'>Tria Alumne a avaluar</div>
       <div class='panel-body'>
         <div class="row">
           <?php
           $res1=consulta($alumnes);
           while($fila_ot_res1=$res1->fetch_assoc()){
-          echo '<div class="col-sm-'.$numFinal.'" id="'.$numid.'">'
+          echo '<div class="col-sm-'.$numFinal.'" id="'.$numid.'" >'
           ?>
             <div class='panel-heading' ><?php echo $fila_ot_res1['username_usuari'] ?></div>
-            <div class='panel-body'>
-              <input type="hidden" value='<?php echo $fila_ot_res1['id_usuari'] ?>'>
-              <i class="material-icons" style='font-size: 8em;text-align:center'>account_box </i>
+            <div class='panel-body' disabled='disabled'>
+              <input type="hidden" id='usuari' value=<?php echo $fila_ot_res1['id_usuari'] ?>>
+              <i class="material-icons" style='font-size: 8em;text-align:center' disabled>account_box </i>
             </div>
         </div>
         <?php

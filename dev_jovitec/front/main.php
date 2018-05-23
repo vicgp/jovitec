@@ -1,6 +1,5 @@
 <html>
   <head>
-    <script src='../js/func_alta_ot.js'></script>
     <script src='../js/sidebar.js'></script>
 
 <?php
@@ -124,7 +123,12 @@ chat();
           <button id='ot'  onclick='ot_alta()' style= width:100%; >Nova OT</button>
           <div id='newOT'>
           </div>
-
+          <div class='w3-modal' id='modificarOtTot'>
+            <div class='w3-modal-content animate'>
+                <div class='w3-container' id='modificarOt'>
+                </div>
+            </div>
+          </div>
           <!-- taula amb els botons d'ordenar les ordres de treball -->
           <div id='otTotal'>
           <form method=POST action=nova_ot.php id='formulario'>
@@ -224,14 +228,13 @@ chat();
               }
               echo "
             </tr> <!-- fi de la primera fila de títols i botons -->
+            <tbody id='tbody'>
         ";
             while ($fila_ot_generic=$resultat_ot_generic->fetch_assoc()){
-        echo "<tbody id='tbody'>
-            <tr id='ordre' ondblclick=document.getElementById('modificar_ot".$fila_ot_generic['id_ot']."').submit(); title='doble click per veure/modificar'>
-              <form id='modificar_ot".$fila_ot_generic['id_ot']."' method='POST' action='ot.php'>
-                <input type='hidden' name='id_ot' value='".$fila_ot_generic['id_ot']."' />
+        echo "
+            <tr class='ordre'  title='doble click per veure/modificar'>
+                <input type='hidden' id='id_ot' value='".$fila_ot_generic['id_ot']."' />
 
-              </form>
               <td align='right'>
                 ".$fila_ot_generic['id_ot']."
               </td>
@@ -304,7 +307,7 @@ chat();
 
 
                 echo "<td onclick=$('#avaluarTecnic".$fila_ot_generic['id_ot']."').submit(); title='click per avaluar el tecnic de lordre'>
-                    <form id='avaluarTecnic".$fila_ot_generic['id_ot']."' method='POST' action='../back/calcularNombreTecnics.php'>
+                    <form id='avaluarTecnic".$fila_ot_generic['id_ot']."' method='POST' action='../back/calcularNombreTreballadors.php'>
                       <input type='hidden' name='id_ot' value='".$fila_ot_generic['id_ot']."' />
                       <input type='hidden' name='QuiAvaluem' value='1' />";
 
@@ -320,7 +323,7 @@ chat();
                     </form>
                 </td>";
                 echo "<td onclick=$('#avaluarAdministratiu".$fila_ot_generic['id_ot']."').submit(); title='click per avaluar el administratius de lordre'>
-                    <form id='avaluarAdministratiu".$fila_ot_generic['id_ot']."' method='POST' action='../back/calcularNombreTecnics.php'>
+                    <form id='avaluarAdministratiu".$fila_ot_generic['id_ot']."' method='POST' action='../back/calcularNombreTreballadors.php'>
                       <input type='hidden' name='id_ot' value='".$fila_ot_generic['id_ot']."' />
                       <input type='hidden' name='QuiAvaluem' value='2' />";
                     echo "
@@ -349,6 +352,10 @@ chat();
           </table>
           </div>
           </div>
+
+          <script src='../js/func_alta_ot.js'></script>
+
         ";
+
 peu("");
 ?>

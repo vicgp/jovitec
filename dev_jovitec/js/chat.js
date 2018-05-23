@@ -6,10 +6,20 @@ receptor = 0;
 numMissatge=0;
 var req = new XMLHttpRequest();
 read=false;
-setInterval(actualizarChat,1000);
-setInterval(newMessage,1000);
+// setInterval(actualizarChat,1000);
+// setInterval(newMessage,1000);
 $("#caja-chat").animate({ scrollTop: $('#caja-chat').prop("scrollHeight")}, 0);
-
+$("#searchNom")[0].addEventListener("keyup",function(){
+	    filter = $("#searchNom").val().toUpperCase();
+	    $(".li").each(function(){
+					if($(this).html().toUpperCase().indexOf(filter)>-1){
+						$(this).parent().show();
+					}
+					else{
+						$(this).parent().hide();
+					}
+			})
+});
 function newMessage(){
 	$.ajax({url: "../back/nombreMissatge.php", success: function(result){
 			if(parseInt(result)>numMissatge && read==false){
