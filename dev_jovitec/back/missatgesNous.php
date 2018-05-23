@@ -5,7 +5,7 @@ $sql="SELECT u.username_usuari,u.id_usuari,COUNT(*) a FROM chat c,usuaris u WHER
 $resultat=consulta($sql);
 $numMi=0;
 while ($fila=$resultat->fetch_assoc()){
-  echo "<a id='".$numMi."NewMessage' class='w3-bar-item w3-button' onclick='abrir(".$_SESSION['id_user'].",".$fila['id_usuari'].")'>".$fila['username_usuari']."/".$fila['a']."</a>";
+  echo "<a id='".$numMi."NewMessage' class='w3-bar-item w3-button' style='padding-right: 54.20; padding-top: 10px; padding-bottom: 9px;' onclick='abrir(".$_SESSION['id_user'].",".$fila['id_usuari'].")'>".$fila['username_usuari']."/".$fila['a']."</a>";
   $numMi++;
 }
   ?>
