@@ -263,7 +263,7 @@ defaultOptions.ui.popoverError = function (errors) {
     return message;
 };
 defaultOptions.ui.errorMessages = {
-    wordLength: "La vostra contrasenya és massa curta",
+    // wordLength: "La vostra contrasenya és massa curta",
     wordNotEmail: "No utilitzeu el correu electrònic com a contrasenya",
     wordSimilarToUsername: "La vostra contrasenya no pot contenir el vostre nom d'usuari",
     wordTwoCharacterClasses: "Utilitzeu diferents classes de caràcters",

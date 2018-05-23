@@ -74,10 +74,20 @@ else{
   }
 
   </script>
-    <span class="btn btn-primary" id="get-current-value-btn" style="float: left;margin-top: 3.36%;" onclick="bot1()">Recollit</span><br>
-        <span class="btn btn-primary" id="set-current-value-btn" style="float: left;margin-left: 31%; margin-top: 1.3%;"onclick="bot2()" >En Procés</span><br>
-        <span class="btn btn-primary" id="find-step-btn" style="float: left;margin-left: 69%;margin-top: -4.4%;" onclick="bot3()">Pendent d'entrega</span><br>
-        <span class="btn btn-primary" id="remove-step-btn" style="float: left;margin-left: 92%;margin-top: -4.3%;" onclick="bot4()">Entregat</span>
+  <div class="col-sm-3">
+    <span class="btn btn-primary" id="get-current-value-btn" style="float: left;margin-left: -8%;" onclick="bot1()">Recollit</span><br>
+  </div>
+<div class="col-sm-3">
+    <span class="btn btn-primary" id="set-current-value-btn" style="float: left;margin-left: 63%;" onclick="bot2()" >En Procés</span><br>
+</div>
+<div class="col-sm-3">
+  <span class="btn btn-primary" id="find-step-btn" style="float: left;margin-left: 77%;" onclick="bot3()">Pendent d'entrega</span><br>
+</div>
+      <div class="col-sm-3">
+          <span class="btn btn-primary" id="remove-step-btn" style="float: left;margin-left: 69%;" onclick="bot4()">Entregat</span>
+      </div>
+
+
         </div>
 <?php }
 

@@ -72,8 +72,8 @@ echo '<div class="w3-sidebar w3-bar-block w3-border-right" style="display: none;
               echo "
                   </select>
                 </div>
-                <div id='usuarisList'>
-                <h1>Usuaris</h1>
+                <div id='usuarisList' style='padding-right: 4%; margin-left: 4%;'>
+                <h1 style='text-align:center;'>Usuaris</h1>
 
                 <button class='btn btn-success' onclick='user()' style= width:100%; >Nova Usuari</button>
                 <div id='newUser'>
