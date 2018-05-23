@@ -18,8 +18,10 @@
         $sql = "INSERT INTO avaluacio (id_avaluacio, id_usuari, nom, numero_ot, id_competencia, id_nota)
       VALUES $valores";
       $resultat=consulta($sql);
+      $sql2 = "UPDATE usuaris SET Avaluat=1 WHERE id_usuari".$id_usuari;
+    $resultat=consulta($sql2);
 
-    
+
 
 
 

@@ -30,16 +30,28 @@ chat();
 
 $quiAvaluem=$_GET['quiAvaluem'];
 $idot=$_GET['id_ot'];
-if($quiAvaluem==1){
-    $sql="SELECT username_usuari,usuaris.id_usuari FROM usuaris INNER JOIN tecnics ON usuaris.id_usuari=tecnics.id_usuari WHERE tecnics.id_ot=".$idot;
+
+if(isset($_GET['idUser'])){
+  $idUser=$_GET['idUser'];
+  $sql="SELECT username_usuari FROM usuaris WHERE id_usuari=".$idUser;
+  $resNomUser=consulta($sql);
+  $fila_ot_res=$resNomUser->fetch_assoc();
+  $nom=$fila_ot_res['username_usuari'];
+
 }
 else{
-  $sql="SELECT username_usuari,usuaris.id_usuari FROM usuaris INNER JOIN administratius ON usuaris.id_usuari=administratius.id_usuari WHERE administratius.id_ot=".$idot;
+  if($quiAvaluem==1){
+      $sql="SELECT username_usuari,usuaris.id_usuari FROM usuaris INNER JOIN tecnics ON usuaris.id_usuari=tecnics.id_usuari WHERE tecnics.id_ot=".$idot;
+  }
+  else{
+    $sql="SELECT username_usuari,usuaris.id_usuari FROM usuaris INNER JOIN administratius ON usuaris.id_usuari=administratius.id_usuari WHERE administratius.id_ot=".$idot;
+  }
+  $res=consulta($sql);
+  $fila_ot_res=$res->fetch_assoc();
+  $nom=$fila_ot_res['username_usuari'];
+  $idUser=$fila_ot_res['id_usuari'];
 }
-$res=consulta($sql);
-$fila_ot_res=$res->fetch_assoc();
-$nom=$fila_ot_res['username_usuari'];
-$idUser=$fila_ot_res['id_usuari'];
+
 ?>
 
 

@@ -24,7 +24,7 @@ $ob=$_GET['ob'];
 
 
 
-$ot="INSERT INTO ordre_treball VALUES (null,".$curs.",".$dataE.",".$prioritat.",1,null,".$dataLL.",".$usuari.",0,0)";
+$ot="INSERT INTO ordre_treball VALUES (null,".$curs.",'".$dataE."',".$prioritat.",1,null,'".$dataLL."',".$usuari.",0,0)";
 mysqli_query($connection, $ot);
 $id_ot=mysqli_insert_id($connection);
 

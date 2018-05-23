@@ -1,8 +1,23 @@
 var productes_client=[];
+$(document).ready(function(){
+  $(".ordre").each(function(){
+      $(this).click(function(){
+        $.post("../back/ot.php",{
+          id_ot:$(this).children("input").val()
+        },
+          function(result){
+            $("#modificarOt").html(result);
+            $("#modificarOtTot").show();
+        });
+      })
+  });
+
+});
 
 //----------------------------------------------------------------
 //----------funcio per afagir el modal de ordres noves------------
-//----------------------------------------------------------------
+//-------------------------------------------------------------
+
 
 var xhttp = new XMLHttpRequest();
 function ot_alta(){
@@ -72,7 +87,7 @@ function loadDrop(){
 }
 //----funcio per obrir el modal per afagir objectes al inventari---------
 function addInventari(a){
-  if(productes_client.length<=1){
+  if(productes_client.length<=3){
     $('#modalProduct').show();
 
     if(a==1){
