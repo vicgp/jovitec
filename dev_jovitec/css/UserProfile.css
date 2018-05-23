@@ -1,6 +1,6 @@
 
 .click{
-	  background: url('../img/logo.png');
+	  /* background: url('../img/logo.png'); */
 	  background-size:contain;
 	  position: relative;
 	    -webkit-border-radius: 50%;
@@ -45,22 +45,24 @@
     margin-top: 3vh;
 	}
 .Img{
-	  background: url('../img/logo.png');
+	   /* background: url('../img/4.jpg'); */
 	  background-size:contain;
+
 	  	  /*z-index: 9999;*/
 	  position: relative;
-	    -webkit-border-radius: 50%;
+  -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
-	  	  					-webkit-transition:cubic-bezier(.34,.43,0,1.02) 0.2s;
-		-moz-transition:cubic-bezier(.34,.43,0,1.02) 0.2s;
-		transition:cubic-bezier(.34,.43,0,1.02) 0.2s;
-			  box-shadow: 0px 0px 0px 2pt transparent;
-	  border: 0px solid #FFF;
-	  margin: auto;
+	-webkit-transition:cubic-bezier(.34,.43,0,1.02) 0.2s;
+	-moz-transition:cubic-bezier(.34,.43,0,1.02) 0.2s;
+	transition:cubic-bezier(.34,.43,0,1.02) 0.2s;
+  box-shadow: 0px 0px 0px 2pt transparent;
+	border: 0px solid #FFF;
+	margin: auto;
   cursor: pointer;
-	  	width:50px;
+	width:50px;
 	height:50px;
+
 	}
 		.clickPopUp{
 			position: relative;
@@ -111,7 +113,7 @@
 	border-bottom-color: #e74c3c;
 	border-width: 10px;
 	margin-left: -10px;
-	
+
 }
 .PopUp a, .clickPopUp a{
 		font-family: 'Helvetica Neue', Arial, Helvetica, 'Nimbus Sans L', sans-serif;

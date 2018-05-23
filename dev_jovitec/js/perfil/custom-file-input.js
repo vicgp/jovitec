@@ -13,7 +13,7 @@
 		var label	 = input.nextElementSibling,
 			labelVal = label.innerHTML;
 
-		input.addEventListener( 'change', function( e )
+		$('imagen').addEventListener( 'change', function( e )
 		{
 			var fileName = '';
 			if( this.files && this.files.length > 1 )

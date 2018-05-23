@@ -3,6 +3,8 @@
 ///////////////////////////////////////////////////////////////////////////
 // capçalera del lloc, $titol de la pàgina.
 ////////////////////////////////////////////////////////////////////////////////
+
+
 function capsalera ($titol){
   echo "
 
@@ -34,6 +36,8 @@ function capsalera ($titol){
     <link rel='stylesheet' type='text/css' href='../css/chat.css'>
     <link rel='stylesheet' type='text/css' href='../css/sidebar.css'>
     <link rel='stylesheet' type='text/css' href='../css/modal.css'>
+    <link rel='stylesheet' type='text/css' href='../css/buttonfile.css'>
+    <link rel='stylesheet' type='text/css' href='../css/style.php'>
 
 <!--Perfil-->
 <link rel='stylesheet' type='text/css' href='../css/perfil/normalize.css' />
@@ -93,7 +97,9 @@ function capsalera ($titol){
 //distribuim els botons comuns al lloc a la part superior
 
       //afegir botó de gestió d'usuaris si el rol és inferior a 5
-
+      $imgquery = "SELECT  imatge FROM usuaris WHERE id_usuari= '".$_SESSION['id_user']."'";
+      $resultatImg= consulta($imgquery);
+      $row=$resultatImg->fetch_assoc();
 
   if ($_SESSION['rol'] == 1 || $_SESSION['rol'] == 2){
     echo '<nav class="navbar navbar-default navbar-fixed-top" style="margin-left:2px;">
@@ -114,26 +120,44 @@ function capsalera ($titol){
           <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="
-    margin-left: -50%;
-    margin-top: -13.8%;
-
-    padding-top: 37%;
-    padding-bottom: 10%;
-    padding-right: 12%;
-
-
-
-">
+    margin-right: 23px;
+    margin-top: 4%;
+    padding-bottom;
+    padding-bottom: 10px;
+    left: 6px;
+    ">
               <span id="notificacio" class="material-icons" style=" margin-bottom:  6%; padding-top: 20%; padding-bottom: 8%;font-s;font-size: 2em;">notifications</span>
             </a>
-              <ul class="dropdown-menu" id="missatgeNous">
+              <ul class="dropdown-menu" id="missatgeNous" style="background-color: #2d343c;top: 40.638px;padding-bottom: 0px;padding-top: 0px;border-right-width: 0px;">
 
                 <!-- crear tants <li><a href="#">Page 1-1</a></li> com missatges nous -->
               </ul>
           </li>
+<<<<<<< HEAD
             <li><a href="../front/main.php" style="margin-bottom:  6%;padding-top: 9%;padding-bottom: 8%;margin-top: 6%;margin-left: -19%;">Ordres de treball</a></li>
             <li><a href="../front/usuaris.php" style="margin-bottom:  20%;padding-top: 17%;padding-bottom: 15%;margin-top: 11%;margin-left: -21%;">Usuaris</a></li>
             <li><a class="Img" style="margin-bottom:  20%;padding-top: 18%;padding-bottom: 19%;margin-top: 21%;margin-left: -20%;"></span></a></li>
+=======
+            <li><a href="../front/main.php" style="margin-bottom:  6%;padding-top: 9%;padding-bottom: 8%;margin-top: 6%;margin-left: -19%;left: 10%;">Ordres de treball</a></li>
+            <li><a href="../front/usuaris.php" style="margin-bottom:  20%;padding-top: 17%;padding-bottom: 15%;margin-top: 11%;margin-left: -21%;right: 0px;left: 5px;">Usuaris</a></li>
+            <li><a class="Img" style="  margin-bottom:  20%;padding-top: 18%;padding-bottom: 19%;margin-top: 21%;margin-left: -20%;
+						background: url(data:image/gif;base64,'.base64_encode($row['imatge']).');
+					 background-size: 50px 50px;
+
+						position: relative;
+				   -webkit-border-radius: 50%;
+				   -moz-border-radius: 50%;
+				   border-radius: 50%;
+				 	-webkit-transition:cubic-bezier(.34,.43,0,1.02) 0.2s;
+				 	-moz-transition:cubic-bezier(.34,.43,0,1.02) 0.2s;
+				 	transition:cubic-bezier(.34,.43,0,1.02) 0.2s;
+				   box-shadow: 0px 0px 0px 2pt transparent;
+				 	border: 0px solid #FFF;
+
+				  cursor: pointer;
+				 	width:50px;
+				 	height:50px;"></span></a></li>
+>>>>>>> mmoreno
             </li>
           </ul>
         </div>
@@ -151,17 +175,42 @@ function capsalera ($titol){
 
           <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-              <span id="notificacio" class="glyphicon glyphicon-envelope" style="margin-bottom:  6%; padding-top: 6%; padding-bottom: 8%;color:#d5d5d5;">New Message</span>
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="
+    margin-right: 23px;
+    margin-top: 4%;
+    padding-bottom;
+    padding-bottom: 10px;
+    ">
+            <span id="notificacio" class="material-icons" style=" margin-bottom:  6%; padding-top: 20%; padding-bottom: 8%;font-s;font-size: 2em;">notifications</span>
             </a>
-              <ul class="dropdown-menu" id="missatgeNous">
+              <ul class="dropdown-menu" id="missatgeNous" style="background-color: #2d343c;">
 
                 <!-- crear tants <li><a href="#">Page 1-1</a></li> com missatges nous -->
               </ul>
           </li>
 
             <li><a href="../front/main.php" style="margin-bottom:  6%;padding-top: 9%;padding-bottom: 8%;margin-left: -13%;margin-top: 6%;">Ordres de treball</a></li>
+<<<<<<< HEAD
             <li><a class="Img" style="margin-bottom:  20%;padding-top: 18%;padding-bottom: 19%;margin-top: 21%;margin-left: -20%;"></span></a></li>
+=======
+						<li><a class="Img" style="  margin-bottom:  20%;padding-top: 18%;padding-bottom: 19%;margin-top: 21%;margin-left: -20%;
+						background: url(data:image/gif;base64,'.base64_encode($row['imatge']).');
+					 background-size: 50px 50px;
+
+						position: relative;
+				   -webkit-border-radius: 50%;
+				   -moz-border-radius: 50%;
+				   border-radius: 50%;
+				 	-webkit-transition:cubic-bezier(.34,.43,0,1.02) 0.2s;
+				 	-moz-transition:cubic-bezier(.34,.43,0,1.02) 0.2s;
+				 	transition:cubic-bezier(.34,.43,0,1.02) 0.2s;
+				   box-shadow: 0px 0px 0px 2pt transparent;
+				 	border: 0px solid #FFF;
+
+				  cursor: pointer;
+				 	width:50px;
+				 	height:50px;"></span></a></li>
+>>>>>>> mmoreno
           </ul>
         </div>
       </div>
@@ -177,18 +226,43 @@ function capsalera ($titol){
         <div class="collapse navbar-collapse" id="myNavbar" >
           <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-              <span id="notificacio" class="glyphicon glyphicon-envelope" style="margin-bottom:  6%; padding-top: 6%; padding-bottom: 8%;color:#d5d5d5;">New Message</span>
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="
+    margin-right: 23px;
+    margin-top: 4%;
+    padding-bottom;
+    padding-bottom: 10px;
+    ">
+              <span id="notificacio" class="material-icons" style=" margin-bottom:  6%; padding-top: 20%; padding-bottom: 8%;font-s;font-size: 2em;">notifications</span>
             </a>
-              <ul class="dropdown-menu" id="missatgeNous">
+              <ul class="dropdown-menu" id="missatgeNous" style="background-color: #2d343c;">
 
                 <!-- crear tants <li><a href="#">Page 1-1</a></li> com missatges nous -->
               </ul>
           </li>
+<<<<<<< HEAD
              <li><a href="../front/historial_comandes.php" style="margin-bottom: 6%; padding-top: 9%; padding-bottom: 15.825; margin-top: 3%; padding-bottom: 15px;">Historial de Comandes</a></li>
             <li><a href="../front/usuari.php" style="margin-bottom: 20%;padding-top: 18%; padding-bottom: 19.712; margin-top: 14%;padding-bottom: 13px;">'.$_SESSION["usuari"].'</a></li>
+=======
+            <li><a href="../front/historial_comandes.php" style="margin-bottom: 6%;padding-top: 9%;padding-bottom: 15.825;margin-top: 3%;padding-bottom: 6%;right: 9%;">Historial de Comandes</a></li>
+>>>>>>> mmoreno
             </li>
-            <li style="margin-right:11px"><a href="../back/logout.php" style="margin-bottom: 8.2;padding-top: 14.813;padding-bottom: 14.275;margin-top: 5px%;top: 27%;padding-bottom: 15.5;padding-bottom: 15.3;padding-bottom: 14px;padding-top: 35%;margin-top: -17%;"><span class="glyphicon glyphicon-log-out"></span></a></li>
+						<li><a class="Img" style="  margin-bottom:  20%;padding-top: 18%;padding-bottom: 19%;margin-top: 21%;margin-left: -20%;
+						background: url(data:image/gif;base64,'.base64_encode($row['imatge']).');
+					 background-size: 50px 50px;
+
+						position: relative;
+					 -webkit-border-radius: 50%;
+					 -moz-border-radius: 50%;
+					 border-radius: 50%;
+					-webkit-transition:cubic-bezier(.34,.43,0,1.02) 0.2s;
+					-moz-transition:cubic-bezier(.34,.43,0,1.02) 0.2s;
+					transition:cubic-bezier(.34,.43,0,1.02) 0.2s;
+					 box-shadow: 0px 0px 0px 2pt transparent;
+					border: 0px solid #FFF;
+
+					cursor: pointer;
+					width:50px;
+					height:50px;"></span></a></li>
 
           </ul>
         </div>
@@ -206,12 +280,12 @@ function capsalera ($titol){
 </div>
 
 <div class="clickPopUp">
-<h4><a class="username" href="" style="margin-left: 10px;">'.$_SESSION["usuari"].'</a></h4>
+<h4><a class="username" href="" style="margin-left: 10px; color:black">'.$_SESSION["usuari"].'</a></h4>
 <h5 class="buttons"><a class="username" href="../front/usuari.php">Perfil</a></h5>
 <h5 class="buttons"><a class="username" href="">Qualificacions</a></h5>
 <h5 class="buttons"><a href="../back/logout.php" >logout <span class="glyphicon glyphicon-log-out"  ></span></a></h5>
 <div class="Social">
-<h5 ><a href=""></span></a></h5>
+<h5 style="border:2px solid black;" ><a href=""></span></a></h5>
 
 </div>
 
@@ -227,7 +301,7 @@ if ($_SESSION['rol'] == 3 || $_SESSION['rol'] == 4){
 </div>
 
 <div class="clickPopUp">
-<h4><a class="username" href="" style="margin-left: 10px;">'.$_SESSION["usuari"].'</a></h4>
+<h4><a class="username" href="" style="margin-left: 10px; color:black">'.$_SESSION["usuari"].'</a></h4>
 <h5 class="buttons"><a class="username" href="../front/usuari.php">Perfil</a></h5>
 <h5 class="buttons"><a class="username" href="avaluat.php">Qualificacions</a></h5>
 <h5 class="buttons"><a href="../back/logout.php" >logout <span class="glyphicon glyphicon-log-out"  ></span></a></h5>
@@ -248,7 +322,7 @@ if ($_SESSION['rol'] == 5){
 </div>
 
 <div class="clickPopUp">
-<h4><a class="username" href="" style="margin-left: 10px;">'.$_SESSION["usuari"].'</a></h4>
+<h4><a class="username" href="" style="margin-left: 10px; color:black;">'.$_SESSION["usuari"].'</a></h4>
 <h5 class="buttons"><a class="username" href="../front/usuari.php">Perfil</a></h5>
 <h5 class="buttons"><a class="username" href="">Dispositius</a></h5>
 <h5 class="buttons"><a class="username" href="../front/historial_comandes.php">La teva Historia</a></h5>

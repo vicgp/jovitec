@@ -117,8 +117,8 @@ chat();
                 </select>
           </div>
 
-          <div id='ordres'>
-          <h1>Ordres de Treball:</h1>
+          <div id='ordres' style='margin-left: 4%; padding-right: 4%;'>
+          <h1 style='text-align: center;'>Ordres de Treball:</h1>
 
           <button id='ot'  onclick='ot_alta()' style= width:100%; >Nova OT</button>
           <div id='newOT'>
