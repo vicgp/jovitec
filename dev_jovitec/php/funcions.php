@@ -133,11 +133,7 @@ function capsalera ($titol){
                 <!-- crear tants <li><a href="#">Page 1-1</a></li> com missatges nous -->
               </ul>
           </li>
-<<<<<<< HEAD
-            <li><a href="../front/main.php" style="margin-bottom:  6%;padding-top: 9%;padding-bottom: 8%;margin-top: 6%;margin-left: -19%;">Ordres de treball</a></li>
-            <li><a href="../front/usuaris.php" style="margin-bottom:  20%;padding-top: 17%;padding-bottom: 15%;margin-top: 11%;margin-left: -21%;">Usuaris</a></li>
-            <li><a class="Img" style="margin-bottom:  20%;padding-top: 18%;padding-bottom: 19%;margin-top: 21%;margin-left: -20%;"></span></a></li>
-=======
+
             <li><a href="../front/main.php" style="margin-bottom:  6%;padding-top: 9%;padding-bottom: 8%;margin-top: 6%;margin-left: -19%;left: 10%;">Ordres de treball</a></li>
             <li><a href="../front/usuaris.php" style="margin-bottom:  20%;padding-top: 17%;padding-bottom: 15%;margin-top: 11%;margin-left: -21%;right: 0px;left: 5px;">Usuaris</a></li>
             <li><a class="Img" style="  margin-bottom:  20%;padding-top: 18%;padding-bottom: 19%;margin-top: 21%;margin-left: -20%;
@@ -157,7 +153,6 @@ function capsalera ($titol){
 				  cursor: pointer;
 				 	width:50px;
 				 	height:50px;"></span></a></li>
->>>>>>> mmoreno
             </li>
           </ul>
         </div>
