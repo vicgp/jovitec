@@ -12,37 +12,23 @@ function user(){
   xhttp.send();
 }
 function alta_user(){
-  var rol=$('#rol')[0].value;
-  var username=$('#username')[0].value;
-  var password=$('#password')[0].value;
-  var nom=$('#nom')[0].value;
-  var cognom=$('#cognom')[0].value;
-  var email=$('#email')[0].value;
-  var tel=$('#telefon')[0].value;
 
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById('formUser').style.display="none";
-      // carregaTaula();
-    }
-  };
-  console.log("rol="+rol+"&username="+username+"&password="+password+"&nom="+nom+"&cognom="+cognom+"&email="+email+"&tel="+tel);
-  xhttp.open("GET", "../back/alta_user_final.php?rol="+rol+"&username="+username+"&password="+password+"&nom="+nom+"&cognom="+cognom+"&email="+email+"&tel="+tel, true);
-  xhttp.send();
+  $.post("../back/alta_user_final.php",{
+    username: $('#username').val(),
+    password: $('#password').val(),
+    nom: $('#nom').val(),
+    cognom: $('#cognom').val(),
+    email: $('#email').val(),
+    rol:$('#rol').val(),
+    tel:$('#telefon').val()
+  },
+    function(result){
+      $('#formUser').hide();
+      location.reload();
+        });
+
 }
 
 function cancelarUser(){
   document.getElementById('formUser').style.display='none';
-}
-
-function carregaTaula(){
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      console.log('ok');
-      document.getElementById('ot').value=this.responseText;
-      document.getElementById('ot').style.display="block";
-    }
-  };
-  xhttp.open("GET", "../back/carregaMain.php", true);
-  xhttp.send();
 }

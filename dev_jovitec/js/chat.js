@@ -9,17 +9,17 @@ read=false;
 // setInterval(actualizarChat,1000);
 // setInterval(newMessage,1000);
 $("#caja-chat").animate({ scrollTop: $('#caja-chat').prop("scrollHeight")}, 0);
-$("#searchNom")[0].addEventListener("keyup",function(){
-	    filter = $("#searchNom").val().toUpperCase();
-	    $(".li").each(function(){
-					if($(this).html().toUpperCase().indexOf(filter)>-1){
-						$(this).parent().show();
-					}
-					else{
-						$(this).parent().hide();
-					}
-			})
-});
+// $("#searchNom")[0].addEventListener("keyup",function(){
+// 	    filter = $("#searchNom").val().toUpperCase();
+// 	    $(".li").each(function(){
+// 					if($(this).html().toUpperCase().indexOf(filter)>-1){
+// 						$(this).parent().show();
+// 					}
+// 					else{
+// 						$(this).parent().hide();
+// 					}
+// 			})
+// });
 function newMessage(){
 	$.ajax({url: "../back/nombreMissatge.php", success: function(result){
 			if(parseInt(result)>numMissatge && read==false){
@@ -317,7 +317,7 @@ function cerrar(id) {
 				$("#btnChat1").animate({right: "19%"});
 
 				$("#contenedor2").animate({right: "40%"});
-				$("#btnChat2").animate({right: "40%"});	
+				$("#btnChat2").animate({right: "40%"});
 			}
 
 			else{

@@ -126,6 +126,7 @@ span.psw {
 #anomalies, #ob{
   height:20%;
   font-size:20px;
+  width: 96%;
 }
 .modal-header, h4, .close {
     background-color: #fff!important;
