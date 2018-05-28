@@ -54,6 +54,7 @@
 
     document.getElementById('login-form').style.display='block';
     document.getElementById('pepe').style.display='none';
+    document.getElementById('forgot').style.display='none';
 
 
   }
@@ -61,6 +62,19 @@
     document.getElementById('pepe').style.display='block';
     document.getElementById('login-form').style.display='none';
     document.getElementById('carousel').style.display='none';
+    document.getElementById('forgot').style.display='none';
+
+
+
+  }
+  function changepwd(){
+
+    document.getElementById('forgot').style.display='block';
+    document.getElementById('login-form').style.display='none';
+    document.getElementById('pepe').style.display='none';
+
+
+
   }
   function validar(){
     var p1 = document.getElementById("pwd").value;
@@ -128,6 +142,8 @@ if (p1 != p2) {
 
       <label><b>Contrasenya</b></label><br>
       <input type="password" placeholder="Enter Password" name="psswd" id="psswd" required><br>
+      <input type="text" style="display:none;" id="mail">
+
       <label><b>Curs</b></label><br>
 
         <select name=curs_actual>
@@ -142,7 +158,7 @@ if (p1 != p2) {
     <button type="submit">Login</button>
     <div class="container" style="background-color:#f1f1f1">
       <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
+      <span class="psw" id="changepass" onclick="changepwd()">Forgot <a href="#">password?</a></span>
     </div>
 
 
@@ -186,7 +202,7 @@ if (p1 != p2) {
                                 <label  class="control-label" for="newemail">Email:</label>
                                 <div class="input-group">
                                   <span class="input-group-addon">@</span>
-                                  <input type="email" class="form-control" id="newemail" placeholder="Enter new email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+                                  <input type="text" class="form-control" id="newemail" placeholder="Enter new email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
                               </div>
                                 <i id="emailIcon" class="material-icons form-control-feedback">highlight_off</i>
                         </div>
@@ -214,10 +230,20 @@ if (p1 != p2) {
 
      <div class="container" style="background-color:#f1f1f1">
       <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
+      <span class="psw" onclick="changepwd()">Forgot <a href="#">password?</a></span>
     </div>
 
    </div>
+
+   <div id="forgot" class="tab-pane fade active in" style="display: none;">
+       <form action="back/recovery_pass.php" method="POST">
+         <label><b>Introdueix el correu electronic per recuperar la contrasenya del teu usauri.</b></label><br>
+        <br> <input type="text" name="email">
+          <button id="Enviar" type="submit"  >Enviar</button>
+         <button type="button" onclick="document.getElementById('id01').style.display='none'"style="background-color:#f32521;">Cancel·la</button>
+
+   </div>
+
 
 </div>
 </div>
@@ -386,17 +412,17 @@ if (p1 != p2) {
       <p><span class="glyphicon glyphicon-phone"></span>938 75 41 78</p>
       <p><span class="glyphicon glyphicon-envelope"></span>Email: xmorera@joviat.com</p>
     </div>
-    <form action="php/contacte.php" method="POST">
+    <form action="back/mail.php" method="POST">
     <div class="col-md-8">
       <div class="row">
         <div class="col-sm-6 form-group">
-          <input class="form-control" id="name" name="name" placeholder="Nom" type="text" required>
+          <input class="form-control" id="name" name="nom" placeholder="Nom" type="text" required>
         </div>
         <div class="col-sm-6 form-group" style="    margin-top: 8px;">
-          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+          <input class="form-control" id="email" name="correu" placeholder="Email" type="email" required>
         </div>
       </div>
-      <textarea class="form-control" id="comments" name="comments" placeholder="Missatge" rows="5"></textarea>
+      <textarea class="form-control" id="comments" name="missatge" placeholder="Missatge" rows="5"></textarea>
       <br>
       <div class="row">
         <div class="col-md-12 form-group">

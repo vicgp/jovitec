@@ -1,10 +1,14 @@
 <?php
   require("../php/funcions.php");
 
-  if (!empty($_POST['email']) && !empty($_POST['Names']) && !empty($_POST['usname']) && !empty($_POST['pwd']) ) {
+  if (!empty($_POST['email'])) {
 
+        $sql= "SELECT password_usuari FROM usuaris WHERE email_usuari='".$_POST['email']."'";
 
+    $res=consulta($sql);
+    $fila=$res->fetch_assoc();
     // Debes editar las próximas dos líneas de código de acuerdo con tus preferencias
+    if(empty($res)){
     $email_to = $_POST['email'];
     $email_subject = "Registrat jovitec";
 
@@ -13,24 +17,22 @@
 
 
     $email_message = "Credencials d'usuari jovitec:\n\n";
-    $email_message .= "Nom: " . $_POST['Names'] . "\n\n";
-    $email_message .= "Username: " . $_POST['usname'] . "\n";
-    $email_message .= "Password: " . $_POST['pwd'] . "\n";
+    $email_message .= "Password: " . $fila['password_usuari'] . "\n";
 
 
 
     // Ahora se envía el e-mail usando la función mail() de PHP
-    $headers = 'From: '.$_POST['email']."\r\n".
+    $headers = 'From: '.$_POST['crreu']."\r\n".
     'Reply-To: '.$_POST['email']."\r\n" .
     'X-Mailer: PHP/' . phpversion();
     @mail($email_to, $email_subject, $email_message, $headers);
 
     echo "¡El formulari s'ha enviat correctament!";
+}
+else{
+  echo"No correspon a cap usuari aquest correu.";
+}
 
-
-    $sql= "INSERT INTO usuaris (id_usuari,username_usuari,password_usuari,nom_usuari,email_usuari,rol_usuari) VALUES (null,'".$_POST['usname']."','".$_POST['pwd']."','".$_POST['Names']."','".$_POST['email']."',5)";
-
-consulta($sql);
   }
 
    header('Location: ../index.php');
