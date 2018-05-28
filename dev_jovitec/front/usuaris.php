@@ -114,6 +114,10 @@ echo '
                             <th>
                               Editar Usuari
                             </th>
+                            <th>
+                              Eliminar Usuari
+                            </th>
+
                           </tr>";
 
                        while ($fila=$resultat->fetch_assoc()) {
@@ -138,13 +142,19 @@ echo '
                                     <input type='hidden' class='id_usuari' value='".$fila['id_usuari']."'>
                                     <i class='material-icons'>edit</i>
                                 </td>
+                                <td class='delete' >
+                                      <input type='hidden' class='id_usuari' value='".$fila['id_usuari']."' />
+                                      <i class='material-icons' style='font-size: 2em;color:black'>delete</i>
+                                </td>
                               </tr>
                             ";
                        }
                          echo "</table>
                          </form>
                    </div>
-                 </div>";
+                 </div>
+                 <script src='../js/modificarUsuari/deleteUsuari.js'></script>
+";
 
 
 

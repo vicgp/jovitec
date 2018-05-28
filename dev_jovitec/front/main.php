@@ -229,7 +229,9 @@ chat();
                 echo "<th>Factura</th>";
 
               }
-
+              if($_SESSION['rol']==2 || $_SESSION['rol']==3){
+                echo "<th>Eliminar Ordre</th>";
+              }
               if($_SESSION['rol']==2){
                 echo "<th>Avaluar Tecnic</th>";
                 echo "<th>Avaluar Administratius</th>";
@@ -317,6 +319,14 @@ chat();
                   </form>
               </td>";
             }
+            if($_SESSION['rol']==2 || $_SESSION['rol']==3){
+
+
+              echo "<td class='delete'  title='click per avaluar el tecnic de lordre'>
+                    <input type='hidden' class='id_ot' value='".$fila_ot_generic['id_ot']."' />
+                    <i class='material-icons' style='font-size: 2em;color:black'>delete</i>
+              </td>";
+            }
               if($_SESSION['rol']==4){
 
 
@@ -386,6 +396,7 @@ chat();
           </table>
           </div>
           </div>
+          <script src='../js/modificarOt/deleteOt.js'></script>
 
           <script src='../js/func_alta_ot.js'></script>
 
