@@ -65,6 +65,14 @@ body {font-family: Arial, Helvetica, sans-serif;}
     cursor: pointer;
 }
 
+#titol {
+  color: black !important;
+  margin-top: 5%;
+}
+</style>
+
+<?php
+
 $quiAvaluem=$_GET['quiAvaluem'];
 $idot=$_GET['id_ot'];
 
@@ -120,13 +128,13 @@ else{
       </ul>
     </div>
     <div id="tota_avaluacio">
-      <h3 id="titol" class="bg-primary text-center pad-basic no-btm">Agregar Nova Nota </h3>
+      <h2 id="titol" class="bg-primary text-center pad-basic no-btm">Agregar Nova Nota </h2>
       <div class="table bg-info" id="tabla">
         <div class="fila-fija">
 
           <input type="hidden" id="id_usuari" name="id_usuari" value="1"/>
-          <input required name="nombre" id="Nombre" value=<?php echo $nom ?> disabled/>
-          <input required name="ot" id="OrdreT" value="<?php echo $idot ?>">
+          <input required style="margin-bottom: 10px;" name="nombre" id="Nombre" value=<?php echo $nom ?> disabled/>
+          <input required style="margin-bottom: 10px;"name="ot" id="OrdreT" value="<?php echo $idot ?>"><br>
 
           <div id="myModalOt" class="modalOt">
             <!-- Modal content -->
@@ -138,7 +146,7 @@ else{
 
           <?php
 
-          echo "<select id='competencia' required name='competencia[]'' placeholder='Competencia'>";
+          echo "<select style='margin-bottom: 10px;' id='competencia' required name='competencia[]'' placeholder='Competencia'>";
 
             $competencia = "SELECT * FROM competencia";
             $resultat_competencia=consulta($competencia);
@@ -147,7 +155,7 @@ else{
           while ($competencies=$resultat_competencia->fetch_assoc()){
                 echo "<option value='".$competencies['id_competencia']."/".$competencies['competencia']."'>".$competencies['competencia']."</option>";
           }
-          echo "</select>";
+          echo "</select><br>";
 
             $nota = "SELECT id, nota FROM valoracio";
             $resultat_nota=consulta($nota);

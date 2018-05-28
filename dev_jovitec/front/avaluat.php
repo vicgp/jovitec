@@ -15,7 +15,7 @@
 <style type="text/css">
 	h1{
 		text-align: center;
-		margin-top: 70px;
+		margin-top: 7%;
 	}
 	button{
 		height: 5%;

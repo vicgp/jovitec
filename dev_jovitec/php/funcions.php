@@ -106,8 +106,8 @@ function capsalera ($titol){
       <div >
 
         <div class="navbar-header">
-          <a class="navbar-brand" href="" style="width:70px;"><img src="../img/jv.png" style=" width: 140%; margin-left:-20%; margin-top: -20%;"></a>
-          <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open('.$_SESSION['url'].')" style="display: inline-block;margin-top: -6%;padding-top: 11px;padding-bottom: 8px;">&#9776</button>
+          <a class="navbar-brand" href="../front/main.php" style="width:70px;"><img src="../img/jv.png" style=" width: 140%; margin-left:-20%; margin-top: -20%;"></a>
+          <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open('.$_SESSION['url'].')" style="display: inline-block; margin-top: -68%; margin-left: 102%;">&#9776</button>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar" >
 
@@ -164,7 +164,7 @@ function capsalera ($titol){
     echo'<nav class="navbar navbar-default navbar-fixed-top" style="margin-left:2px;">
       <div >
         <div class="navbar-header">
-          <a class="navbar-brand" href="" style="width:70px;"><img src="../img/jv.png" style=" width: 140%; margin-left:-5px; margin-top: -10px;"></a>
+          <a class="navbar-brand" href="../front/main.php" style="width:70px;"><img src="../img/jv.png" style=" width: 140%; margin-left:-5px; margin-top: -10px;"></a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar" >
 
@@ -214,7 +214,7 @@ function capsalera ($titol){
     echo'<nav class="navbar navbar-default navbar-fixed-top" style="margin-left:2px;">
       <div >
         <div class="navbar-header">
-          <a class="navbar-brand" href="" style="width:70px;"><img src="../img/jv.png" style=" width: 140%; margin-left:-5px; margin-top: -10px;"></a>
+          <a class="navbar-brand" href="../front/historial_comandes.php" style="width:70px;"><img src="../img/jv.png" style=" width: 140%; margin-left:-5px; margin-top: -10px;"></a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar" >
           <ul class="nav navbar-nav navbar-right">
@@ -269,9 +269,8 @@ function capsalera ($titol){
 </div>
 
 <div class="clickPopUp">
-<h4><a class="username" href="" style="margin-left: 10px; color:black">'.$_SESSION["usuari"].'</a></h4>
+<h5 style="text-align:center;"><a class="username" href="" style="color:black">'.$_SESSION["usuari"].'</a></h5>
 <h5 class="buttons"><a class="username" href="../front/usuari.php">Perfil</a></h5>
-<h5 class="buttons"><a class="username" href="">Qualificacions</a></h5>
 <h5 class="buttons"><a href="../back/logout.php" >logout <span class="glyphicon glyphicon-log-out"  ></span></a></h5>
 <div class="Social">
 <h5 style="border:2px solid black;" ><a href=""></span></a></h5>
@@ -290,7 +289,7 @@ if ($_SESSION['rol'] == 3 || $_SESSION['rol'] == 4){
 </div>
 
 <div class="clickPopUp">
-<h4><a class="username" href="" style="margin-left: 10px; color:black">'.$_SESSION["usuari"].'</a></h4>
+<h5 style="text-align:center;"><a class="username" href="" style="color:black">'.$_SESSION["usuari"].'</a></h5>
 <h5 class="buttons"><a class="username" href="../front/usuari.php">Perfil</a></h5>
 <h5 class="buttons"><a class="username" href="avaluat.php">Qualificacions</a></h5>
 <h5 class="buttons"><a href="../back/logout.php" >logout <span class="glyphicon glyphicon-log-out"  ></span></a></h5>
@@ -311,7 +310,7 @@ if ($_SESSION['rol'] == 5){
 </div>
 
 <div class="clickPopUp">
-<h4><a class="username" href="" style="margin-left: 10px; color:black;">'.$_SESSION["usuari"].'</a></h4>
+<h5 style="text-align:center;"><a class="username" href="" style="color:black;">'.$_SESSION["usuari"].'</a></h5>
 <h5 class="buttons"><a class="username" href="../front/usuari.php">Perfil</a></h5>
 <h5 class="buttons"><a class="username" href="">Dispositius</a></h5>
 <h5 class="buttons"><a class="username" href="../front/historial_comandes.php">La teva Historia</a></h5>
@@ -409,6 +408,7 @@ left: 2px;
 
 	<div id='btnChat'>
 		<img id='icon' src='../css/exit.ico'>
+    <h5 style='margin-top: -11%; text-align: center;'>".$_SESSION['id_user']."</h5>
 	</div>
 
 			<div id='contenedor'>
@@ -428,6 +428,7 @@ left: 2px;
 
 	   <div id='btnChat1'>
 				<img id='icon' src='../css/exit.ico'>
+        <h5 style='margin-top: -11%; text-align: center;'>".$_SESSION['id_user']."</h5>
 			</div>
 
 					<div id='contenedor1'>
@@ -445,6 +446,7 @@ left: 2px;
 <!--chat 3 -->
 	        <div id='btnChat2'>
 						<img id='icon' src='../css/exit.ico'>
+            <h5 style='margin-top: -11%; text-align: center;'>".$_SESSION['id_user']."</h5>
 					</div>
 
 							<div id='contenedor2'>

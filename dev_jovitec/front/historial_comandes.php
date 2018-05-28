@@ -33,13 +33,14 @@ chat();
   echo "
 
           <div id='ordres'>
-          <h1>Llista Comandes:</h1>
+          <h1 style='text-align: center'>Llista Comandes</h1>
 
 
           <!-- taula amb els botons d'ordenar les ordres de treball -->
           <div id='otTotal'>
           <form method=POST action=nova_ot.php id='formulario'>
           <table id='taula' class='table-fill'>
+          <thead>
             <tr>
               <th colspan='2' >
                   nº ordre
@@ -129,6 +130,8 @@ chat();
                 Editar
               </th>
             </tr> <!-- fi de la primera fila de títols i botons -->
+            </thead>
+            <tbody>
         ";
             while ($fila_ot_generic=$resultat_ot_generic->fetch_assoc()){
         echo "
@@ -209,6 +212,7 @@ chat();
         ";
             }
         echo "
+          </tbody>
           </table>
           </div>
           </div>

@@ -17,7 +17,7 @@ $ejecutar = consulta($sql);
 		?>
 			<div id="datos-chat" style="background-color: #ccffcc;">
 				<span style="color: #1c62c4;"><?php echo $fila['nombre']; ?>:</span>
-				<span style="color: #848484;"><?php echo $fila['mensaje']; ?></span>
+				<textarea style="color: #848484; background-color: #ccffcc; border: 0px; margin-left: -6px;" readonly><?php echo $fila['mensaje']; ?></textarea>
 				<div id="hora">
 					<span id="hora"><?php echo formatearFecha($fila['fecha']); ?></span>
 				</div>

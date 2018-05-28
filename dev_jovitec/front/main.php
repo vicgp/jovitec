@@ -133,6 +133,7 @@ chat();
           <div id='otTotal'>
           <form method=POST action=nova_ot.php id='formulario'>
           <table id='taula' class='table-fill'>
+          <thead>
             <tr>
               <th colspan='2' >
                   nº ordre
@@ -228,6 +229,7 @@ chat();
               }
               echo "
             </tr> <!-- fi de la primera fila de títols i botons -->
+            </thead>
             <tbody id='tbody'>
         ";
             while ($fila_ot_generic=$resultat_ot_generic->fetch_assoc()){

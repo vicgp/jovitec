@@ -75,11 +75,11 @@ echo '<div class="w3-sidebar w3-bar-block w3-border-right" style="display: none;
                 <div id='usuarisList' style='padding-right: 4%; margin-left: 4%;'>
                 <h1 style='text-align:center;'>Usuaris</h1>
 
-                <button class='btn btn-success' onclick='user()' style= width:100%; >Nova Usuari</button>
+                <button class='btn btn-success' onclick='user()' style= width:100%; margin-left: -1px !important;>Nova Usuari</button>
                 <div id='newUser'>
                 </div>
 
-                <div id='usuarisUpdate'>
+                <div id='usuarisUpdate' style='margin-left: 0.7%; margin-right: -0.9%;'>
                     <form id='formulario'>
                         <table id='taula'>
                           <tr>

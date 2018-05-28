@@ -43,8 +43,8 @@ else{
 <div class="jquery-script-clear"></div>
 </div>
 
-<div class="container" style="margin-top: 100px;">
-<h2>Informació del teu Dispositiu</h2>
+<div class="container" style="margin-top: 100px; margin-left: 10%;">
+<h2 style="text-align: center; margin-top: -10px; margin-bottom: 10%">Informació del teu Dispositiu</h2>
 <div id="myGoal"></div>
 
 
