@@ -1,6 +1,7 @@
 <?php
   require("../php/funcions.php");
 
+
   if (!empty($_POST['email']) && !empty($_POST['Names']) && !empty($_POST['usname']) && !empty($_POST['pwd']) ) {
 
 

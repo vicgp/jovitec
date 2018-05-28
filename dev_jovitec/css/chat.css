@@ -176,7 +176,7 @@
 
 #textarea1,#textarea2,#textarea3{
 	background: #fbfbfb;
-	width: 109%;
+	width: 99%;
 	height: 36px;
 	border: 2px solid #CCCCCC;
 	border-radius: 3px;
@@ -215,8 +215,8 @@ input[type='submit']:hover {
 
 textarea {
 	background: #fbfbfb;
-	width: 109%;
-	height: 36px;
+	width: 99%;
+	height: auto;
 	border: 2px solid #CCCCCC;
 	border-radius: 3px;
 	resize: none;
@@ -275,7 +275,7 @@ input, textarea{
 	margin-left: -20px;
 	padding-right: 40px;
 
-} 
+}
 
 #minimizar, #minimizar1, #minimizar2 {
 	border-top-right-radius: 12px;
@@ -287,7 +287,7 @@ input, textarea{
 	margin-left: -20px;
 	padding-right: 40px;
 
-} 
+}
 
 .li {
 	width: 100%;

@@ -203,7 +203,6 @@ function capsalera ($titol){
 				  cursor: pointer;
 				 	width:50px;
 				 	height:50px;"></span></a></li>
-
           </ul>
         </div>
       </div>
@@ -399,7 +398,7 @@ left: 2px;
 			}
       echo "
 		  </ul>
-      <input type='text' id='searchNom' class='w3-input' style='' placeholder='Busca per noms' title='Type in a name'>
+      <!-- <input type='text' id='searchNom' class='w3-input' style='' placeholder='Busca per noms' title='Type in a name'> -->
 		</div>
 
 	</div>
@@ -524,6 +523,11 @@ function conversor_segons_a_hores_minuts($temps_en_segons) {
 
 
     return $hores.'h:' .$minuts.'m';
+}
+function hores_minuts_to_segons($hores,$minuts){
+  $segons1=$hores*3600;
+  $segons2=$minuts*60;
+  return $segons1+$segons2;
 }
 
 function fletxes($columna, $pagina){

@@ -219,12 +219,20 @@ chat();
                 </form>
               </th>
               <th>
-                Estat Ordre
+                Editar Ordre
               </th>";
+              if($_SESSION['rol']!=4){
+                echo "<th>Estat Ordre</th>";
+              }
+
+              else if($_SESSION['rol']==4){
+                echo "<th>Factura</th>";
+
+              }
+
               if($_SESSION['rol']==2){
                 echo "<th>Avaluar Tecnic</th>";
                 echo "<th>Avaluar Administratius</th>";
-
               }
               echo "
             </tr> <!-- fi de la primera fila de títols i botons -->
@@ -232,8 +240,7 @@ chat();
         ";
             while ($fila_ot_generic=$resultat_ot_generic->fetch_assoc()){
         echo "
-            <tr class='ordre'  title='doble click per veure/modificar'>
-                <input type='hidden' id='id_ot' value='".$fila_ot_generic['id_ot']."' />
+            <tr title='doble click per veure/modificar'>
 
               <td align='right'>
                 ".$fila_ot_generic['id_ot']."
@@ -288,7 +295,13 @@ chat();
               <td>
                 ".$fila_ot_generic['data_lliurament']."
               </td>
-              <td onclick=$('#editarComanda".$fila_ot_generic['id_ot']."').submit(); title='click per veure lestat de lordre'>
+              <td class='ordre'>
+                  <input type='hidden' id='id_ot' value='".$fila_ot_generic['id_ot']."' />
+                  <i class='material-icons'>edit</i>
+              </td>";
+
+              if($_SESSION['rol']!=4){
+              echo "<td onclick=$('#editarComanda".$fila_ot_generic['id_ot']."').submit(); title='click per veure lestat de lordre'>
                   <form id='editarComanda".$fila_ot_generic['id_ot']."' method='POST' action='comandes.php'>
                     <input type='hidden' name='id_ot' value='".$fila_ot_generic['id_ot']."' />
                     <i class='material-icons' style='font-size: 2em;color:";if($fila_ot_generic['id_estat']==1){
@@ -303,6 +316,27 @@ chat();
                        echo "'>linear_scale</i>
                   </form>
               </td>";
+            }
+              if($_SESSION['rol']==4){
+
+
+                echo "<td onclick=$('#factura".$fila_ot_generic['id_ot']."').submit(); title='click per avaluar el tecnic de lordre'>
+                    <form id='factura".$fila_ot_generic['id_ot']."' method='POST' action='../front/facturaOt.php'>
+                      <input type='hidden' name='id_ot' value='".$fila_ot_generic['id_ot']."' />
+                      <input type='hidden' name='QuiAvaluem' value='1' />";
+
+                    echo "
+                      <i class='material-icons' style='font-size: 2em;color:";if($fila_ot_generic['id_estat']==3){
+                                                                                  echo "green;";
+                                                                              }
+
+                                                                              else{
+                                                                                echo "red;";
+                                                                              }
+                      echo "'>euro_symbol</i>
+                    </form>
+                </td>";
+              }
               if($_SESSION['rol']==2){
 
 

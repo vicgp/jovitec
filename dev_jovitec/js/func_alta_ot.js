@@ -46,7 +46,6 @@ function alta(){
 
 $.ajax({url: "../back/alta_ot_final.php?curs="+curs+"&dataE="+dataE+"&usuari="+usuari+"&prioritat="+prioritat+"&supervisors="+supervisors+"&tecnics="+tecnics+"&administratius="+administratius+"&dataLL="+dataLL+"&anomalia="+anomalies+"&ob="+ob
       ,success: function(result){
-        carregaTaula();
       for(i=0;i<productes_client.length;i++){
         $("#formOT").hide();
 
@@ -60,6 +59,7 @@ $.ajax({url: "../back/alta_ot_final.php?curs="+curs+"&dataE="+dataE+"&usuari="+u
               });
       }
       productes_client=[];
+      location.reload()
     }
     });
 

@@ -33,7 +33,9 @@ $(document).ready(function(){
       $("#afagirSupervisor").show();
   })
 
-  $("#afagirSup").click(function(){
+  $("#Sup").click(function(){
+    console.log("j");
+    console.log($("#addSupervisor").val());
     if($("#addSupervisor").val()!=""){
       $.post("../back/modificarOt/afagirSupervisor.php",
          {
@@ -41,6 +43,7 @@ $(document).ready(function(){
              supervisor: $("#addSupervisor").val()
          },
          function(result){
+           console.log(result);
            $("#afagirSupervisor").hide();
          });
      }
@@ -73,7 +76,7 @@ $(document).ready(function(){
          $("#afagirAd").show();
         $("#afagirAdministratiu").show();
     });
-    $("#afagirAd").click(function(){
+    $("#Ad").click(function(){
       if($("#addAdministratiu").val()!=""){
         $.post("../back/modificarOt/afagirAdministratiu.php",
            {
@@ -106,7 +109,7 @@ $(document).ready(function(){
          $("#afagirTec").show();
         $("#afagirTecnic").show();
     })
-    $("#afagirTec").click(function(){
+    $("#Tec").click(function(){
       if($("#addTecnic").val()!=""){
         $.post("../back/modificarOt/afagirTecnic.php",
            {
@@ -144,7 +147,7 @@ $(document).ready(function(){
          function(result){
            $("#addSupervisor").html(result);
          });
-         $("#afagirSup").hide();
+         $("#Sup").hide();
          $("#removeSup").show();
         $("#afagirSupervisor").show();
     })
@@ -184,7 +187,7 @@ $(document).ready(function(){
            function(result){
              $("#addAdministratiu").html(result);
            });
-           $("#afagirAd").hide();
+           $("#Ad").hide();
            $("#removeAd").show();
           $("#afagirAdministratiu").show();
       });
@@ -217,7 +220,7 @@ $(document).ready(function(){
            function(result){
              $("#addTecnic").html(result);
            });
-           $("#afagirTec").hide();
+           $("#Tec").hide();
            $("#removeTec").show();
           $("#afagirTecnic").show();
       })
