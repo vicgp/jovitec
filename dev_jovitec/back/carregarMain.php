@@ -26,10 +26,8 @@ else if($_SESSION['rol']==4 ){
 $resultat_ot_generic=consulta($query_ot_generic);
   while ($fila_ot_generic=$resultat_ot_generic->fetch_assoc()){
 echo "
-  <tr ondblclick=document.getElementById('modificar_ot".$fila_ot_generic['id_ot']."').submit(); title='doble click per veure/modificar'>
-    <form id='modificar_ot".$fila_ot_generic['id_ot']."' method='POST' action='ot.php'>
-      <input type='hidden' name='id_ot' value='".$fila_ot_generic['id_ot']."' />
-    </form>
+<tr   title='doble click per veure/modificar'>
+    <input type='hidden' id='id_ot' value='".$fila_ot_generic['id_ot']."' />
     <td align='right'>
       ".$fila_ot_generic['id_ot']."
     </td>
@@ -83,7 +81,13 @@ echo "
     <td>
       ".$fila_ot_generic['data_lliurament']."
     </td>
-    <td onclick=$('#editarComanda".$fila_ot_generic['id_ot']."').submit(); title='click per veure lestat de lordre'>
+    <td class='ordre'>
+        <input type='hidden' id='id_ot' value='".$fila_ot_generic['id_ot']."' />
+        <i class='material-icons'>edit</i>
+    </td>";
+
+    if($_SESSION['rol']!=4){
+    echo "<td onclick=$('#editarComanda".$fila_ot_generic['id_ot']."').submit(); title='click per veure lestat de lordre'>
         <form id='editarComanda".$fila_ot_generic['id_ot']."' method='POST' action='comandes.php'>
           <input type='hidden' name='id_ot' value='".$fila_ot_generic['id_ot']."' />
           <i class='material-icons' style='font-size: 2em;color:";if($fila_ot_generic['id_estat']==1){
@@ -98,6 +102,7 @@ echo "
              echo "'>linear_scale</i>
         </form>
     </td>";
+  }
     if($_SESSION['rol']==2){
 
 

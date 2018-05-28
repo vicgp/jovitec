@@ -3,6 +3,8 @@
     <script src='../js/func_alta_user.js'></script>
     <script src='../js/sidebar.js'></script>
 
+
+
 <?php
 session_start();
 include("../php/funcions.php");
@@ -17,7 +19,9 @@ chat();
    $resultat= consulta($qwery);
 
 
-echo '<div class="w3-sidebar w3-bar-block w3-border-right" style="display: none; position:absolute; z-index:9999; width: 25%; background-color: rgba(50, 54, 60, 0.83); color:black; margin-top:-3.5%;" id="mySidebar">
+echo '
+    <script src="../js/modificarUsuari/modificarUsuari.js"></script>
+<div class="w3-sidebar w3-bar-block w3-border-right" style="display: none; position:absolute; z-index:9999; width: 25%; background-color: rgba(50, 54, 60, 0.83); color:black; margin-top:-3.5%;" id="mySidebar">
   <button onclick="w3_close('.$_SESSION['url'].')" class="w3-bar-item w3-large" style="background-color:#f30808d4;">Close &times;</button>
           <!--CheckBoxes -->
           <div style="display:block;">
@@ -78,7 +82,12 @@ echo '<div class="w3-sidebar w3-bar-block w3-border-right" style="display: none;
                 <button class='btn btn-success' onclick='user()' style= width:100%; >Nova Usuari</button>
                 <div id='newUser'>
                 </div>
-
+                <div class='w3-modal' id='modalModificarUsuari'>
+                  <div class='w3-modal-content animate'>
+                      <div class='w3-container' id='modificarUsuari'>
+                      </div>
+                  </div>
+                </div>
                 <div id='usuarisUpdate'>
                     <form id='formulario'>
                         <table id='taula'>
@@ -102,6 +111,9 @@ echo '<div class="w3-sidebar w3-bar-block w3-border-right" style="display: none;
                             <th>
                               observacions
                             </th>
+                            <th>
+                              Editar Usuari
+                            </th>
                           </tr>";
 
                        while ($fila=$resultat->fetch_assoc()) {
@@ -114,12 +126,18 @@ echo '<div class="w3-sidebar w3-bar-block w3-border-right" style="display: none;
                           continue;
                         }
                          echo "
-                              <tr ondblclick=document.getElementById('modifica_usuari".$fila['id_usuari']."').submit(); title='doble click per modificar usuari'>
-                                <form id='modifica_usuari".$fila['id_usuari']."' method='POST' action='nou_usuari.php'>
-                                  <input type='hidden' name='id_usuari' value='".$fila['id_usuari']."'>
+                              <tr title='doble click per modificar usuari'>
                                   <input type='hidden' name='altauser' value='False' />
-                                </form>
-                                <td>". $fila['nom_usuari'] . "</td><td>" . $fila['cognoms_usuari'] . "</td><td>" . $fila['email_usuari'] . "</td><td>" . $fila['telef_usuari'] . "</td><td>" . $fila['rol'] . "</td><td>" . $fila['observacions'] . "</td>
+                                <td>". $fila['nom_usuari'] . "</td>
+                                <td>" . $fila['cognoms_usuari'] . "</td>
+                                <td>" . $fila['email_usuari'] . "</td>
+                                <td>" . $fila['telef_usuari'] . "</td>
+                                <td>" . $fila['rol'] . "</td>
+                                <td>" . $fila['observacions'] . "</td>
+                                <td  class='user'>
+                                    <input type='hidden' class='id_usuari' value='".$fila['id_usuari']."'>
+                                    <i class='material-icons'>edit</i>
+                                </td>
                               </tr>
                             ";
                        }

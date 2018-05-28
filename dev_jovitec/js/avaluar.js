@@ -23,6 +23,14 @@ $(document).ready(function(){
         }
         $("#llistaCompetencies").children().remove();
     });
+    $("#OrdreT").click(function(){
+      $.post("../back/visualitzarOt.php",{
+        id_ot: $("#OrdreT").val()
+      },
+        function(result){
+          $(".containerOt").html(result);
+            });
+    })
 
 });
 function eliminar(item){

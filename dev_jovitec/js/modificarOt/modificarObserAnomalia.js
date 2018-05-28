@@ -1,1 +1,55 @@
-$("#")
+$(document).ready(function(){
+
+  $("textarea#observacio").blur(function(){
+    $.post("../back/modificarOt.php",{
+      id_ot:$("#idOt").val(),
+      info:$("#observacio").val(),
+      infoCanvi:1
+    },
+      function(result){
+    });
+    })
+
+    $("textarea#anomalies").blur(function(){
+      $.post("../back/modificarOt.php",{
+        id_ot:$("#idOt").val(),
+        info:$("#anomalies").val(),
+        infoCanvi:2
+      },
+        function(result){
+      });
+      })
+
+    $("input#dataF").blur(function(){
+        $.post("../back/modificarOt.php",{
+          id_ot:$("#idOt").val(),
+          info:$("#dataF").val(),
+          infoCanvi:4
+        },
+          function(result){
+        });
+        })
+
+    $("input#dataLl").blur(function(){
+          $.post("../back/modificarOt.php",{
+            id_ot:$("#idOt").val(),
+            info:$("#dataLl").val(),
+            infoCanvi:4
+          },
+            function(result){
+          });
+          })
+    $("#afagirActuacio").click(function(){
+          $.post("../back/modificarOt.php",{
+            id_ot:$("#idOt").val(),
+            actuacio:$("#actuacio").val(),
+            $info:$("#minutsTreballades").val(),
+            hores:$("#horesTreballades").val(),
+            infoCanvi:5
+          },
+            function(result){
+              $("#actuacio").val("");
+              $("#horesTreballades").val("");
+          });
+    })
+})

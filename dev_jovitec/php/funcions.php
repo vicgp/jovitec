@@ -185,9 +185,7 @@ function capsalera ($titol){
           </li>
 
             <li><a href="../front/main.php" style="margin-bottom:  6%;padding-top: 9%;padding-bottom: 8%;margin-left: -13%;margin-top: 6%;">Ordres de treball</a></li>
-<<<<<<< HEAD
-            <li><a class="Img" style="margin-bottom:  20%;padding-top: 18%;padding-bottom: 19%;margin-top: 21%;margin-left: -20%;"></span></a></li>
-=======
+
 						<li><a class="Img" style="  margin-bottom:  20%;padding-top: 18%;padding-bottom: 19%;margin-top: 21%;margin-left: -20%;
 						background: url(data:image/gif;base64,'.base64_encode($row['imatge']).');
 					 background-size: 50px 50px;
@@ -205,7 +203,6 @@ function capsalera ($titol){
 				  cursor: pointer;
 				 	width:50px;
 				 	height:50px;"></span></a></li>
->>>>>>> mmoreno
           </ul>
         </div>
       </div>
@@ -234,12 +231,8 @@ function capsalera ($titol){
                 <!-- crear tants <li><a href="#">Page 1-1</a></li> com missatges nous -->
               </ul>
           </li>
-<<<<<<< HEAD
-             <li><a href="../front/historial_comandes.php" style="margin-bottom: 6%; padding-top: 9%; padding-bottom: 15.825; margin-top: 3%; padding-bottom: 15px;">Historial de Comandes</a></li>
-            <li><a href="../front/usuari.php" style="margin-bottom: 20%;padding-top: 18%; padding-bottom: 19.712; margin-top: 14%;padding-bottom: 13px;">'.$_SESSION["usuari"].'</a></li>
-=======
+
             <li><a href="../front/historial_comandes.php" style="margin-bottom: 6%;padding-top: 9%;padding-bottom: 15.825;margin-top: 3%;padding-bottom: 6%;right: 9%;">Historial de Comandes</a></li>
->>>>>>> mmoreno
             </li>
 						<li><a class="Img" style="  margin-bottom:  20%;padding-top: 18%;padding-bottom: 19%;margin-top: 21%;margin-left: -20%;
 						background: url(data:image/gif;base64,'.base64_encode($row['imatge']).');
@@ -405,7 +398,7 @@ left: 2px;
 			}
       echo "
 		  </ul>
-      <input type='text' id='searchNom' class='w3-input' style='' placeholder='Busca per noms' title='Type in a name'>
+      <!-- <input type='text' id='searchNom' class='w3-input' style='' placeholder='Busca per noms' title='Type in a name'> -->
 		</div>
 
 	</div>
@@ -530,6 +523,11 @@ function conversor_segons_a_hores_minuts($temps_en_segons) {
 
 
     return $hores.'h:' .$minuts.'m';
+}
+function hores_minuts_to_segons($hores,$minuts){
+  $segons1=$hores*3600;
+  $segons2=$minuts*60;
+  return $segons1+$segons2;
 }
 
 function fletxes($columna, $pagina){
