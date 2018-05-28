@@ -42,6 +42,9 @@ chat();
           <table id='taula' class='table-fill'>
           <thead>
             <tr>
+            ";
+            if($_SESSION['rol']!=5){
+            echo "
               <th colspan='2' >
                   nº ordre
                     <span class='fletxes' title='ordena AZ' onclick=document.getElementById('ordre_up').submit();>&uarr;</span>
@@ -55,6 +58,9 @@ chat();
                     <input type=hidden name=ordre value=DESC />
                   </form>
               </th>
+              ";
+            }
+              echo "
               <th>
                 data entrada
                   <span class='fletxes' title='ordena AZ' onclick=document.getElementById('entrada_up').submit();>&uarr;</span>
@@ -68,6 +74,10 @@ chat();
                   <input type=hidden name=ordre value=DESC />
                 </form>
               </th>
+              ";
+              if($_SESSION['rol']!=5){
+
+              echo "
               <th class='text-left'>
                 usuari
                   <span class='fletxes' title='ordena AZ' onclick=document.getElementById('usuari_up').submit();>&uarr;</span>
@@ -94,6 +104,8 @@ chat();
                   <input type=hidden name=ordre value=ASC />
                 </form>
               </th>
+              ";
+            }echo "
               <th>
                 tècnics
               </th>
@@ -127,7 +139,7 @@ chat();
                 </form>
               </th>
               <th>
-                Editar
+                Estat
               </th>
             </tr> <!-- fi de la primera fila de títols i botons -->
             </thead>
@@ -136,18 +148,20 @@ chat();
             while ($fila_ot_generic=$resultat_ot_generic->fetch_assoc()){
         echo "
             <tr ondblclick=document.getElementById('modificar_ot".$fila_ot_generic['id_ot']."').submit(); title='doble click per veure/modificar'>
-              <form id='modificar_ot".$fila_ot_generic['id_ot']."' method='POST' action='ot.php'>
-                <input type='hidden' name='id_ot' value='".$fila_ot_generic['id_ot']."' />
-              </form>
+            ";if($_SESSION['rol']!=5){
+              echo "
               <td align='right'>
                 ".$fila_ot_generic['id_ot']."
               </td>
               <td>
                 ".$fila_ot_generic['curs']."
               </td>
+              ";}echo "
               <td align='center'>
                 ".$fila_ot_generic['data_entrada']."
               </td>
+              ";if($_SESSION['rol']!=5){
+                echo "
               <td>
                 ".$fila_ot_generic['cognoms_usuari'].", ".$fila_ot_generic['nom_usuari']."
               </td>
@@ -159,6 +173,7 @@ chat();
         echo"
                 ".$prioritat['prioritat']."
               </td>
+              ";}echo "
               <td>
 
         ";
