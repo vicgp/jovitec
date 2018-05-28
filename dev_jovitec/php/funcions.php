@@ -311,8 +311,6 @@ if ($_SESSION['rol'] == 5){
 <div class="clickPopUp">
 <h5 style="text-align:center;"><a class="username" href="" style="color:black;">'.$_SESSION["usuari"].'</a></h5>
 <h5 class="buttons"><a class="username" href="../front/usuari.php">Perfil</a></h5>
-<h5 class="buttons"><a class="username" href="">Dispositius</a></h5>
-<h5 class="buttons"><a class="username" href="../front/historial_comandes.php">La teva Historia</a></h5>
 <h5 class="buttons b"><a href="../back/logout.php">logout <span class="glyphicon glyphicon-log-out"  ></span></a></h5>
 <div class="Social">
 <h5 class="buttons"><a href=""></span></a></h5>
