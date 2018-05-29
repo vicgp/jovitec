@@ -226,12 +226,13 @@ chat();
                 echo "<th>Estat Ordre</th>";
               }
 
-              else if($_SESSION['rol']==4 || $_SESSION['rol']==1){
-                echo "<th>Factura</th>";
 
-              }
               if($_SESSION['rol']==2 || $_SESSION['rol']==3 || $_SESSION['rol']==1){
                 echo "<th>Eliminar Ordre</th>";
+              }
+              if($_SESSION['rol']==4 || $_SESSION['rol']==1){
+                echo "<th>Factura</th>";
+
               }
               if($_SESSION['rol']==2 || $_SESSION['rol']==1){
                 echo "<th>Avaluar Tecnic</th>";
