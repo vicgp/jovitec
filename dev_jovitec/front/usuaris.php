@@ -11,7 +11,9 @@ include("../php/funcions.php");
 $_SESSION['url']=2;
 capsalera('usuaris');
 chat();
-
+if($_SESSION['rol']>2){
+  header('Location: usuari.php');
+}
 
 
   //mostrar els usuaris
@@ -123,7 +125,7 @@ echo '
                        while ($fila=$resultat->fetch_assoc()) {
 
                          //mostrar els usuaris en funció del rol que tinguis
-                        if (($_SESSION['rol'] == '3' || $_SESSION['rol'] == '4') && $fila['rol_usuari']<'5'){
+                        if (($_SESSION['rol'] == '3' || $_SESSION['rol'] == '4') && $fila['rol_usuari']<'5' ){
                           continue;
                         }
                         if ($_SESSION['rol'] == '2' && $fila['rol_usuari']<='2'){
