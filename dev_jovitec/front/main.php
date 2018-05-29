@@ -222,18 +222,18 @@ chat();
               <th>
                 Editar Ordre
               </th>";
-              if($_SESSION['rol']!=4){
+              if($_SESSION['rol']!=4 || $_SESSION['rol']==1){
                 echo "<th>Estat Ordre</th>";
               }
 
-              else if($_SESSION['rol']==4){
+              else if($_SESSION['rol']==4 || $_SESSION['rol']==1){
                 echo "<th>Factura</th>";
 
               }
-              if($_SESSION['rol']==2 || $_SESSION['rol']==3){
+              if($_SESSION['rol']==2 || $_SESSION['rol']==3 || $_SESSION['rol']==1){
                 echo "<th>Eliminar Ordre</th>";
               }
-              if($_SESSION['rol']==2){
+              if($_SESSION['rol']==2 || $_SESSION['rol']==1){
                 echo "<th>Avaluar Tecnic</th>";
                 echo "<th>Avaluar Administratius</th>";
               }
@@ -304,7 +304,7 @@ chat();
                   <i class='material-icons'>edit</i>
               </td>";
 
-              if($_SESSION['rol']!=4){
+              if($_SESSION['rol']!=4 || $_SESSION['rol']==1){
               echo "<td onclick=$('#editarComanda".$fila_ot_generic['id_ot']."').submit(); title='click per veure lestat de lordre'>
                   <form id='editarComanda".$fila_ot_generic['id_ot']."' method='POST' action='comandes.php'>
                     <input type='hidden' name='id_ot' value='".$fila_ot_generic['id_ot']."' />
@@ -321,7 +321,7 @@ chat();
                   </form>
               </td>";
             }
-            if($_SESSION['rol']==2 || $_SESSION['rol']==3){
+            if($_SESSION['rol']==2 || $_SESSION['rol']==3 || $_SESSION['rol']==1){
 
 
               echo "<td class='delete'  title='click per avaluar el tecnic de lordre'>
@@ -329,7 +329,7 @@ chat();
                     <i class='material-icons' style='font-size: 2em;color:black'>delete</i>
               </td>";
             }
-              if($_SESSION['rol']==4){
+              if($_SESSION['rol']==4 || $_SESSION['rol']==1){
 
 
                 echo "<td onclick=$('#factura".$fila_ot_generic['id_ot']."').submit(); title='click per avaluar el tecnic de lordre'>
@@ -349,7 +349,7 @@ chat();
                     </form>
                 </td>";
               }
-              if($_SESSION['rol']==2){
+              if($_SESSION['rol']==2 || $_SESSION['rol']==1){
 
 
                 echo "<td onclick=$('#avaluarTecnic".$fila_ot_generic['id_ot']."').submit(); title='click per avaluar el tecnic de lordre'>
